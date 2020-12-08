@@ -1,0 +1,48 @@
+<?php
+
+use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\StyleController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
+Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
+Route::resource('permissions', PermissionController::class);
+Route::resource('courses', CourseController::class);
+Route::resource('locations', LocationController::class);
+Route::resource('skills', SkillController::class);
+Route::resource('payments', PaymentController::class);
+Route::resource('styles', StyleController::class);
+Route::resource('classrooms', ClassroomController::class);
+Route::resource('orders', OrderController::class);
+
+Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
+Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');

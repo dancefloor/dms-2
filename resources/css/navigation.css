@@ -1,0 +1,41 @@
+.df_nav_links{
+    @apply flex;
+    @apply items-center;
+    @apply px-2;
+    @apply py-2;
+    @apply text-sm;
+    @apply leading-5;
+    @apply font-medium;
+    @apply rounded-md;
+    @apply text-gray-200;
+
+    @apply transition;
+    @apply ease-in-out;
+    @apply duration-150;
+}
+
+.df_nav_links:focus{
+    @apply outline-none;
+}
+
+.df_nav_links:hover{
+    @apply bg-gray-700;    
+}
+
+.df_nav_links_active {
+    @apply bg-gray-700;
+}
+
+
+
+  /* hover:text-gray-900 hover:bg-gray-50    */
+
+
+/*  
+hover:text-gray-900 
+hover:bg-gray-100 
+focus:bg-gray-200 
+
+
+bg-gray-200 
+focus:bg-gray-50  */

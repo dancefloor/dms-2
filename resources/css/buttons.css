@@ -1,0 +1,58 @@
+.df-btn-primary {
+    @apply inline-flex;
+    @apply items-center;
+    @apply px-4;
+    @apply py-2;
+    @apply border;
+    @apply border-transparent;
+    @apply text-sm;
+    @apply leading-5;
+    @apply font-medium;
+    @apply rounded-md;
+    @apply text-white;
+    @apply bg-red-700;
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply transition;
+}
+
+.df-btn-primary:hover { @apply bg-red-600; }
+
+.df-btn-primary:focus{
+    @apply outline-none;
+    @apply shadow-outline-red;
+    @apply border-red-700;
+}
+
+.df-btn-primary:active { @apply bg-red-700; }
+
+.df-btn-secondary {
+    @apply inline-flex; 
+    @apply items-center; 
+    @apply px-4; 
+    @apply py-2; 
+    @apply border; 
+    @apply border-gray-300; 
+    @apply text-sm; 
+    @apply leading-5; 
+    @apply font-medium; 
+    @apply rounded-md; 
+    @apply text-gray-700; 
+    @apply bg-white; 
+    @apply transition; 
+    @apply duration-150; 
+    @apply ease-in-out;
+}
+
+.df-btn-secondary:hover {
+    @apply text-gray-500;
+}
+.df-btn-secondary:focus {
+    @apply outline-none;
+    @apply shadow-outline-blue;
+    @apply border-blue-300;
+}
+.df-btn-secondary:active {
+    @apply text-gray-800;
+    @apply bg-gray-50;
+} 

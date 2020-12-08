@@ -1,0 +1,120 @@
+.df-form-label {
+    @apply block; 
+    @apply text-sm;
+    @apply font-medium;
+    @apply leading-5;
+    @apply text-gray-700;
+}
+.df-form-input{
+    @apply mt-1;
+    @apply block;
+    @apply w-full;
+    @apply py-2;
+    @apply px-3;
+    @apply border;
+    @apply border-gray-300;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply transition; 
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply text-sm;
+    @apply leading-5;
+}
+
+.df-form-input:focus{
+    @apply outline-none; 
+    @apply shadow-outline-blue; 
+    @apply border-blue-300; 
+}
+
+.df-form-btn {
+    @apply inline-flex; 
+    @apply items-center; 
+    @apply px-4; 
+    @apply py-2; 
+    @apply bg-gray-800; 
+    @apply border; 
+    @apply border-transparent; 
+    @apply rounded-md; 
+    @apply font-semibold; 
+    @apply text-xs; 
+    @apply text-white; 
+    @apply uppercase; 
+    @apply tracking-widest; 
+    @apply transition; 
+    @apply ease-in-out; 
+    @apply duration-150;
+}
+
+.df-form-btn:hover{
+    @apply bg-gray-700;
+}   
+
+.df-form-btn:active{
+    @apply bg-gray-900 ;
+}    
+
+.df-form-btn:focus{
+    @apply outline-none; 
+    @apply border-gray-900;
+    @apply shadow-outline-gray;
+}    
+
+.df-form-btn:active{
+    @apply opacity-25;
+} 
+
+.df-form-radio {
+    @apply h-4; 
+    @apply w-4; 
+    @apply text-red-600; 
+    @apply transition; 
+    @apply duration-150; 
+    @apply ease-in-out;
+}
+
+.df-form-select {
+    @apply mt-1; 
+    @apply block ; 
+    @apply w-full; 
+    @apply py-2; 
+    @apply px-3; 
+    @apply border; 
+    @apply border-gray-300; 
+    @apply bg-white; 
+    @apply rounded-md; 
+    @apply shadow-sm; 
+    @apply transition; 
+    @apply duration-150; 
+    @apply ease-in-out; 
+    @apply text-sm; 
+    @apply leading-5;
+}
+
+.df-form-select:focus{
+    @apply outline-none;
+    @apply shadow-outline-blue;
+    @apply border-blue-300; 
+}
+
+.df-form-textarea {
+    @apply mt-1; 
+    @apply block; 
+    @apply w-full; 
+    @apply transition; 
+    @apply duration-150; 
+    @apply ease-in-out; 
+    @apply text-sm; 
+    @apply leading-5;
+}
+
+
+.df-form-checkbox {
+    @apply h-4; 
+    @apply w-4; 
+    @apply text-red-700; 
+    @apply transition; 
+    @apply duration-150; 
+    @apply ease-in-out;
+}

@@ -1,0 +1,1 @@
+<div class="flex-shrink-0 w-2.5 h-2.5 rounded-full {{ $color}}"></div>

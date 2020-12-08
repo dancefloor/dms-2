@@ -1,0 +1,92 @@
+created:
+    - app/Http/Controllers/CourseController.php
+    - app/Http/Controllers/LocationController.php
+    - app/Http/Controllers/SkillController.php
+    - app/Http/Controllers/PaymentController.php
+    - app/Http/Controllers/StyleController.php
+    - app/Http/Controllers/ClassroomController.php
+    - app/Http/Controllers/OrderController.php
+    - database/factories/CourseFactory.php
+    - database/factories/LocationFactory.php
+    - database/factories/SkillFactory.php
+    - database/factories/PaymentFactory.php
+    - database/factories/StyleFactory.php
+    - database/factories/ClassroomFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/RegistrationFactory.php
+    - database/migrations/2020_11_06_082611_create_courses_table.php
+    - database/migrations/2020_11_06_082612_create_locations_table.php
+    - database/migrations/2020_11_06_082613_create_skills_table.php
+    - database/migrations/2020_11_06_082614_create_payments_table.php
+    - database/migrations/2020_11_06_082615_create_styles_table.php
+    - database/migrations/2020_11_06_082616_create_classrooms_table.php
+    - database/migrations/2020_11_06_082617_create_orders_table.php
+    - database/migrations/2020_11_06_082618_create_registrations_table.php
+    - app/Course.php
+    - app/Location.php
+    - app/Skill.php
+    - app/Payment.php
+    - app/Style.php
+    - app/Classroom.php
+    - app/Order.php
+    - app/Registration.php
+    - tests/Feature/Http/Controllers/CourseControllerTest.php
+    - tests/Feature/Http/Controllers/LocationControllerTest.php
+    - tests/Feature/Http/Controllers/SkillControllerTest.php
+    - tests/Feature/Http/Controllers/PaymentControllerTest.php
+    - tests/Feature/Http/Controllers/StyleControllerTest.php
+    - tests/Feature/Http/Controllers/ClassroomControllerTest.php
+    - tests/Feature/Http/Controllers/OrderControllerTest.php
+    - app/Http/Requests/CourseStoreRequest.php
+    - app/Http/Requests/CourseUpdateRequest.php
+    - app/Http/Requests/LocationStoreRequest.php
+    - app/Http/Requests/LocationUpdateRequest.php
+    - app/Http/Requests/SkillStoreRequest.php
+    - app/Http/Requests/SkillUpdateRequest.php
+    - app/Http/Requests/PaymentStoreRequest.php
+    - app/Http/Requests/PaymentUpdateRequest.php
+    - app/Http/Requests/StyleStoreRequest.php
+    - app/Http/Requests/StyleUpdateRequest.php
+    - app/Http/Requests/ClassroomStoreRequest.php
+    - app/Http/Requests/ClassroomUpdateRequest.php
+    - app/Http/Requests/OrderStoreRequest.php
+    - app/Http/Requests/OrderUpdateRequest.php
+    - resources/views/course/index.blade.php
+    - resources/views/course/create.blade.php
+    - resources/views/course/show.blade.php
+    - resources/views/course/edit.blade.php
+    - resources/views/location/index.blade.php
+    - resources/views/location/create.blade.php
+    - resources/views/location/show.blade.php
+    - resources/views/location/edit.blade.php
+    - resources/views/skill/index.blade.php
+    - resources/views/skill/create.blade.php
+    - resources/views/skill/show.blade.php
+    - resources/views/skill/edit.blade.php
+    - resources/views/payment/index.blade.php
+    - resources/views/payment/create.blade.php
+    - resources/views/payment/show.blade.php
+    - resources/views/payment/edit.blade.php
+    - resources/views/style/index.blade.php
+    - resources/views/style/create.blade.php
+    - resources/views/style/show.blade.php
+    - resources/views/style/edit.blade.php
+    - resources/views/classroom/index.blade.php
+    - resources/views/classroom/create.blade.php
+    - resources/views/classroom/show.blade.php
+    - resources/views/classroom/edit.blade.php
+    - resources/views/order/index.blade.php
+    - resources/views/order/create.blade.php
+    - resources/views/order/show.blade.php
+    - resources/views/order/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Course: { name: 'string:400', slug: 'string:400', excerpt: 'text nullable', description: 'longtext nullable', online_description: 'text nullable', tagline: 'string nullable', keywords: 'string nullable', start_date: 'date nullable', end_date: 'date nullable', monday: 'boolean nullable', start_time_mon: 'time nullable', end_time_mon: 'time nullable', tuesday: 'boolean nullable', start_time_tue: 'time nullable', end_time_tue: 'time nullable', wednesday: 'boolean nullable', start_time_wed: 'time nullable', end_time_wed: 'time nullable', thursday: 'boolean nullable', start_time_thu: 'time nullable', end_time_thu: 'time nullable', friday: 'boolean nullable', start_time_fri: 'time nullable', end_time_fri: 'time nullable', saturday: 'boolean nullable', start_time_sat: 'time nullable', end_time_sat: 'time nullable', sunday: 'boolean nullable', start_time_sun: 'time nullable', end_time_sun: 'time nullable', level: 'string nullable', level_number: 'string nullable', teaser_video_1: 'text nullable', teaser_video_2: 'text nullable', teaser_video_3: 'text nullable', full_price: 'decimal nullable', reduced_price: 'decimal nullable', promo_price: 'decimal nullable', live_price: 'decimal nullable', online_price: 'decimal nullable', thumbnail: 'string nullable', portrait: 'string nullable', focus: 'string nullable', type: 'string nullable', is_online: 'boolean nullable', status: 'string nullable', online_link: 'string nullable', to_waiting: 'boolean nullable', softdeletes: softDeletes }
+    Location: { name: string, slug: string, shortname: 'string nullable', address: 'string nullable', address_info: 'string nullable', postal_code: 'string nullable', city: 'string nullable', neighborhood: 'string nullable', state: 'string nullable', country: 'string nullable', comments: 'text nullable', contact: 'string nullable', email: 'string nullable', phone: 'string nullable', contract: 'text nullable', video: 'text nullable', entry_code: 'string nullable', google_maps_shortlink: 'string nullable', google_maps: 'text nullable', public_transportation: 'string nullable', softdeletes: softDeletes }
+    Skill: { name: string, slug: string, icon: 'string nullable', difficulty: 'string nullable', description: 'text nullable', image: 'string nullable', portrait: 'string nullable', video: 'text nullable', softdeletes: softDeletes }
+    Payment: { code: 'string nullable', provider: 'string nullable', method: 'string nullable', amount: string, amount_received: 'string nullable', currency: 'string nullable', molley_payment_id: 'string nullable', status: 'enum:paid,partial,processing,overpaid,failed,open,canceled,expired', received_date: 'date nullable', comments: 'text nullable', user_id: 'id foreign', softdeletes: softDeletes }
+    Style: { name: string, slug: 'string nullable', icon: 'string nullable', color: 'string nullable', image: 'string nullable', origin: 'string nullable', family: 'string nullable', music: 'string nullable', year: 'string nullable', video: 'string nullable', portrait: 'string nullable', description: 'text nullable', softdeletes: softDeletes }
+    Classroom: { name: string, slug: string, m2: 'decimal nullable', capacity: 'integer nullable', limit_couples: 'integer nullable', price_hour: 'decimal nullable', price_month: 'decimal nullable', dance_shoes: 'boolean nullable', comments: 'text nullable', color: 'string nullable', location_id: 'id foreign', softdeletes: softDeletes }
+    Order: { user_id: 'id foreign', subtotal: 'decimal nullable', vat: 'decimal nullable', discount: 'decimal nullable', discount_code: 'string nullable', total: 'decimal nullable', comments: 'text nullable', method: 'string nullable', status: 'enum:open,canceled,paid,expired,partial nullable', author_id: 'id foreign:users nullable' }
+    Registration: { status: 'enum:waiting,pre-registered,registered,canceled,standby,open,partial default:pre-registered', role: 'enum:instructor,assistant,student', option: 'string nullable', course_id: 'id foreign', user_id: 'id foreignId', order_id: 'id foreignId' }
