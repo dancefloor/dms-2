@@ -13,7 +13,9 @@
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
 
-                        <x-shared.alert />
+                        @if (session()->has('success'))
+                        <x-partials.flash-message />
+                        @endif
 
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
@@ -49,6 +51,9 @@
                         </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <a href="{{ url()->previous() }}" class="df-btn-secondary">
+                            Back
+                        </a>
                         <button class="df-form-btn">
                             Save
                         </button>

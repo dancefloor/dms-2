@@ -24,19 +24,6 @@
         </div>
     </x-slot>
 
-    {{-- <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <iframe width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" allowtransparency="true"
-            src="https://www.crowdcast.io/e/eh1j19j9?navlinks=false&embed=true"
-            style="border: 1px solid #EEE;border-radius:3px" allowfullscreen="true" webkitallowfullscreen="true"
-            mozallowfullscreen="true" allow="microphone; camera;"></iframe><a
-            ng-href="https://www.crowdcast.io/?utm_source=embed&utm_medium=website&utm_campaign=embed"
-            style="color: #aaa; font-family: 'Helvetica', 'Arial', sans-serif;text-decoration: none;display: block;text-align: center;font-size: 13px;padding: 5px 0">powered
-            by Crowdcast</a>
-    </div>--}}
-    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        {!! $course->teaser_video_1 !!}
-    </div>
-
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 border-b border-gray-200 sm:px-6">

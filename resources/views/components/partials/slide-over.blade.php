@@ -5,7 +5,7 @@
     x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
     x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
     class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
-    <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden mt-15">
         <section class="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16" @click.away="slideOver = false"
             aria-labelledby=" slide-over-heading">
             <div class="w-screen max-w-2xl">

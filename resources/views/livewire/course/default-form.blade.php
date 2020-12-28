@@ -13,7 +13,9 @@
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
 
-                        <x-shared.alert />
+                        @if (session()->has('success'))
+                        <x-partials.flash-message type="alert" />
+                        @endif
 
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-4">
@@ -74,17 +76,7 @@
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="level_number" class="df-form-label">Level code</label>
-                                <select wire:model="level_number" class="form-select df-form-select">
-                                    <option>OL</option>
-                                    <option>A1</option>
-                                    <option>A2</option>
-                                    <option>B1</option>
-                                    <option>B2</option>
-                                    <option>C1</option>
-                                    <option>C2</option>
-                                    <option>D1</option>
-                                    <option>D2</option>
-                                </select>
+                                <input wire:model="level_number" type="text" class="df-form-input bg-gray-100" disabled>
                             </div>
 
                             <div class="col-span-6">
@@ -206,6 +198,9 @@
                         </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <a href="{{ url()->previous() }}" class="df-btn-secondary">
+                            Back
+                        </a>
                         <button class="df-form-btn">
                             Save
                         </button>

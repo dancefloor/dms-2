@@ -27,53 +27,7 @@
         </div>
         <div class="flex items-center">
             <!-- Profile dropdown -->
-            <div class="ml-3 relative" x-data="{showProfileMenu: false}">
-                <div>
-                    <button @click="showProfileMenu = true"
-                        class="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:shadow-outline"
-                        id="user-menu" aria-label="User menu" aria-haspopup="true">
-                        <img class="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="">
-                    </button>
-                </div>
-                <!-- Profile dropdown panel, show/hide based on dropdown state.-->
-                <!-- Entering: "transition ease-out duration-100" From: "transform opacity-0 scale-95" To: "transform opacity-100 scale-100" -->
-                <!-- Leaving: "transition ease-in duration-75" From: "transform opacity-100 scale-100" To: "transform opacity-0 scale-95" -->
-
-                <div x-show="showProfileMenu"
-                    class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                    <div class="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical"
-                        aria-labelledby="user-menu">
-                        <div class="py-1">
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">View profile</a>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">Settings</a>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">Notifications</a>
-                        </div>
-                        <div class="border-t border-gray-100"></div>
-                        <div class="py-1">
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">Get desktop app</a>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">Support</a>
-                        </div>
-                        <div class="border-t border-gray-100"></div>
-                        <div class="py-1">
-                            <a href="#"
-                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                                role="menuitem">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <x-shared.account-dropdown />
         </div>
     </div>
 </div>

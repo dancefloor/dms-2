@@ -18,46 +18,74 @@
             Catalogue
         </a>
 
+        @can('crud_courses')
         <a href="{{ route('courses.index') }}"
             class="group df_nav_links {{ Request::is('courses') ? 'df_nav_links_active' : '' }}">
             @include('icons.classroom', ['style'=>'h-5 w-5 mr-4'])
             Courses
         </a>
+        @endcan
 
+
+
+        @can('crud_locations')
         <a href="{{ route('locations.index') }}" class="group df_nav_links">
             @include('icons.pinpoint', ['style'=>'h-5 w-5 mr-4'])
             Locations
         </a>
+        @endcan
 
+        @can('crud_styles')
         <a href="{{ route('styles.index') }}"
             class="group df_nav_links {{ Request::is('styles') ? 'df_nav_links_active' : '' }}">
             @include('icons.music-genre', ['style'=>'h-5 w-5 mr-4'])
             Styles
         </a>
+        @endcan
 
+        @can('crud_orders')
         <a href="{{ route('orders.index') }}"
             class="group df_nav_links {{ Request::is('orders') ? 'df_nav_links_active' : '' }}">
             @include('icons.orders', ['style'=>'h-5 w-5 mr-4'])
             Orders
         </a>
-
+        @endcan
+        @can('crud_payments')
         <a href="{{ route('payments.index') }}" class="group df_nav_links">
             @include('icons.credit-cards', ['style'=>'h-5 w-5 mr-4'])
             Transactions
         </a>
+        @endcan
 
+        @can('crud_users')
         <a href="{{ route('users.index') }}"
             class="group df_nav_links {{ Request::is('users') ? 'df_nav_links_active' : '' }}">
             @include('icons.users', ['style'=>'h-5 w-5 mr-4'])
             Users
         </a>
+        @endcan
 
+        @can('crud_roles')
         <a href="{{ route('roles.index') }}"
             class="group df_nav_links {{ Request::is('roles') ? 'df_nav_links_active' : '' }}">
             @include('icons.keys', ['style'=>'h-5 w-5 mr-4'])
             Roles & Permissions
         </a>
+        @endcan
 
+
+        <a href="{{ route('roles.index') }}"
+            class="group df_nav_links {{ Request::is('roles') ? 'df_nav_links_active' : '' }}">
+            @include('icons.pie-chart', ['style'=>'h-5 w-5 mr-4'])
+            Reports
+        </a>
+        <a href="{{ route('roles.index') }}"
+            class="group df_nav_links {{ Request::is('roles') ? 'df_nav_links_active' : '' }}">
+            @include('icons.settings-tool', ['style'=>'h-5 w-5 mr-4'])
+            Settings
+        </a>
+        @can('crud_roles')
+        @endcan
     </div>
     <div class="mt-8">
         <!-- Secondary navigation -->

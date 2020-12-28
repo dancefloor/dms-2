@@ -18,10 +18,10 @@ class CourseCard extends Component
      */
     public function __construct($course, $user = null)
     {
-        $this->course = $course;        
-        if (Auth::check()) {            
-            $this->user = $user ;
-            
+        $this->course = $course;
+        if (Auth::check()) {
+            $this->user = $user;
+
             switch ($user->registrationStatus($this->course->id)) {
                 case 'pre-registered':
                     $this->border = 'border-orange-500 border-2';
@@ -43,7 +43,7 @@ class CourseCard extends Component
                     $this->border = 'border-gray-800 border-2';
                     $this->text = 'text-gray-600';
                     break;
-                case 'open':
+                case 'processing':
                     $this->border = 'border-teal-300 border-2';
                     $this->text = 'text-teal-600';
                     break;
@@ -51,9 +51,13 @@ class CourseCard extends Component
                     $this->border = 'border-green-400 border-2';
                     $this->text = 'text-green-600';
                     break;
+                case 'rejected':
+                    $this->border = 'border-gray-200 border bg-gray-100';
+                    $this->text = 'text-gray-400';
+                    break;
                 default:
-                    $this->border = 'border';
-                    $this->text = 'text-red-800';
+                    $this->border = 'border border-gray-200 bg-gray-100';
+                    $this->text = 'text-gray-400';
                     break;
             }
         }
@@ -69,4 +73,3 @@ class CourseCard extends Component
         return view('components.catalogue.course-card');
     }
 }
-

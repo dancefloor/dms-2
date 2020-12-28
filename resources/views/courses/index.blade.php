@@ -23,9 +23,9 @@
             </div>
         </div>
     </x-slot>
-    <div class="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8">
-        <x-shared.alert />
-    </div>
+    @if (session()->has('success'))
+    <x-partials.flash-message />
+    @endif
 
     <livewire:course.datatable />
 </x-app-layout>

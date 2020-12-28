@@ -1,0 +1,1 @@
+@include('icons.' . $levelIcon, ['style'=>'w-4 mr-2'])

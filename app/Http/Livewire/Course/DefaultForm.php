@@ -20,7 +20,7 @@ class DefaultForm extends Component
     public $excerpt;
     public $description;
     public $level;
-    public $level_number;
+    public $level_number = 'OL';
     public $type;
     public $focus;
     public $thumbnail;
@@ -88,9 +88,43 @@ class DefaultForm extends Component
         $this->slug = Str::slug($this->name, '-');
     }
 
+    public function updatedLevel($value)
+    {
+        switch ($value) {
+            case 'Open level':
+                $this->level_number = 'OL';
+                break;
+            case 'Beginner':
+                $this->level_number = 'A1';
+                break;
+            case 'Elementary':
+                $this->level_number = 'A2';
+                break;
+            case 'Intermediate':
+                $this->level_number = 'B1';
+                break;
+            case 'Upper intermediate':
+                $this->level_number = 'B2';
+                break;
+            case 'Advanced':
+                $this->level_number = 'C1';
+                break;
+            case 'Expert':
+                $this->level_number = 'C2';
+                break;
+            case 'Master':
+                $this->level_number = 'D1';
+                break;        
+            default:
+                $this->level_number = 'D2';
+                break;
+        }
+    }
+
+
     public function mount($action, $course = null)
     {
-        $this->action = $action;
+        $this->action = $action;        
 
         if ($course) 
         {

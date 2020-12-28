@@ -1,4 +1,5 @@
-<div class="col-span-2">
+<div class="col-span-4 sm:col-span-2">
+
     <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
     <div
         class="@auth {{ $course->hasStudent(Auth::user()->id) ? $border : '' }} @endauth m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden bg-white">
@@ -42,9 +43,11 @@
         </span>
     </div> --}}
     <x-shared.course-daily-schedule :course="$course" />
+
     <div class="flex justify-between text-sm text-gray-600 mb-1">
-        <span class="inline-flex items-center">@include('icons.level', ['style'=>'w-4
-            mr-2']){{ $course->level }}</span>
+        <span class="inline-flex items-center">
+            <x-partials.level-icon level="{{ $course->level }}" />
+            {{ $course->level }}</span>
         {{-- <span>CHF {{ $course->full_price }}</span> --}}
     </div>
     <div class="flex justify-between text-sm text-gray-600 my-1">
@@ -55,7 +58,6 @@
 
     @if (count($course->teachers) > 0)
     <div>
-
         @if ($course->teachers->count() < 3) <section>
             </section>
             @foreach ($course->teachers as $teacher)
@@ -79,50 +81,7 @@
     <div class="flex items-center text-gray-100">
         @if ($course->hasStudent(Auth::user()->id))
 
-        @switch(auth()->user()->registrationStatus($course->id))
-
-        @case('pre-registered')
-        <div id="pending" class="bg-orange-400 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.pending',['style'=>'w-5'])
-            <span class="ml-2 text-sm">Pre-registered</span>
-        </div>
-        @break
-        @case('waiting')
-        <div id="waiting" class="bg-blue-600 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.waiting',['style'=>'w-5'])
-            <span class="ml-2 text-sm">Waiting list</span>
-        </div>
-        @break
-        @case('registered')
-        <div id="registered" class="bg-green-600 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.checked',['style'=>'w-5 h-5'])
-            <span class="ml-2 text-sm">Registered</span>
-        </div>
-        @break
-        @case('standby')
-        <div id="standby" class="bg-pink-400 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.standby',['style'=>'w-5'])
-            <span class="ml-2 text-sm">Standby</span>
-        </div>
-        @break
-        @case('open')
-        <div id="standby" class="bg-teal-300 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.open',['style'=>'w-5'])
-            <span class="ml-2 text-sm">Open</span>
-        </div>
-        @break
-        @case('partial')
-        <div id="partial" class="bg-green-400 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.phase',['style'=>'w-5'])
-            <span class="ml-2 text-sm">Partially registered</span>
-        </div>
-        @break
-        @default
-        <div id="cancelled" class="bg-gray-200 text-gray-800 px-2 py-1 rounded-full inline-flex items-center">
-            @include('icons.x-circle-thin',['style'=>'w-5'])
-            <span class="text-sm">Cancelled</span>
-        </div>
-        @endswitch
+        <x-partial.registration-status :user="auth()->user()" cid="{{ $course->id }}" />
 
         @else
         <form action="{{ route('registration.add', $course->id ) }}" method="post">
@@ -132,6 +91,7 @@
                 @include('icons.add-to-basket')
                 <span class="ml-2">Add to basket</span>
             </button>
+            <input type="hidden" name="option" value="full-price">
         </form>
         @endif
     </div>

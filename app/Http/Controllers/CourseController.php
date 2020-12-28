@@ -117,6 +117,13 @@ class CourseController extends Controller
 
         return redirect()->route('course.index');
     }
+
+    public function view($slug)
+    {
+        $course = Course::where('slug',$slug)->firstOrFail();
+        // dd($course);
+        return view('courses.view')->with('course', $course);
+    }
 }
 
 

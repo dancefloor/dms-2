@@ -26,7 +26,12 @@ class CourseSeeder extends Seeder
             'status'=> 'active',
             'user_id' => 1,
             'focus' => 'styling',
-            'type'  => 'class',                
+            'type'  => 'class',   
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         //$c1->students()->attach(1);
         $c1->teachers()->attach(6);
@@ -44,6 +49,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class', 
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c2->teachers()->attach(14); //Ivan
         $c2->styles()->attach(12);        
@@ -61,6 +71,11 @@ class CourseSeeder extends Seeder
             'status'=> 'active',
             'focus' => 'partnerwork',
             'type'  => 'class', 
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c3->teachers()->attach([5,9]); //Kouame & Sonia
         $c3->styles()->attach([1,7]);
@@ -77,7 +92,13 @@ class CourseSeeder extends Seeder
             'status'=> 'active',
             'user_id' => 1,
             'focus' => 'footwork',
-            'type'  => 'class', 
+            'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            
         ]);
         $c4->teachers()->attach([6]); // Laety
         $c4->styles()->attach(14);
@@ -95,6 +116,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class', 
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',                        
         ]);
         $c5->teachers()->attach(14); //Ivan
         $c5->styles()->attach(13);        
@@ -112,6 +138,12 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            
         ]);
         $c6->teachers()->attach([10]); // Vivien
         $c6->styles()->attach(7);
@@ -130,6 +162,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',            
         ]);
         $c7->teachers()->attach(5); 
         $c7->styles()->attach(1);
@@ -146,6 +183,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class', 
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',                        
         ]);
         $c8->teachers()->attach(6); //laety
         $c8->styles()->attach(12);        
@@ -161,7 +203,12 @@ class CourseSeeder extends Seeder
             'status'=> 'active',
             'user_id' => 1,
             'focus' => 'footwork',
-            'type'  => 'class', 
+            'type'  => 'class',             
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c9->teachers()->attach(14); //Ivan
         $c9->styles()->attach(12);        
@@ -178,6 +225,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',                        
         ]);
         $c10->teachers()->attach(5); //Kouame
         $c10->styles()->attach([1,5]);
@@ -203,6 +255,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'partnerwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c11->teachers()->attach([10,8]); // Vivien & Sabrina
         $c11->styles()->attach(1);
@@ -220,6 +277,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'partnerwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c13->teachers()->attach(7);
         $c13->styles()->attach([2,3]);
@@ -237,6 +299,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'Choreography',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c14->teachers()->attach([10,8]);
         $c14->styles()->attach(1);
@@ -252,8 +319,13 @@ class CourseSeeder extends Seeder
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,
-            'focus' => 'choreography',
+            'focus' => 'Choreography',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c15->teachers()->attach(5);
         $c15->styles()->attach(2);
@@ -269,8 +341,13 @@ class CourseSeeder extends Seeder
             'full_price' => 200, 'reduced_price' => 180,
             'status'=> 'active',
             'user_id' => 1,
-            'focus' => 'styling',
+            'focus' => 'Styling',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c16->teachers()->attach(6); 
         $c16->styles()->attach(1);
@@ -286,13 +363,15 @@ class CourseSeeder extends Seeder
             'full_price' => 180, 'reduced_price' => 160,
             'status'=> 'active',
             'user_id' => 1,
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c17->teachers()->attach(6); 
         $c17->styles()->attach(1);
         $c17->classroom()->associate(9)->save();
-
-
-
 
 
 
@@ -313,6 +392,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'styling',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c18->teachers()->attach(8); 
         $c18->styles()->attach(1);
@@ -330,6 +414,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c19->teachers()->attach([2,3]); 
         $c19->styles()->attach(3);
@@ -347,6 +436,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'styling',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c20->teachers()->attach(15); // diana
         $c20->styles()->attach([1,2,3]);
@@ -364,6 +458,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c21->teachers()->attach(4); 
         $c21->styles()->attach(1);
@@ -381,6 +480,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c22->teachers()->attach(2); 
         $c22->styles()->attach(7);
@@ -398,6 +502,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c23->teachers()->attach(6); 
         $c23->styles()->attach(12);
@@ -414,6 +523,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'partnerwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c24->teachers()->attach([16,17]);
         $c24->styles()->attach(1);
@@ -430,6 +544,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c25->teachers()->attach(10); 
         $c25->styles()->attach(10);
@@ -454,6 +573,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c26->teachers()->attach([5,3]); 
         $c26->styles()->attach(10);
@@ -471,6 +595,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c27->teachers()->attach(12);
         $c27->styles()->attach(7);
@@ -487,6 +616,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'footwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c28->teachers()->attach([3,5]);  
         $c28->styles()->attach(10);
@@ -503,6 +637,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'partnerwork',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c29->teachers()->attach([11,13]);  
         $c29->styles()->attach(1);
@@ -519,6 +658,11 @@ class CourseSeeder extends Seeder
             'user_id' => 1,
             'focus' => 'styling',
             'type'  => 'class',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nisi hic? Officiis, accusamus provident distinctio, in accusantium deleniti ipsum quidem eveniet optio odio quod veniam sint est vitae. Temporibus vitae pariatur eius, dolore accusamus voluptatibus molestiae quasi, repudiandae labore at minus. Aperiam placeat similique omnis eveniet quasi culpa, aspernatur quidem. Soluta quam temporibus minima repellendus sapiente ipsa accusamus ipsum qui!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio, voluptatum laudantium, cumque inventore enim quibusdam ut repellat mollitia consectetur sequi! Labore nemo non distinctio eos nulla voluptas praesentium odit aliquam expedita, commodi nisi enim quaerat similique accusantium, tempore placeat! Necessitatibus distinctio nemo, deleniti quia laborum animi nulla quisquam beatae id quae sint amet consectetur officiis! Error fugiat qui ex nihil, aut ipsam eos quas nostrum eaque mollitia dignissimos, accusantium dolorem ipsum neque non doloribus tempora in consectetur porro beatae quasi! Fugiat obcaecati, ullam, odit vero necessitatibus ratione hic incidunt neque autem modi nihil, veniam ipsa itaque ea reiciendis omnis?',            
+            'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         ]);
         $c29->teachers()->attach(9);  
         $c29->styles()->attach(1);

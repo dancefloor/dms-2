@@ -46,5 +46,13 @@
             <livewire:user.social-form :user="$user" />
         </div>
         <x-jet-section-border />
+
+        @can('crud_roles')
+        <div class="mt-10 sm:mt-0">
+            <livewire:user.role-form :user="$user" />
+        </div>
+        <x-jet-section-border />
+        @endcan
+
     </div>
 </x-app-layout>

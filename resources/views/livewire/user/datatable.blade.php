@@ -1,17 +1,21 @@
 <div>
 
+    <div class="px-4 sm:pl-6 md:pl-6 lg:pl-8 mt-6 w-full sm:w-3/4 md:w-1/2">
+        <input type="search" name="search" wire:model="search" class="df-form-input" placeholder="Search...">
+    </div>
+
     <!-- Projects list (only on smallest breakpoint) -->
     <div class="mt-10 sm:hidden">
-        <div class="px-4 sm:px-6">
-            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">User</h2>
+        <div class="px-4 sm:px-6 border-t border-gray-200 bg-gray-50">
+            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide pt-2">User</h2>
         </div>
-        <ul class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
+        <ul class="mt-3 border-t border-gray-200 divide-y divide-gray-100 bg-white">
             @foreach ($users as $user)
             <li>
                 <a href="{{ route('users.show', $user) }}"
                     class="flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
                     <div class="flex items-center truncate space-x-3">
-                        <div class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600"></div>
+                        <x-user.role-gender-icon :user="$user" />
                         <p class="font-medium truncate text-sm leading-6">
                             {{ $user->name }} {{ $user->lastname }}
                             <span class="truncate font-normal text-gray-500">{{ $user->email }}</span>
@@ -63,9 +67,7 @@
                     <tr class="hover:bg-gray-100">
                         <td class="px-6 py-4 whitespace-no-wrap">
                             <div class="flex items-center" x-data="{ preview:false }">
-                                <div
-                                    class="flex-shrink-0 w-2.5 h-2.5 rounded-full {{ $user->gender == 'male' ? 'bg-blue-600':'bg-pink-600'}}">
-                                </div>
+                                <x-user.role-gender-icon :user="$user" />
                                 <div class="flex-shrink-0 h-10 w-10 ml-2">
                                     <img class="h-10 w-10 rounded-full flex-shrink-0 bg-gray-300"
                                         src="{{ $user->profile_photo_url }}" alt="{{ $user->name}}">
@@ -84,13 +86,14 @@
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
                             <div class="text-sm leading-5 text-gray-900">{{ $user->country }}</div>
-                            <div class="text-sm leading-5 text-gray-500">{{ $user->age }} years old
+                            @if ($user->age != 0)
+                            <div class="text-sm leading-5 text-gray-500">
+                                {{ $user->age }} years old
                             </div>
+                            @endif
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <span class="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                admin
-                            </span>
+                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ $user->mobile }}
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $user->updated_at->diffForHumans() }}

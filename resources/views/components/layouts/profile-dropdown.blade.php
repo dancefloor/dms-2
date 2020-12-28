@@ -1,40 +1,6 @@
 <div class="px-3 mt-6 relative inline-block text-left" x-data="{ showProfileMenu : false}">
-    <div x-show="showProfileMenu" @click.away="showProfileMenu = false"
-        class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg">
-        <div class="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical"
-            aria-labelledby="options-menu">
-            <div class="py-1">
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">View profile</a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">Settings</a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">Notifications</a>
-            </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">Get desktop app</a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">Support</a>
-            </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
-                <a href="#"
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">Logout</a>
-            </div>
-        </div>
-    </div>
-
     <x-jet-dropdown align="right" width="48">
         <x-slot name="trigger">
-
             <button type="button" @click="showProfileMenu = true"
                 class="group w-full rounded-md px-3.5 py-2 text-sm leading-5 font-medium text-gray-700 hover:bg-gray-700 hover:text-gray-500 focus:outline-none focus:bg-gray-700 focus:border-blue-300 active:bg-gray-700 active:text-gray-200 transition ease-in-out duration-150"
                 id="options-menu" aria-haspopup="true" aria-expanded="true">

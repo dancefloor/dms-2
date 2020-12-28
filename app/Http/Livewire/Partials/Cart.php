@@ -19,7 +19,7 @@ class Cart extends Component
     public $title;
 
     protected $listeners = [
-        'subtotal' => '$refresh',
+        'subtotalUpdated' => 'removeCourse',
     ];
 
     public function mount()
@@ -28,9 +28,9 @@ class Cart extends Component
         $this->count = count(Auth::user()->pendingCourses);
         // $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);
         $this->discount = 0;        
-        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);        
+        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);                
         $this->discountText = OrderPriceCalculator::getDiscountText($this->count);
-        $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses);
+        $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses);             
     }
 
     public function updatedMethod($value)
@@ -38,6 +38,7 @@ class Cart extends Component
         $this->method = $value;
         $this->commission = OrderPriceCalculator::getCommission($this->method, $this->subtotal);
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->commission);
+        $this->emit('cartCountRefresh');   
     }
 
     public function removeCourse(Course $course)
@@ -45,9 +46,10 @@ class Cart extends Component
         $course->students()->detach(auth()->user()->id);
 
         $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);        
-        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);
+        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);            
 
-        session()->flash('success', 'You have remove this class from your list successfully');        
+        session()->flash('success', 'You have remove this class from your list successfully'); 
+        $this->emit('cartCountRefresh');          
     }
 
     public function render()

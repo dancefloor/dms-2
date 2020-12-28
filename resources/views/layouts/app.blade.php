@@ -25,6 +25,10 @@
 
 <body class="font-sans antialiased">
 
+    @if (session()->has('success'))
+    <x-partials.flash-message />
+    @endif
+
     <div class="h-screen flex overflow-hidden bg-white" x-data="{ showMobileSidebar: false}">
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
         <x-layouts.sidebar />
@@ -45,20 +49,3 @@
 </body>
 
 </html>
-
-
-{{-- <div class="min-h-screen bg-gray-100">
-    @livewire('navigation-dropdown')
-
-    <!-- Page Heading -->
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
-</div>
-</header>
-
-<!-- Page Content -->
-<main>
-    {{ $slot }}
-</main>
-</div> --}}

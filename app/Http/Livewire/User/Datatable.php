@@ -10,10 +10,20 @@ class Datatable extends Component
 {
     use WithPagination;
 
+    public $search;
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         return view('livewire.user.datatable',[
-            'users' => User::paginate(10),
+            'users' => User::where('name','LIKE', "%{$this->search}%")
+                            ->orWhere('lastname','LIKE', "%{$this->search}%")
+                            ->orWhere('email','LIKE', "%{$this->search}%")
+                            ->paginate(10),
         ]);
     }
 }

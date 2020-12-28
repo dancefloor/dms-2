@@ -32,17 +32,23 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// Auth::routes(['verify' => true]);
 
-Route::resource('users', UserController::class);
-Route::resource('roles', RoleController::class);
-Route::resource('permissions', PermissionController::class);
-Route::resource('courses', CourseController::class);
-Route::resource('locations', LocationController::class);
-Route::resource('skills', SkillController::class);
-Route::resource('payments', PaymentController::class);
-Route::resource('styles', StyleController::class);
-Route::resource('classrooms', ClassroomController::class);
-Route::resource('orders', OrderController::class);
+Route::middleware(['auth'])->group(function(){
+    Route::resource('users', UserController::class)->middleware('auth');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
+    Route::resource('courses', CourseController::class)->middleware('auth');
+    Route::resource('locations', LocationController::class);
+    Route::resource('skills', SkillController::class);
+    Route::resource('payments', PaymentController::class);
+    Route::resource('styles', StyleController::class);
+    Route::resource('classrooms', ClassroomController::class);
+    Route::resource('orders', OrderController::class);
+});
+
+Route::get('course/{slug}',[CourseController::class, 'view'])->name('courses.view');
 
 Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
 Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');
+

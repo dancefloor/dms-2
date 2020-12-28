@@ -10,9 +10,11 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -162,8 +164,12 @@ class User extends Authenticatable
     public function isAdmin()
     {
         $admin = Role::where('slug', 'admin')->first();
-        return in_array($admin->id, $this->roles()->pluck('id')->toArray());
-        //return $admin;
+        return in_array($admin->id, $this->roles()->pluck('id')->toArray());        
+    }
+    public function isInstructor()
+    {
+        $instructor = Role::where('slug', 'instructor')->first();
+        return in_array($instructor->id, $this->roles()->pluck('id')->toArray());        
     }
 
     public function scopeWomen()

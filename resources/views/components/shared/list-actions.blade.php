@@ -10,7 +10,7 @@
     <!-- Entering: "transition ease-out duration-100" From: "transform opacity-0 scale-95" To: "transform opacity-100 scale-100"-->
     <!--  Leaving: "transition ease-in duration-75" From: "transform opacity-100 scale-100" To: "transform opacity-0 scale-95" -->
 
-    <div class="mx-3 origin-top-right absolute right-7 top-0 w-48 mt-1 rounded-md shadow-lg" x-show="showActions"
+    <div class="mx-3 origin-top-right absolute right-7 top-0 w-48 mt-1 rounded-md shadow-lg z-10" x-show="showActions"
         @click.away="showActions =  false">
         <div class="z-10 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical"
             aria-labelledby="project-options-menu-0">

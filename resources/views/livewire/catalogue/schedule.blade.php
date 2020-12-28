@@ -66,9 +66,9 @@
         </div>
     </div>
     <section class="mt-5">
-        <div class="grid grid-cols-4 gap-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             @foreach ($courses as $course)
-            <a href="{{route('courses.show', $course )}}">
+            <a href="{{ route('courses.view', $course->slug ) }}">
                 @auth
                 <x-catalogue.course-card :course="$course" :user="Auth()->user()" />
                 @else

@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class RegistrationController extends Controller
 {
-    public function add(Course $course)
-    {                  
+    public function add(Request $request, Course $course)
+    {      
         $uid = auth()->user()->id;   
 
         if ($this->registrationExists($uid, $course->id)) {
@@ -18,7 +18,7 @@ class RegistrationController extends Controller
             return redirect()->back();
         }
 
-        $course->students()->attach($uid, ['role'=>'student', 'status'=>'pre-registered', 'created_at'=> now()]);
+        $course->students()->attach($uid, ['role'=>'student', 'status'=>'pre-registered', 'option'=> $request->option, 'created_at'=> now()]);
         
         session()->flash('pre-registered', 'You have successfully pre-register. Please proceed to pay on your ');
 

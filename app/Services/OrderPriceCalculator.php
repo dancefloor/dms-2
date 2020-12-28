@@ -22,15 +22,17 @@ class OrderPriceCalculator
             // else { $subtotal = $subtotal + $course->full_price;}
         }
         
-        return number_format($subtotal, 2, '.', ',');
+        return $subtotal;
     }
 
     public static function getTotal($subtotal, $discount = 0, $commission = 0)
     {
         // https://laracasts.com/discuss/channels/general-discussion/number-to-2-decimal-placed-blade
         
-        return number_format($subtotal - $discount + $commission, 2, '.', ',');
+        return number_format(floatval($subtotal) - $discount + $commission, 2, '.', "'");
+        
         //return number_format($subtotal, 2, '.', ',');
+        // return $subtotal;
     }
 
     public static function getDiscount($count, $subtotal)

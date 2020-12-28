@@ -14,7 +14,12 @@
                 </h1>
             </div>
             <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                <span class="order-1 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
+                <span class="order-1 mr-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
+                    <a href="{{ route('courses.view', $course->slug) }}" class="df-btn-secondary">
+                        View
+                    </a>
+                </span>
+                <span class="order-2 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
                     <a href="{{ url()->previous() }}" class="df-btn-secondary">
                         Back
                     </a>
