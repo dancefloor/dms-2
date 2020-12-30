@@ -81,18 +81,20 @@ class MollieController extends Controller
                 'method'            => 'credit-card',
                 'amount'            => request()->amount,
                 'currency'          => 'EUR',
-                'molley_payment_id' => $payment->id,
+                'mollie_payment_id' => $payment->id,
                 'status'            => 'open',
                 'done'              => now(),
                 'user_id'           => auth()->user()->id,
                 'comments'          => request()->title,
+                'order_id'          => $order->id,
             ]);
 
-            dd($order);
+            // dd($order);
 
-            $user_payment->order()->associate($order->id)->save();            
+            //$user_payment->order()->associate($order->id)->save();            
             // redirect customer to Mollie checkout page            
         });
+
         return redirect($payment->getCheckoutUrl(), 303);
     }
 
