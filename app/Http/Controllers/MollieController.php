@@ -73,7 +73,7 @@ class MollieController extends Controller
                 //$order->status = 'open';
             }
 
-            
+            dd($order);
 
             $user_payment = Payment::create([
                 'code'              => Str::random(15),
@@ -88,7 +88,7 @@ class MollieController extends Controller
                 'comments'          => request()->title,
             ]);
 
-            dd($order);
+            
 
             $user_payment->order()->associate($order->id)->save();            
             // redirect customer to Mollie checkout page            
