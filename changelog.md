@@ -4,11 +4,27 @@
 - Exports Users
 - Export styles
 - Export Account
-- Checkout page
 - Convert Catalogue into a livewire component
 - Sync livewire Catalogue component with cart counter
 - Display price according to the right user type
 - Registration validation (fields specially date field)
+- User profile page
+- User show page
+- User: index: add button changes to purple on hover
+- Header icon users
+- Create repot page
+- Create setting page
+- Change module payments to transactions
+- Courses.Update waiting to standby list
+- Add deregister buttom in card
+- change deregister for trash icon
+
+
+# DMS v0.0.6: December 29th, 2020
+* "my courses" Title added to dashboard 
+* Profile controller created 
+* Checkout page created
+* Catalogue page created
 
 # DMS v0.0.5: December 27th, 2020
 * Level Component: displays good icon according to the level of the class

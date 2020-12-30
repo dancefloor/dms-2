@@ -3,9 +3,11 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MollieController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SkillController;
@@ -29,7 +31,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('profile/dashboard');
 })->name('dashboard');
 
 // Auth::routes(['verify' => true]);
@@ -45,6 +47,13 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('styles', StyleController::class);
     Route::resource('classrooms', ClassroomController::class);
     Route::resource('orders', OrderController::class);
+    Route::get('checkout', [ProfileController::class, 'checkout'])->name('checkout');
+    Route::get('catalogue', [ProfileController::class, 'catalogue'])->name('catalogue');
+    Route::get('reports', [ProfileController::class, 'reports'])->name('reports');
+    
+    Route::get('/mollie-payment', [MollieController::class, 'preparePayment'])->name('mollie.payment');
+    Route::get('/payment-success', [MollieController::class, 'paymentSuccess'])->name('payment.status');
+    Route::post('webhooks/mollie', [MollieController::class, 'handle'])->name('webhooks.mollie');
 });
 
 Route::get('course/{slug}',[CourseController::class, 'view'])->name('courses.view');

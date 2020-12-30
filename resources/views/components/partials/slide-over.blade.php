@@ -35,11 +35,18 @@
                         <!-- Replace with your content -->
                         <div class="absolute inset-0 px-4 sm:px-6">
                             <livewire:partials.cart />
-                        </div>
-                        <!-- /End replace -->
+
+                            {{-- <div class="my-10 flex justify-end">
+                                <a href="{{ route('checkout') }}" class="df-btn-primary">
+                            @include('icons.checkout-cart')
+                            <span class="ml-2">Checkout</span>
+                            </a>
+                        </div> --}}
                     </div>
+                    <!-- /End replace -->
                 </div>
             </div>
-        </section>
     </div>
+    </section>
+</div>
 </div>

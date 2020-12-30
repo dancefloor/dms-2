@@ -52,7 +52,7 @@
 </div> --}}
 
 <!-- Projects table (small breakpoint and up) -->
-<div class="mt-8">
+<div class="mt-1">
     <div class="align-middle inline-block min-w-full border-b border-gray-200">
         <table class="min-w-full">
             <thead>
