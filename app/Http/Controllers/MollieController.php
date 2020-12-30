@@ -56,6 +56,8 @@ class MollieController extends Controller
                 'total'     => request()->total ?? 0,
                 'status'    => 'open',
             ]);
+            
+            dd($order);
 
             if (request()->courses) {
                 $order->courses()->attach(request()->courses);
