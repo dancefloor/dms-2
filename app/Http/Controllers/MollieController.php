@@ -65,6 +65,7 @@ class MollieController extends Controller
                         ->where('user_id', request()->user)
                         ->where('role', 'student')
                         ->first();
+                    dd($order);                        
                     $order->registrations()->save($registration);
                     //RegistrationPaymentManager::registrationToOpen($registration->id);
                 }
