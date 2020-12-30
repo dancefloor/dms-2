@@ -55,12 +55,11 @@ class MollieController extends Controller
                 'discount'  => request()->discount ?? 0,
                 'total'     => request()->total ?? 0,
                 'status'    => 'open',
-            ]);
-            
-            dd($order);
+            ]);                        
 
             if (request()->courses) {
                 $order->courses()->attach(request()->courses);
+                dd($order);
                 foreach (request()->courses as $id) {
                     $registration = Registration::where('course_id', $id)
                         ->where('user_id', request()->user)
