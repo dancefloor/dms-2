@@ -6,6 +6,8 @@ use App\Http\Requests\StyleStoreRequest;
 use App\Http\Requests\StyleUpdateRequest;
 use App\Models\Style;
 use Illuminate\Http\Request;
+use App\Exports\StylesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StyleController extends Controller
 {
@@ -86,5 +88,10 @@ class StyleController extends Controller
         $style->delete();
 
         return redirect()->route('styles.index');
+    }
+
+    public function export() 
+    {           
+        return Excel::download(new StylesExport, 'styles.csv');
     }
 }

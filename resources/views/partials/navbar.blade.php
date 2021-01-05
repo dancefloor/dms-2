@@ -6,6 +6,13 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
+                <button @click="SlideOverMenu = true" class="text-gray-400 hover:text-gray-100 mr-2 hidden sm:inline">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
                 <div class="flex-shrink-0">
                     <a href="{{ route('welcome') }}">
                         @include('icons.logo-white', ['style'=>'h-10'])
@@ -85,12 +92,7 @@
 
     <div x-show="openMenu" class="sm:hidden">
         <div class="px-2 pt-2 pb-3">
-            <a href="#landing"
-                class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
-            <a href="#about"
-                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
-            <a href="#catalogue"
-                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Catalogue</a>
+            @include('partials.front-navigation')
         </div>
         <div class="pt-4 pb-3 border-t border-gray-700">
             @auth

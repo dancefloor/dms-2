@@ -1,6 +1,7 @@
 <x-guest-layout>
-    <div x-data="{ slideOver:false, openMenu: false }">
+    <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }">
         @include('partials.navbar')
+        <x-layouts.slide-over-sidebar-nav />
 
         <section id="landing" class="pt-16">
             @include('partials.landing-banner')

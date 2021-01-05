@@ -36,6 +36,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // Auth::routes(['verify' => true]);
 
+Route::get('styles/export', [StyleController::class, 'export'])->name('styles.export');
+
 Route::middleware(['auth'])->group(function(){
     Route::resource('users', UserController::class)->middleware('auth');
     Route::resource('roles', RoleController::class);
@@ -44,9 +46,10 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('locations', LocationController::class);
     Route::resource('skills', SkillController::class);
     Route::resource('payments', PaymentController::class);
-    Route::resource('styles', StyleController::class);
+    Route::resource('styles', StyleController::class);        
     Route::resource('classrooms', ClassroomController::class);
     Route::resource('orders', OrderController::class);
+
     Route::get('checkout', [ProfileController::class, 'checkout'])->name('checkout');
     Route::get('catalogue', [ProfileController::class, 'catalogue'])->name('catalogue');
     Route::get('reports', [ProfileController::class, 'reports'])->name('reports');
@@ -56,7 +59,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('webhooks/mollie', [MollieController::class, 'handle'])->name('webhooks.mollie');
 });
 
-Route::get('course/{slug}',[CourseController::class, 'view'])->name('courses.view');
+Route::get('course/{slug}', [CourseController::class, 'view'])->name('courses.view');
 
 Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
 Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');

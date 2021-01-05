@@ -13,7 +13,6 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        // Schema::disableForeignKeyConstraints();
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
@@ -29,7 +28,6 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
         });
 
-        // Schema::enableForeignKeyConstraints();
     }
 
 

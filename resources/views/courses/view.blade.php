@@ -8,9 +8,9 @@
     </x-slot>
 
 
-    <div x-data="{ slideOver:false, openMenu: false }">
+    <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }">
         @include('partials.navbar')
-
+        <x-layouts.slide-over-sidebar-nav />
         <article>
 
             <div class="border-t border-gray-300 pt-15">

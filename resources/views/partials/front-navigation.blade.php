@@ -1,0 +1,125 @@
+<!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600 hover:bg-opacity-75" -->
+<div x-data="{about:false}">
+    <button @click="about=!about"
+        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        About
+    </button>
+    <div x-show="about" class="ml-5">
+        <div>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Our Story
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Instructors
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Values
+            </a>
+        </div>
+    </div>
+</div>
+
+<div x-data="{styles:false}">
+    <button @click="styles=!styles"
+        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        Styles
+    </button>
+    <div x-show="styles" class="ml-5">
+        <div>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                salsa cubana
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white  focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                salsa porto
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                hip hop
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Fusion
+            </a>
+        </div>
+    </div>
+</div>
+
+<div x-data="{courses:false}">
+    <button @click="courses=!courses"
+        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        Courses
+    </button>
+    <div x-show="courses" class="ml-5">
+        <div>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Geneva
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Lausanne
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                France Voisine
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Pricing
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Beginners
+</a>
+
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Workshops
+</a>
+
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Events
+</a>
+
+<div x-data="{business:false}">
+    <button @click="business=!business"
+        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        Business Services
+    </button>
+    <div x-show="business" class="ml-5">
+        <div>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Private Courses
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Company Shows
+            </a>
+            <a href="#"
+                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
+                Corporate classes
+            </a>
+        </div>
+    </div>
+</div>
+
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    FAQ
+</a>
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Contact
+</a>

@@ -2,7 +2,6 @@
 - Email configurations
 - Email confirmations
 - Exports Users
-- Export styles
 - Export Account
 - Convert Catalogue into a livewire component
 - Sync livewire Catalogue component with cart counter
@@ -18,7 +17,14 @@
 - Courses.Update waiting to standby list
 - Add deregister buttom in card
 - change deregister for trash icon
+- fix checkout
+- mollie controllers improvemensts: payments -> mollieTransaction 
+- mollie controllers improvemensts: check if order exist
+- Component: Select box - Users avec icons
 
+# DMS v0.0.7: December 30th, 2020
+* view button in every course component
+* Export styles
 
 # DMS v0.0.6: December 29th, 2020
 * "my courses" Title added to dashboard 
