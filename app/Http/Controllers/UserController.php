@@ -10,6 +10,8 @@ use App\Http\Requests\User\CreateUserRequest as UserCreateUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\CreateNewUser;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -111,5 +113,10 @@ class UserController extends Controller
 
         session()->flash('success', 'User deleted successfully');
         return redirect(route('users.index'));
+    }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.csv');
     }
 }

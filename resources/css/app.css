@@ -6,3 +6,20 @@
 @import 'navigation';
 @import 'buttons';
 @import 'form';
+@import 'slick';
+
+.text-shadow-sm {
+    text-shadow: 0.5px 0.5px 0.5px #000000;    
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 1px #000000;    
+}
+
+.text-shadow-md {
+    text-shadow: 2px 2px 2px #000000;
+}
+
+.text-shadow-lg {
+    text-shadow: 3px 3px 3px #000000;
+}

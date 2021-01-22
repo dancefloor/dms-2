@@ -149,8 +149,9 @@
                         <form action="{{ route('registration.remove', $course)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"
-                                class="text-gray-500 hover:text-gray-700 hover:underline text-center">Deregister</button>
+                            <button type="submit" class="text-gray-500 hover:text-gray-700 hover:underline text-center">
+                                @include('icons.trash')
+                            </button>
                         </form>
                         @endif
                     </td>

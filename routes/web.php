@@ -37,6 +37,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // Auth::routes(['verify' => true]);
 
 Route::get('styles/export', [StyleController::class, 'export'])->name('styles.export');
+Route::get('users/export/', [UserController::class,'export'])->name('users.export');
+Route::get('locations/export/', [LocationController::class, 'export'])->name('locations.export');
+Route::get('classrooms/export/', [ClassroomController::class, 'export'] )->name('classrooms.export');
+Route::get('courses/export/', [CourseController::class, 'export'] )->name('courses.export');
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('users', UserController::class)->middleware('auth');

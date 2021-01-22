@@ -7,6 +7,8 @@ use App\Http\Requests\LocationUpdateRequest;
 use App\Models\Classroom;
 use App\Models\Location;
 use Illuminate\Http\Request;
+use App\Exports\LocationsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LocationController extends Controller
 {
@@ -87,5 +89,10 @@ class LocationController extends Controller
         $location->delete();
 
         return redirect()->route('locations.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new LocationsExport, 'locations.csv');
     }
 }

@@ -6,6 +6,8 @@ use App\Models\Classroom;
 use App\Http\Requests\ClassroomStoreRequest;
 use App\Http\Requests\ClassroomUpdateRequest;
 use Illuminate\Http\Request;
+use App\Exports\ClassroomsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClassroomController extends Controller
 {
@@ -86,5 +88,10 @@ class ClassroomController extends Controller
         $classroom->delete();
 
         return redirect()->route('classrooms.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ClassroomsExport, 'classrooms.csv');
     }
 }

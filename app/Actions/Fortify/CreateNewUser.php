@@ -22,11 +22,15 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
+            'name'          => ['required', 'string', 'max:255'],
+            'lastname'      => ['required', 'string', 'max:255'],
+            'country'       => ['required', 'string', 'max:255'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'facebook'      => ['required', 'unique:users'],
+            'birthday'      => ['required', 'date'],
+            'gender'        => ['required'],
+            'aware_of_df'   => ['required'],
+            'password'      => $this->passwordRules(),
         ])->validate();
         
         return DB::transaction(function () use ($input) {

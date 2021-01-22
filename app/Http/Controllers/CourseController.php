@@ -7,6 +7,8 @@ use App\Http\Requests\CourseStoreRequest;
 use App\Http\Requests\CourseUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Exports\CoursesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
 {
@@ -124,6 +126,13 @@ class CourseController extends Controller
         // dd($course);
         return view('courses.view')->with('course', $course);
     }
+
+    public function export() 
+    {
+        return Excel::download(new CoursesExport, 'courses.csv');
+    }
+
+
 }
 
 

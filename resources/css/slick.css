@@ -1,0 +1,52 @@
+.slider {
+    width: 650px;
+    margin: 0 auto;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0px !important;
+}
+
+.slick-dots{
+    bottom: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    font-size: 10px;
+    color:red !important;
+}
+
+.slick-dots li button:before {
+    font-size: 10px !important;
+    color: white !important;
+}
+
+@media (min-width: 640px) { 
+    #slick .df-bg-image {
+        min-height: 400px;    
+    }
+}
+
+@media (min-width: 768px) { 
+    #slick .df-bg-image {
+        min-height: 500px;    
+    }
+}
+
+@media (min-width: 1024px) { 
+    #slick .df-bg-image {
+        min-height: 600px;    
+    }
+}
+
+@media (min-width: 1280px) { 
+    #slick .df-bg-image {
+        min-height: 700px;    
+    }
+}
+
+@media (min-width: 1536px) { 
+    #slick .df-bg-image {
+        min-height: 750px;    
+    }
+}

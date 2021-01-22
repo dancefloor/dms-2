@@ -66,6 +66,7 @@
                 <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
                 <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
                     :value="old('birthday')" required autofocus autocomplete="birthday" />
+                <p class="text-gray-600 text-xs ">format dd.mm.yyyy</p>
             </div>
 
             <div class="mt-4">
@@ -114,6 +115,9 @@
                         I am a current dancefloor student
                     </option>
                 </select>
+                @error('aware_of_df')
+                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -126,5 +130,6 @@
                 </x-jet-button>
             </div>
         </form>
+        <br>
     </x-jet-authentication-card>
 </x-guest-layout>

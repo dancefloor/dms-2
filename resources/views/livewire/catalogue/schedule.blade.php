@@ -70,7 +70,7 @@
             @foreach ($courses as $course)
             <a href="{{ route('courses.view', $course->slug ) }}">
                 @auth
-                <x-catalogue.course-card :course="$course" :user="Auth()->user()" />
+                <livewire:catalogue.course-card :course="$course" :user="auth()->user()" />
                 @else
                 <x-catalogue.course-card :course="$course" />
                 @endauth
