@@ -23,27 +23,26 @@
                     </div>
                     <h2
                         class="mt-1 text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
-                        Welcome to dancefloor
-                        <br class="hidden md:inline">
-                        <span class="text-red-700">online classes</span>
+                        Welcome to Dancefloor <span class="text-red-700">Studio</span>
                     </h2>
                     <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                        We are a dance school specializing in urban and afro-latin styles. We are based in Geneva,
-                        Switzerland. Dancing is our passion, and fusion is what connect us all together.
+                        We are a dance school specialized in <strong>latin, urban and fusion styles!</strong><br>
+                        With more than 400 students and an international reputation! We wish to share our passion and
+                        give you the tools to progress while having fun!
                     </p>
                     <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
-                        <p class="text-base font-medium text-gray-900">
+                        {{-- <p class="text-base font-medium text-gray-900">
                             #cubansalsa #linesalsa #afrobeats #dancehall #hiphop #andmore
-                        </p>
+                        </p> --}}
+                        <span class="uppercase block text-red-700 font-bold">"Dance & more"</span>
                         <div class="mt-3 sm:flex">
-                            <a href="#live"
-                                class="mt-3 mr-2 md:mr-0 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
-                                Live classes
+                            <a href="#live" class="df-btn-primary">
+                                More about us
                             </a>
-                            <a href="#online"
+                            {{-- <a href="#online"
                                 class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
                                 Online classes
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\RegistrationPaymentConfirmation;
+use App\Mail\PaymentConfirmation;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Registration;
@@ -29,7 +29,7 @@ class MollieController extends Controller
      */
     public function preparePayment()
     {
-        // dd(request()->all());        
+        dd(request()->all());        
 
         $payment = Mollie::api()->payments()->create([
             'amount'        => [
@@ -114,7 +114,7 @@ class MollieController extends Controller
             
             $status = RegistrationManager::updateOrder($pay->order_id);
             
-            // Mail::to(auth()->user()->email)->send(new RegistrationPaymentConfirmation($status)); 
+            Mail::to(auth()->user()->email)->send(new PaymentConfirmation($status)); 
         
             session()->flash('success', 'Payment saved successfully.');
             

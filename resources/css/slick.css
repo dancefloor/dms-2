@@ -8,28 +8,28 @@
 }
 
 .slick-dots{
-    bottom: 10px !important;
+    bottom: 3px !important;
 }
 
 .slick-dots li.slick-active button:before {
-    font-size: 10px;
+    font-size: 14px;
     color:red !important;
 }
 
 .slick-dots li button:before {
-    font-size: 10px !important;
+    font-size: 14px !important;
     color: white !important;
 }
 
 @media (min-width: 640px) { 
     #slick .df-bg-image {
-        min-height: 400px;    
-    }
+        min-height: 550px;    
+    }    
 }
 
 @media (min-width: 768px) { 
     #slick .df-bg-image {
-        min-height: 500px;    
+        min-height: 550px;    
     }
 }
 
@@ -41,12 +41,12 @@
 
 @media (min-width: 1280px) { 
     #slick .df-bg-image {
-        min-height: 700px;    
+        min-height: 650px;    
     }
 }
 
 @media (min-width: 1536px) { 
     #slick .df-bg-image {
-        min-height: 750px;    
+        min-height: 700px;    
     }
 }

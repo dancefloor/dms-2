@@ -20,6 +20,10 @@
 
         @include('partials.landing')
 
+        @include('partials.banner-beginner')
+
+        <x-welcome.video-slider />
+
         <section>
             @include('partials.testimonials')
         </section>
@@ -50,6 +54,39 @@
             dots: true,
             arrows: false,
             adaptiveHeight: true,
+        });
+
+        $('#slick-video').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            responsive:[              
+                {
+                    breakpoint: 1280,
+                    settings: {
+                      slidesToShow: 4,                      
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                      slidesToShow: 3,                      
+                    }
+                },
+                {
+                    breakpoint:  768,
+                    settings: {
+                        slidesToShow: 2,                        
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
         });
     </script>
     @endpush
