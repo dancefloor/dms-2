@@ -1,4 +1,4 @@
-<div class="bg-gray-800">
+<div class="bg-red-800">
     <h1 class="text-6xl font-bold text-white px-14 pt-10">Our students in action!</h1>
     <div class="relative overflow-hidden">
         <div class="hidden lg:block lg:absolute lg:inset-0">
