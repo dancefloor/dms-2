@@ -34,13 +34,22 @@
                         {{-- <p class="text-base font-medium text-gray-900">
                             #cubansalsa #linesalsa #afrobeats #dancehall #hiphop #andmore
                         </p> --}}
-                        <span class="uppercase block text-red-700 font-bold">"Dance & more"</span>
+                        <span class="uppercase block text-red-700 font-bold text-right">"Dance & more"</span>
                         <div class="mt-3 sm:flex">
-                            <a href="#live" class="df-btn-primary">
+                            <a href="#live"
+                                class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-700 shadow-sm hover:bg-red-800 focus:outline-none focus:border-red-800 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto uppercase">
                                 More about us
                             </a>
+                            {{-- <button type="button"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Button text
+                            </button> --}}
+                            {{-- <button type="button"
+                                class="inline-flex items-center  border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Button text
+                            </button> --}}
                             {{-- <a href="#online"
-                                class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
+                                class="">
                                 Online classes
                             </a> --}}
                         </div>
@@ -59,9 +68,9 @@
                         <rect y="72" width="640" height="640" class="text-gray-100" fill="currentColor" />
                         <rect x="118" width="404" height="784" fill="url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)" />
                     </svg>
-                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-lg">
                         <div class="rounded-lg overflow-hidden">
-                            <iframe width="100%" height="250" src="https://www.youtube.com/embed/Ao4kqzU2qEc"
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/Ao4kqzU2qEc"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
