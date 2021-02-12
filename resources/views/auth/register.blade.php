@@ -40,33 +40,36 @@
                     name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-jet-label for="facebook" value="{{ __('Facebook') }}" />
-                <x-jet-input id="facebook" class="block mt-1 w-full" type="text" name="facebook"
-                    :value="old('facebook')" required autofocus autocomplete="facebook" />
-                <p class="text-xs text-gray-500 ml-2">*Required for the private Facebook group.
-                    <button @click="showInfo = !showInfo" type="button" class="underline font-bold">More info</button>
-                </p>
-                <div x-show="showInfo" @click.away="showInfo = false">
-                    @include('partials.auth-alert')
-                </div>
-                @error('facebook')
-                <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
+            <x-jet-input id="facebook" class="block mt-1 w-full" type="text" name="facebook" :value="old('facebook')"
+                required autofocus autocomplete="facebook" />
+            <p class="text-xs text-gray-500 ml-2">*Required for the private Facebook group.
+                <button @click="showInfo = !showInfo" type="button" class="underline font-bold">More info</button>
+            </p>
+            <div x-show="showInfo" @click.away="showInfo = false">
+                @include('partials.auth-alert')
             </div>
+            @error('facebook')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+            </div> --}}
 
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-jet-label for="country" value="{{ __('Country') }}" />
-                <x-jet-input id="country" list="countries" class="block mt-1 w-full" type="text" name="country"
-                    :value="old('country')" required autofocus autocomplete="country" />
-                @include('shared.countries')
-            </div>
+            <x-jet-input id="country" list="countries" class="block mt-1 w-full" type="text" name="country"
+                :value="old('country')" required autofocus autocomplete="country" />
+            @include('shared.countries')
+            </div> --}}
 
             <div class="mt-4">
                 <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
                 <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
                     :value="old('birthday')" required autofocus autocomplete="birthday" />
                 <p class="text-gray-600 text-xs ">format dd.mm.yyyy</p>
+                @error('birthday')
+                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mt-4">

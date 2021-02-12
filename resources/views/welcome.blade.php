@@ -24,6 +24,14 @@
 
         <x-welcome.video-slider />
 
+        @include('partials.banner-advanced')
+
+        @include('partials.banner-locations')
+
+        @include('partials.banner-online')
+
+        @include('partials.banner-dna')
+
         <section>
             @include('partials.testimonials')
         </section>

@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="bg-cover bg-center h-screen df-bg-image"
-            style="background-image: url({{ asset('images/dancefloor-banner-2.jpg') }});">
+            style="background-image: url({{ asset('images/dancefloor-banner-2.png') }});">
             <div class="w-full bg-opacity-25 bg-black flex justify-start items-center df-bg-image">
                 <div class="mx-5 sm:mx-8 md:mx-10 lg:mx-12 xl:mx-20 text-left text-white">
                     <h1
