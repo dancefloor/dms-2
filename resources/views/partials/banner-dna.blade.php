@@ -2,8 +2,8 @@
     <div class="flex justify-end">
         <img src="{{ asset('images/dna/lines.png')}}" alt="" class="mr-10">
     </div>
-    <div class=" container mx-auto my-20">
-        <h1 class="text-6xl ml-5">The dancefloor DNA!</h1>
+    <div class=" mx-20 my-20">
+        <h1 class="text-6xl">The Dancefloor DNA!</h1>
         <div class="grid grid-cols-2 gap-10">
             <div class="col-span-2 sm:col-span-1">
                 <img src="{{ asset('images/banner-dna.jpg')}}" alt="">
