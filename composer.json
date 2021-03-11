@@ -12,15 +12,17 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/cashier-mollie": "^1.0",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.4",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.0",
+        "livewire/livewire": "^2.4.0",
         "maatwebsite/excel": "^3.1",
         "mollie/laravel-mollie": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.9.1",
         "laravel-shift/blueprint": "^1.19",

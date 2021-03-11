@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class CourseDailySchedule extends Component
 {
     public $course;
+    public bool $displayDay;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($course)
+    public function __construct($course, $day = true)
     {
         $this->course = $course;
+        $this->displayDay = $day;
     }
 
     /**

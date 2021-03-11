@@ -29,7 +29,7 @@ class MollieController extends Controller
      */
     public function preparePayment()
     {
-        dd(request()->all());        
+        // dd(request()->all());        
 
         $payment = Mollie::api()->payments()->create([
             'amount'        => [

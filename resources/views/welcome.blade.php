@@ -24,32 +24,37 @@
 
         <x-welcome.video-slider />
 
-        @include('partials.banner-advanced')
-
         @include('partials.banner-locations')
 
-        @include('partials.banner-online')
+        @include('partials.banner-advanced')
 
         @include('partials.banner-dna')
+
+        @include('partials.banner-online')
 
         <section>
             @include('partials.testimonials')
         </section>
 
-        <section id="catalogue" class="bg-gray-100">
+        {{-- <section id="catalogue" class="bg-gray-100">
             <div class="container mx-auto">
                 <livewire:catalogue.schedule />
             </div>
+        </section> --}}
+
+        <section class="flex justify-center bg-white px-3">
+            <x-welcome.faq />
         </section>
+
         @auth
         <x-partials.slide-over />
         @endauth
     </div>
 
-    <section id="about" class="container mx-auto my-20">
+    {{-- <section id="about" class="container mx-auto my-20">
         @include('partials.about')
         <br>
-    </section>
+    </section> --}}
     @push('scripts')
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

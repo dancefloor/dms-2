@@ -52,4 +52,19 @@ class Location extends Model
     {
         return $this->hasMany(Classroom::class);
     }
+
+    public function courses()
+    {
+        return $this->hasManyThrough(Course::class, Classroom::class);
+    }
+    
+    public function scopeCity($query, $city)
+    {
+        return $query->where('city',$city);
+    }
+
+    public function scopeNeighborhood($query, $neighborhood)
+    {
+        return $query->where('city',$neighborhood);
+    }
 }

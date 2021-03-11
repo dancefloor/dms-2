@@ -6,7 +6,7 @@ use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class CourseCard extends Component
+class CourseCard2 extends Component
 {
     public $course;
     public $border = 'border';
@@ -96,6 +96,6 @@ class CourseCard extends Component
 
     public function render()
     {
-        return view('livewire.catalogue.course-card');
+        return view('livewire.catalogue.course-card2');
     }
 }

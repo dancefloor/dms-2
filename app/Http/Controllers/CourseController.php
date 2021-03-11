@@ -120,9 +120,9 @@ class CourseController extends Controller
         return redirect()->route('course.index');
     }
 
-    public function view($slug)
+    public function view(Course $course)
     {
-        $course = Course::where('slug',$slug)->firstOrFail();
+        // $course = Course::where('slug',$slug)->firstOrFail();
         // dd($course);
         return view('courses.view')->with('course', $course);
     }

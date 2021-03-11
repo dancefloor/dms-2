@@ -1,8 +1,12 @@
 <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600 hover:bg-opacity-75" -->
 <div x-data="{about:false}">
     <button @click="about=!about"
-        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
-        About
+        class="w-full text-white group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        <span>About</span>
+        <div>
+            <span x-show="about" class="text-2xl font-bold">-</span>
+            <span x-show="!about" class="text-2xl font-bold">+</span>
+        </div>
     </button>
     <div x-show="about" class="ml-5">
         <div>
@@ -24,22 +28,26 @@
 
 <div x-data="{styles:false}">
     <button @click="styles=!styles"
-        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
-        Styles
+        class="w-full text-white group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        <span>Styles</span>
+        <div>
+            <span x-show="styles" class="text-2xl font-bold">-</span>
+            <span x-show="!styles" class="text-2xl font-bold">+</span>
+        </div>
     </button>
     <div x-show="styles" class="ml-5">
         <div>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                salsa cubana
+                Salsa Cubana
             </a>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white  focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                salsa porto
+                Salsa Porto
             </a>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                hip hop
+                Hip Hop
             </a>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
@@ -51,23 +59,29 @@
 
 <div x-data="{courses:false}">
     <button @click="courses=!courses"
-        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
-        Courses
+        class="w-full text-white group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        <span>
+            Courses
+        </span>
+        <div>
+            <span x-show="courses" class="text-2xl font-bold">-</span>
+            <span x-show="!courses" class="text-2xl font-bold">+</span>
+        </div>
     </button>
     <div x-show="courses" class="ml-5">
         <div>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                Geneva
+                Schedule
             </a>
-            <a href="#"
+            {{-- <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
                 Lausanne
             </a>
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
                 France Voisine
-            </a>
+            </a> --}}
             <a href="#"
                 class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
                 Pricing
@@ -94,8 +108,12 @@
 
 <div x-data="{business:false}">
     <button @click="business=!business"
-        class="w-full text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
-        Business Services
+        class="w-full text-white group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
+        <span>Business Services</span>
+        <div>
+            <span x-show="business" class="text-2xl font-bold">-</span>
+            <span x-show="!business" class="text-2xl font-bold">+</span>
+        </div>
     </button>
     <div x-show="business" class="ml-5">
         <div>

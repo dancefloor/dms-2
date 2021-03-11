@@ -80,19 +80,9 @@
                         {!! $course->teaser_video_3 !!}
                         @endif
 
-
                         {{-- @include('courses.fields.main.default') --}}
                         {{-- @include('courses.fields.main.extra') --}}
 
-                        @if ($course->classroom)
-                        <section>
-                            <br>
-                            <br>
-                            <h3 class="font-semibold text-sm uppercase text-gray-700 block my-2">Location</h3>
-                            {{ $course->classroom->location->name }}
-                            {!! $course->classroom->location->google_maps !!}
-                        </section>
-                        @endif
 
                         @if ($course->teachers->count() > 0)
                         <br>
@@ -112,6 +102,17 @@
                             @endforelse
                         </div>
                         <br>
+                        @endif
+
+
+                        @if ($course->classroom)
+                        <section>
+                            <br>
+                            <br>
+                            <h3 class="font-semibold text-sm uppercase text-gray-700 block my-2">Location</h3>
+                            {{ $course->classroom->location->name }}
+                            {!! $course->classroom->location->google_maps !!}
+                        </section>
                         @endif
 
                     </div>

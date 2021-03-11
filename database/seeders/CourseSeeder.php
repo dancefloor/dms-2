@@ -236,13 +236,6 @@ class CourseSeeder extends Seeder
         $c10->classroom()->associate(11)->save();       // Holmes  
 
 
-
-
-
-
-
-
-
         // Mardi  --------------------------------------------------------///////////
         $c11 = Course::create([
             'name' => 'Salsa cubaine',

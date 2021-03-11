@@ -106,17 +106,14 @@ class Course extends Model
 
     public function getformattedPriceAttribute()
     {
-
         $format = new \NumberFormatter('fr_CH', \NumberFormatter::CURRENCY);
         return $format->formatCurrency($this->full_price, 'CHF');
     }
 
     public function styles()
     {
-
         return $this->belongsToMany(Style::class);
     }
-
 
     public function students()
     {
@@ -178,10 +175,10 @@ class Course extends Model
     }
 
     public function scopeLevel($query, $level)
-    {
-        if (!empty($level)) {
+    {        
+        if (!empty($level)) {                
             return $query->where('level', $level);
-        }
+        }        
         return $query;
     }
 
@@ -203,10 +200,10 @@ class Course extends Model
         return $query;
     }
 
-    public function scopeLocation($query, $location)
+    public function scopeClassroom($query, $classroom)
     {
-        if (!empty($location)) {
-            return $query->where('classroom_id', $location);
+        if (!empty($classroom)) {
+            return $query->where('classroom_id', $classroom);
         }
         return $query;
     }
@@ -217,6 +214,21 @@ class Course extends Model
             return $query->where($day, '1');
         }
         return $query;
+    }
+
+    public function scopeCity($query, $city)
+    {    
+        if (!empty($city)) {            
+            return $query->whereHas('classroom.location', function (Builder $qCity) use ($city) {
+                $qCity->where('city', $city);
+            });
+        }
+        return $query;
+    }
+
+    public function getNeighbourhoodAttribute()
+    {
+        return $this->classroom->location->neighborhood ?? '';
     }
 
 

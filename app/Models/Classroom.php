@@ -48,4 +48,9 @@ class Classroom extends Model
     {
         return $this->belongsTo(\App\Models\Location::class);
     }
+
+    public function getAgeAttribute()
+    {
+        return $this->slug;
+    }
 }

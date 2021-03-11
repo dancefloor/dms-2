@@ -4,8 +4,10 @@
         <table>
             @foreach ($dailySchedule as $item)
             <tr>
-                <td>{{ $item['day'] }}</td>
-                <td class="pl-3">{{ $item['start_time'] }}</td>
+                @if ($displayDay)
+                <td class="pr-3">{{ $item['day'] }}</td>
+                @endif
+                <td>{{ $item['start_time'] }}</td>
                 <td>- {{ $item['end_time'] }}</td>
             </tr>
             @endforeach

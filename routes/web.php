@@ -13,6 +13,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\StyleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,15 +27,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
+Route::get('/courses/geneva', [WelcomeController::class, 'genevaCourses'])->name('geneva.courses');
+Route::get('/courses/lausanne', [WelcomeController::class, 'lausanneCourses'])->name('lausanne.courses');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('profile/dashboard');
 })->name('dashboard');
-
-// Auth::routes(['verify' => true]);
 
 Route::get('styles/export', [StyleController::class, 'export'])->name('styles.export');
 Route::get('users/export/', [UserController::class,'export'])->name('users.export');
@@ -63,7 +62,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('webhooks/mollie', [MollieController::class, 'handle'])->name('webhooks.mollie');
 });
 
-Route::get('course/{slug}', [CourseController::class, 'view'])->name('courses.view');
+// Route::get('course/{slug}', [CourseController::class, 'view'])->name('courses.view');
+Route::get('course/{course}', [CourseController::class, 'view'])->name('courses.view');
 
 Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
 Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');
