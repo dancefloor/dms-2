@@ -12,7 +12,9 @@ class CourseCard2 extends Component
     public $border = 'border';
     public $user;
     public $text;
-
+    public $style;
+    public $period;
+    
     public function deregister(Course $course)
     {        
         $course->students()->detach(auth()->user()->id);
@@ -28,27 +30,26 @@ class CourseCard2 extends Component
     {
         $uid = auth()->user()->id;   
 
-        // if ($this->registrationExists($uid, $course->id)) {
-        //     session()->flash('alert', 'You are already registered for this course');
-        //     return redirect()->back();
-        // }
-
         $course->students()->attach($uid, ['role'=>'student', 'status'=>'pre-registered', 'created_at'=> now()]);
         
-        session()->flash('pre-registered', 'You have successfully pre-register. Please proceed to pay on your ');
+        session()->flash('sucess', 'You have successfully pre-register. Please proceed to pay on your ');
 
         $this->design(auth()->user()->registrationStatus($course->id));
+        
         $this->emit('cartCountRefresh'); 
     }
 
 
-    public function mount($course, $user = null)
-    {
+    public function mount($course, $user = null, $style = null, $period = null)
+    {        
         $this->course = $course;        
         if (Auth::check()) {
             $this->user = $user;
             
             $this->design($user->registrationStatus($this->course->id));
+        }else{
+            $this->border = 'border border-gray-200 bg-white';
+            $this->text = 'text-gray-400';
         }
     }
 
@@ -56,7 +57,7 @@ class CourseCard2 extends Component
     {
         switch ($status) {
             case 'pre-registered':
-                $this->border = 'border-orange-500 border-2';
+                $this->border = 'border-orange-500 border-2 bg-white';
                 $this->text = 'text-orange-600';
                 break;
             case 'waiting':
@@ -88,7 +89,7 @@ class CourseCard2 extends Component
                 $this->text = 'text-gray-400';
                 break;
             default:
-                $this->border = 'border border-gray-200 bg-gray-100';
+                $this->border = 'border border-gray-200 bg-white';
                 $this->text = 'text-gray-400';
                 break;
         }

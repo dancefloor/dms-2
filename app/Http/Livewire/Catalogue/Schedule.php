@@ -10,7 +10,7 @@ class Schedule extends Component
     public $style;
     public $level;
     public $focus;
-    public $location;
+    // public $location;
     public $day;
 
     public function render()
@@ -20,7 +20,7 @@ class Schedule extends Component
                 ->level($this->level)
                 ->daysOfWeek($this->day)
                 ->focus($this->focus)
-                ->location($this->location)
+                // ->location($this->location)
                 ->orderBy('start_time_mon','asc')
                 ->orderBy('start_time_tue','asc')
                 ->orderBy('start_time_wed','asc')

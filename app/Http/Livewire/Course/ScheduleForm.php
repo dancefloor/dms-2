@@ -31,9 +31,14 @@ class ScheduleForm extends Component
     public $sunday;
     public $start_time_sun;
     public $end_time_sun;
+    public $duration;
 
     public function updateSchedule()
     {
+        $this->validate([                        
+            'duration' => 'nullable|date_format:H:i',        
+        ]);
+
         $this->course->update([
             'start_date'    => $this->start_date,
             'end_date'      => $this->end_date,
@@ -57,7 +62,8 @@ class ScheduleForm extends Component
             'end_time_sat'  => $this->end_time_sat,
             'sunday'        => $this->sunday,
             'start_time_sun'=> $this->start_time_sun,
-            'end_time_sun'  => $this->end_time_sun,
+            'end_time_sun'  => $this->end_time_sun, 
+            'duration'    => $this->duration,
         ]);
 
         session()->flash('success','Schedule updated successfully.');
@@ -96,6 +102,8 @@ class ScheduleForm extends Component
         $this->sunday           = $course->sunday;
         $this->start_time_sun   = $course->start_time_sun;
         $this->end_time_sun     = $course->end_time_sun;
+
+        $this->duration       = $course->duration;
     }
 
     public function render()

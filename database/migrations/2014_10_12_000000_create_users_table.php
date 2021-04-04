@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('work_status')->default('working');
             $table->string('unemployement_proof')->nullable();
             $table->date('unemployement_expiry_date')->nullable();
+            $table->boolean('work_status_verified')->nullable();
             $table->decimal('price_hour')->nullable();
 
             $table->string('mobile')->nullable();            

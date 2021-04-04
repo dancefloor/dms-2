@@ -2,7 +2,6 @@
     <div class="col-span-4 sm:col-span-2">
 
 
-        <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
         <div
             class="@auth {{ $course->hasStudent(Auth::user()->id) ? $border : '' }} @endauth m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden bg-white">
             {{-- <div class="p-3"> --}}

@@ -6,6 +6,9 @@
         <section id="catalogue" class="bg-gray-100 py-16">
             <div class="container mx-auto">
                 <h1 class="text-5xl font-semibold mt-8">Geneva</h1>
+                @auth
+                <x-partials.reduced-price-notification />
+                @endauth
                 <livewire:catalogue.daily-schedule />
             </div>
         </section>

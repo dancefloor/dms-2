@@ -67,7 +67,62 @@
 
                         <div class="grid grid-cols-6 gap-6 mt-6">
 
+
+                            <div class="col-span-6 sm:col-span-2">
+                                <label for="work_status" class="df-form-label">Work status</label>
+                                <select id="work_status" class="form-select df-form-select" wire:model="work_status">
+                                    <option disabled selected>Select</option>
+                                    <option value="working" {{$work_status == 'working' ? 'selected':''}}>
+                                        Working
+                                    </option>
+                                    <option value="student" {{$work_status == 'student' ? 'selected':''}}>Student
+                                    </option>
+                                    <option value="unemployed" {{$work_status == 'unemployed' ? 'selected':''}}>
+                                        Unemployed
+                                    </option>
+                                    {{-- <option value="retired" {{$work_status == 'retired' ? 'selected':''}}>
+                                    Retired
+                                    </option> --}}
+                                </select>
+                            </div>
+
+
+
+
+                            @if ($work_status != 'working')
                             <div class="col-span-6 sm:col-span-3">
+                                <label for="unemployementProof" class="df-form-label">Unemployement proof</label>
+                                <input type="file" class="mt-1" wire:model="unemployementProof">
+                                @error('unemployementProof')
+                                {{ $message}}
+                                @enderror
+                                @if ($unemployementProof)
+                                {{ $unemployementProof }}
+                                @endif
+                            </div>
+                            @can('crud_users')
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="unemployement_expiry_date" class="df-form-label">Unemployement expiry
+                                    date</label>
+                                <input id="unemployement_expiry_date" class="form-input df-form-input" type="date"
+                                    wire:model="unemployement_expiry_date">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="workStatusVerified" class="df-form-label">
+                                    Verification
+                                </label>
+                                <div class="mt-2">
+                                    <input id="workStatusVerified" class="df-form-checkbox" type="checkbox"
+                                        wire:model="workStatusVerified"><span class="text-gray-600 ml-2">Work status
+                                        verified</span>
+                                </div>
+                            </div>
+                            @endcan
+                            @endif
+
+
+
+                            <div class="col-span-6 sm:col-span-3 sm:col-start-1">
                                 <label for="aware_of_df" class="block text-sm font-medium leading-5 text-gray-700">
                                     How did you learn about us?
                                 </label>
@@ -103,43 +158,16 @@
                                 </select>
                             </div>
 
-                            @can('edit_users')
-                            <div class="col-span-6 sm:col-span-2">
-                                <label for="work_status" class="df-form-label">Work status</label>
-                                <select id="work_status" class="form-select df-form-select" wire:model="work_status">
-                                    <option disabled selected>Select</option>
-                                    <option value="working" {{$work_status == 'working' ? 'selected':''}}>
-                                        Working
-                                    </option>
-                                    <option value="student" {{$work_status == 'student' ? 'selected':''}}>Student
-                                    </option>
-                                    <option value="unemployed" {{$work_status == 'unemployed' ? 'selected':''}}>
-                                        Unemployed
-                                    </option>
-                                </select>
-                            </div>
 
                             <div class="col-span-6 sm:col-span-1">
                                 <label for="price_hour" class="df-form-label">Price per hour</label>
                                 <input id="price_hour" class="form-input df-form-input" type="number"
                                     wire:model="price_hour">
                             </div>
-
-
-                            @if ($work_status != 'working')
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="unemployement_proof" class="df-form-label">Unemployement proof</label>
-                                <input type="file" class="mt-1" wire:model="unemployement_proof">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="unemployement_expiry_date" class="df-form-label">Unemployement expiry
-                                    date</label>
-                                <input id="unemployement_expiry_date" class="form-input df-form-input" type="date"
-                                    wire:model="unemployement_expiry_date">
-                            </div>
+                            @if (auth()->user()->isInstructor())
                             @endif
-                            @endcan
+
+
 
 
                         </div>

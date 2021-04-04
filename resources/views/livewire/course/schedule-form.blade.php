@@ -16,14 +16,21 @@
                         <x-shared.alert />
 
                         <div class="grid grid-cols-6 gap-6">
-                            <div class="col-span-6 sm:col-span-3">
+                            <div class="col-span-6 sm:col-span-2">
                                 <label for="start_date" class="df-form-label">Start date</label>
                                 <input wire:model="start_date" class="df-form-input" type="date">
                             </div>
 
-                            <div class="col-span-6 sm:col-span-3">
+                            <div class="col-span-6 sm:col-span-2">
                                 <label for="end_date" class="df-form-label">End date</label>
                                 <input wire:model="end_date" class="df-form-input" type="date">
+                            </div>
+                            <div class="col-span-6 sm:col-span-2">
+                                <label for="duration" class="df-form-label">Duration</label>
+                                <input wire:model="duration" class="df-form-input" type="time">
+                                @error('duration')
+                                {{ $message }}
+                                @enderror
                             </div>
 
                             <div class="col-span-6 mb-4">

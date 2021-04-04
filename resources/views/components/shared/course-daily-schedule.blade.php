@@ -1,4 +1,4 @@
-<div class="text-gray-600 text-sm mb-1">
+<div class="text-gray-600 text-sm">
     <span class="inline-flex items-start">
         @include('icons.time', ['style' => 'w-4 mr-2 mt-1'])
         <table>

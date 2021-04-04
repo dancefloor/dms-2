@@ -28,8 +28,8 @@ class OrderPriceCalculator
     public static function getTotal($subtotal, $discount = 0, $commission = 0)
     {
         // https://laracasts.com/discuss/channels/general-discussion/number-to-2-decimal-placed-blade
-        
-        return number_format(floatval($subtotal) - $discount + $commission, 2, '.', "'");
+        $reducedDiscount = auth()->user()->work_status != 'working' ? 20:0;
+        return number_format(floatval($subtotal) - $discount + $commission - $reducedDiscount, 2, '.', "'");
         
         //return number_format($subtotal, 2, '.', ',');
         // return $subtotal;

@@ -68,6 +68,7 @@ class Course extends Model
         'online_link',
         'to_waiting',
         'user_id',
+        'duration'
     ];
 
     /**

@@ -69,11 +69,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             @foreach ($courses as $course)
             <a href="{{ route('courses.view', $course->slug ) }}">
-                @auth
-                <livewire:catalogue.course-card :course="$course" :user="auth()->user()" />
-                @else
-                <x-catalogue.course-card :course="$course" />
-                @endauth
+                {{-- @auth --}}
+                <livewire:catalogue.course-card2 :course="$course" :user="auth()->user()" />
+                {{-- @else --}}
+                {{-- <x-catalogue.course-card :course="$course" /> --}}
+                {{-- @endauth --}}
             </a>
             @endforeach
         </div>

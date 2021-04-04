@@ -60,6 +60,8 @@ class CreateCoursesTable extends Migration
             $table->string('level')->nullable();
             $table->string('level_number')->nullable();
             
+            $table->time('duration')->nullable();            
+
             $table->text('teaser_video_1')->nullable();
             $table->text('teaser_video_2')->nullable();
             $table->text('teaser_video_3')->nullable();

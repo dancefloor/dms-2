@@ -55,75 +55,60 @@
         </select>
     </div> --}}
 </div>
+
+@if (session()->has('success'))
+<x-partials.flash-message type="alert" />
+@endif
+
 <section class="mt-5">
     <div class="flex  gap-2">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             @forelse ($courses as $course)
 
-            <a href="{{ route('courses.view', $course ) }}" wire:key="course-card-{{ $course->id }}">
+            <a href="{{ route('courses.view', $course ) }}" wire:key="{{ $loop->index }}">
                 <div class="col-span-4 sm:col-span-2">
-                    <div
-                        class="@auth {{ $course->hasStudent(Auth::user()->id) ? $border : '' }} @endauth m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden bg-white">
-                        <div class="px-3 pt-3 pb-1">
-                            <div class="flex justify-between items-center">
-                                <h3 class="capitalize text-base font-bold">{{ $course->name }}</h3>
-                                <span class="text-sm font-extrabold mt-1 w-20 text-right">
-                                    CHF {{ $course->full_price }}
-                                </span>
-                            </div>
-                            <div class="w-full text-gray-600 text-sm mb-2">
-                                {{ $course->tagline}}
-                            </div>
-                            <x-shared.course-daily-schedule :course="$course" day="0" />
-
-                            <div class="flex justify-between text-sm text-gray-600 mb-1">
-                                <span class="inline-flex items-center">
-                                    <x-partials.level-icon level="{{ $course->level }}" />
-                                    {{ $course->level }}
-                                </span>
-                            </div>
-                            <div class="flex justify-between text-sm text-gray-600 my-1">
-                                <span class="inline-flex items-center">
-                                    @include('icons.geo-fill', ['style'=>'w-4 mr-2'])
-                                    {{ $course->neighbourhood ?? '' }}
-                                </span>
-                            </div>
-
-                            @if (count($course->teachers) > 0)
-                            <div>
-                                @if ($course->teachers->count() < 3) <section>
-                                    @foreach ($course->teachers as $teacher)
-                                    <div class="inline-flex items-center mr-2 my-2">
-                                        <img src="{{$teacher->profile_photo_url}}" alt="" class="w-8 rounded-full">
-                                        <span class="truncate ml-1 text-sm text-600">{{ $teacher->name }}</span>
-                                    </div>
-                                    @endforeach
-</section>
-@else
-<div class="inline-flex items-center mr-2 my-2">
-    <img src="{{ asset('images/dancefloor-logo-black.png')}}" alt="" class="w-8 rounded-full">
-    <span class="truncate ml-1">Dancefloor Team</span>
-</div>
-@endif
-</div>
-@endif
-
-
-</div>
-
-</div>
-</div>
-@auth
-{{-- <livewire:catalogue.course-card2 :course="$course" :user="auth()->user()" /> --}}
-@else
-{{-- <x-catalogue.course-card2 :course="$course" /> --}}
-@endauth
-</a>
-@empty
-<div class="bg-white flex justify-center py-10 border font-semibold rounded-lg">
-    No courses found
-</div>
-@endforelse
-</div>
+                    <livewire:catalogue.course-card2 :course="$course" :user="auth()->user()" style="1" period="1"
+                        :key="$loop->index" />
+                </div>
+            </a>
+            @empty
+            <div class="bg-white flex justify-center py-10 border font-semibold rounded-lg">
+                No courses found
+            </div>
+            @endforelse
+        </div>
 </section>
 </div>
+
+
+{{-- <div class="{{ $border }} m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden bg-white">
+<div class="px-3 pt-3 pb-1">
+    <div class="flex justify-between items-center">
+        <h3 class="capitalize text-base font-bold">{{ $course->name }}</h3>
+        <span class="text-sm font-extrabold mt-1 w-20 text-right">
+            CHF {{ $course->full_price }}
+        </span>
+    </div>
+    <div class="w-full text-gray-600 text-sm mb-2">
+        {{ $course->tagline}}
+    </div>
+    <x-shared.course-daily-schedule :course="$course" day="0" />
+
+    <div class="flex justify-between text-sm text-gray-600 mb-1">
+        <span class="inline-flex items-center">
+            <x-partials.level-icon level="{{ $course->level }}" />
+            {{ $course->level }}
+        </span>
+    </div>
+    <div class="flex justify-between text-sm text-gray-600 my-1">
+        <span class="inline-flex items-center">
+            @include('icons.geo-fill', ['style'=>'w-4 mr-2'])
+            {{ $course->neighbourhood ?? '' }}
+        </span>
+    </div>
+
+
+
+</div>
+
+</div> --}}

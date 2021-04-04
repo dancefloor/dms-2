@@ -31,7 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name', 'lastname', 'email', 'password',
         'gender', 'profession', 'branch', 'birthday', 'biography',
-        'aware_of_df', 'work_status', 'price_hour', 'unemployement_proof', 'unemployement_expiry_date',
+        'aware_of_df', 'work_status', 'price_hour', 'unemployement_proof', 'unemployement_expiry_date', 'work_status_verified',
         'address', 'address_info', 'city', 'state', 'postal_code', 'country',
         'facebook', 'instagram', 'twitter', 'youtube', 'snapchat', 'linkedin', 'tiktok', 'pinterest',
         'mobile', 'phone', 'mobile_verified_at', 'phone_verified_at', 'skype'

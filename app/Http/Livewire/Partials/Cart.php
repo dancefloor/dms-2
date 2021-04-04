@@ -26,8 +26,7 @@ class Cart extends Component
     {
         $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);          
         $this->count = count(Auth::user()->pendingCourses);
-        // $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);
-        $this->discount = 0;        
+        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);        
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);                
         $this->discountText = OrderPriceCalculator::getDiscountText($this->count);
         $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses);             

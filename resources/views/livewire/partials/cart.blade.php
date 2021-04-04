@@ -38,7 +38,7 @@
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    CHF {{ $item->full_price }}
+                                    {{ $item->full_price }}
                                 </td>
                                 <td class="pr-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
@@ -63,6 +63,13 @@
     </div>
 
     <br>
+
+    @if (auth()->user()->work_status == 'working')
+    <span>
+        if you are student or unemployed please let know by updating your profile and by sending us proof to
+        support@dms.com or phone 123132432
+    </span>
+    @endif
 
     <div class="grid grid-cols-6 gap-4">
         <div class="col-span-6 md:col-span-2">
@@ -119,16 +126,27 @@
                     </td>
                     </tr> --}}
 
-                    {{-- @if ($count > 1)
+                    @if ($count > 1)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Discount
                             ({{ $discountText }})</td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        CHF {{ $discount }}
-                    </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            CHF {{ $discount }}
+                        </td>
                     </tr>
-                    @endif --}}
+                    @endif
+
+                    @if (auth()->user()->work_status != 'working')
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            Reduced price discount
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            CHF 20.-
+                        </td>
+                    </tr>
+                    @endif
 
 
                     @if ($method == 'credit-card' || $method == 'paypal')
