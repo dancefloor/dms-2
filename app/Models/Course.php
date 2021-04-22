@@ -154,6 +154,14 @@ class Course extends Model
         return in_array($id, $this->students()->pluck('user_id')->toArray());
     }
 
+    public function confirmedStudents()
+    {
+        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')
+            ->using(Registration::class)
+            ->withPivot('role', 'status')            
+            ->wherePivot('status','processing')
+            ->wherePivot('role','student');
+    }
 
     public function scopeLiveCourses($query)
     {

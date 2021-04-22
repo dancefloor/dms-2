@@ -17,6 +17,6 @@
         </div>
     </x-slot>
     <section class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <livewire:payment.form action="create" />
+        <livewire:payment.form action="create" uid="{{ $user }}" oid="{{ $order }}" />
     </section>
 </x-app-layout>

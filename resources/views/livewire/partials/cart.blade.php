@@ -1,4 +1,10 @@
 <section id="cart">
+    @if (auth()->user()->work_status == 'working')
+    <div class="mb-6">
+        <x-partials.reduced-price-notification />
+    </div>
+    @endif
+
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -63,49 +69,41 @@
     </div>
 
     <br>
-
-    @if (auth()->user()->work_status == 'working')
-    <span>
-        if you are student or unemployed please let know by updating your profile and by sending us proof to
-        support@dms.com or phone 123132432
-    </span>
-    @endif
-
     <div class="grid grid-cols-6 gap-4">
         <div class="col-span-6 md:col-span-2">
-            {{-- <h2 class="text-lg font-medium text-gray-900 inline-flex items-center">Payment methods</h2>
+            <h2 class="text-lg font-medium text-gray-900 inline-flex items-center">Payment methods</h2>
             <div class="{{ $method == 'credit-card' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
-            <label for="method" class="inline-flex items-center">
-                <input type="radio" name="method" value="credit-card" class="text-center" wire:model="method">
-                <span class="ml-2">Credit Card</span>
-                <span class="text-sm italic text-gray-700 ml-2">(+ 5CHF)</span>
-            </label>
-        </div>
-        <div class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
-            <label for="method" class="inline-flex items-center">
-                <input type="radio" name="method" value="bank-transfer" class="text-center" wire:model="method">
-                <span class="ml-2">Bank transfer</span>
-            </label>
-        </div>
-        <div class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
-            <label for="method" class="inline-flex items-center">
-                <input type="radio" name="method" value="revolut" class="text-center" wire:model="method">
-                <span class="ml-2">Revolut</span>
-            </label>
-        </div>
-        <div class="{{ $method == 'paypal' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="credit-card" class="text-center" wire:model="method">
+                    <span class="ml-2">Credit Card</span>
+                    <span class="text-sm italic text-gray-700 ml-2">(CHF 0.30 + 2.8%)</span>
+                </label>
+            </div>
+            <div class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="bank-transfer" class="text-center" wire:model="method">
+                    <span class="ml-2">Bank transfer</span>
+                </label>
+            </div>
+            <div class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="revolut" class="text-center" wire:model="method">
+                    <span class="ml-2">Revolut</span>
+                </label>
+            </div>
+            {{-- <div class="{{ $method == 'paypal' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
             <label for="method" class="inline-flex items-center">
                 <input type="radio" name="method" value="paypal" class="text-center" wire:model="method">
                 <span class="ml-2">Paypal </span>
-                <span class="text-sm italic text-gray-700 ml-2">(3,4 % + 0,55 CHF)</span>
-            </label>
-        </div>
-        <div class="{{ $method == 'cash' ? 'bg-gray-100': 'bg-gray-50' }} rounded-lg py-2 px-3">
-            <label for="method" class="inline-flex items-center">
-                <input type="radio" name="method" value="cash" class="text-center" wire:model="method">
-                <span class="ml-2">Cash</span>
+                <span class="text-sm italic text-gray-700 ml-2">(€0.10 % + 3.40% + 0.55CHF)</span>
             </label>
         </div> --}}
+        {{-- <div class="{{ $method == 'cash' ? 'bg-gray-100': 'bg-gray-150' }} rounded-lg py-2 px-3">
+        <label for="method" class="inline-flex items-center">
+            <input type="radio" name="method" value="cash" class="text-center" wire:model="method">
+            <span class="ml-2">Cash</span>
+        </label>
+    </div> --}}
     </div>
     <div class="col-span-6 md:col-span-4">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -172,21 +170,21 @@
         </div>
         <br>
 
-        {{-- @if ($method == 'bank-transfer')
+        @if ($method == 'bank-transfer')
         @include('partials.payment-method.bank-transfer')
         @endif
         @if ($method == 'revolut')
         @include('partials.payment-method.revolut')
         @endif
-        @if ($method == 'paypal')
+        {{-- @if ($method == 'paypal')
         @include('partials.payment-method.paypal')
-        @endif
-        @if ($method == 'cash')
+        @endif --}}
+        {{-- @if ($method == 'cash')
         @include('partials.payment-method.cash')
         @endif --}}
 
 
-        {{-- @if ($method == 'credit-card') --}}
+        @if ($method == 'credit-card')
         <div class="flex justify-end">
             <a class="df-btn-primary" href="{{ route('mollie.payment', [
                         'amount'    => $total, 
@@ -203,39 +201,47 @@
                 <span class="ml-2">Pay by Credit Card</span>
             </a>
         </div>
-        {{-- @endif --}}
+        @endif
 
         <br>
 
-        {{-- <form
-            action="{{ route('orders.store',['courses' => auth()->user()->pendingCourses()->pluck('course_id')->toArray(), 'user' => Auth::id() ]) }}"
-        method="post">
-        @csrf
-        <input type="hidden" value="{{ $total }}" name="total">
-        <input type="hidden" value="{{ $discount }}" name="discount">
-        <input type="hidden" value="{{ $subtotal }}" name="subtotal">
-        <input type="hidden" value="{{ $method }}" name="method">
-        @if ($method == 'bank-transfer')
-        <button type="submit" class="df-btn-primary">
-            Pay by Bank Transfer
-        </button>
-        @endif
-        @if ($method == 'revolut')
-        <button type="submit" class="df-btn-primary">
-            Pay with Revolut
-        </button>
-        @endif
-        @if ($method == 'paypal')
-        <button type="submit" class="df-btn-primary">
-            Pay by PayPal
-        </button>
-        @endif
-        @if ($method == 'cash')
-        <button type="submit" class="df-btn-primary">
-            @include('icons.checkout')
-            <span class="ml-2">Pay in cash</span>
-        </button>
-        @endif
-        </form> --}}
+        <form wire:submit.prevent="storeOrder">
+            @csrf
+            @method('POST')
+            <input type="hidden" value="{{ $total }}" name="total">
+            <input type="hidden" value="{{ $discount }}" name="discount">
+            <input type="hidden" value="{{ $subtotal }}" name="subtotal">
+            <input type="hidden" value="{{ $method }}" name="method">
+            @if ($method == 'bank-transfer')
+            <div class="flex justify-end">
+                <button type="submit" class="df-btn-primary">
+                    Pay by Bank Transfer
+                </button>
+            </div>
+            @endif
+            @if ($method == 'revolut')
+            <div class="flex justify-end">
+                <button type="submit" class="df-btn-primary">
+                    Pay with Revolut
+                </button>
+            </div>
+            @endif
+            @if ($method == 'paypal')
+            <div class="flex justify-end">
+                <button type="submit" class="df-btn-primary">
+                    Pay by PayPal
+                </button>
+            </div>
+            @endif
+            @if ($method == 'cash')
+            <div class="flex justify-end">
+                <button type="submit" class="df-btn-primary">
+                    @include('icons.checkout')
+                    <span class="ml-2">Pay in cash</span>
+                </button>
+            </div>
+            @endif
+        </form>
+        {{-- <x-partials.payment-method-checkout /> --}}
     </div>
 </section>

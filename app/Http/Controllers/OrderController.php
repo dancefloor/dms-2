@@ -13,8 +13,9 @@ class OrderController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request)    
     {
+        
         $orders = Order::all();
 
         return view('order.index', compact('orders'));
@@ -35,6 +36,7 @@ class OrderController extends Controller
      */
     public function store(OrderStoreRequest $request)
     {
+        dd('I am in the order controller!');
         $order = Order::create($request->validated());
 
         $request->session()->flash('order.id', $order->id);
@@ -86,5 +88,12 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->route('order.index');
+    }
+
+    public function confirmation(Request $request)
+    {
+        // dd($request->order);
+        $order = Order::find($request->order);
+        return view('pages.order-completed')->with('order', $order);
     }
 }

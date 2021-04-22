@@ -84,7 +84,7 @@ class Form extends Component
             RegistrationManager::registrationToOpen($registration->id);
         }
 
-        session()->flash('success', 'Order updated successfully.');
+        session()->flash('success', 'Order created successfully.');
 
         return redirect()->route('orders.index');
     }

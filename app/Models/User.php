@@ -141,6 +141,7 @@ class User extends Authenticatable implements MustVerifyEmail
             ->withTimestamps();
     }
 
+
     public function payedCourses()
     {
         return $this->belongsToMany(Course::class, 'registrations', 'user_id', 'course_id')
@@ -248,6 +249,11 @@ class User extends Authenticatable implements MustVerifyEmail
         } else {
             return false;
         }
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(\App\Models\Order::class);
     }
     
 }

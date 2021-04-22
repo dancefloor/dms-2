@@ -2,10 +2,15 @@
 
 namespace App\Http\Livewire\Partials;
 
+use App\Mail\OrderRegistrationConfirmation;
 use App\Models\Course;
+use App\Models\Order;
+use App\Models\Registration;
 use Livewire\Component;
 use App\Services\OrderPriceCalculator;
+use App\Services\RegistrationManager;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class Cart extends Component
 {
@@ -30,6 +35,44 @@ class Cart extends Component
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);                
         $this->discountText = OrderPriceCalculator::getDiscountText($this->count);
         $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses);             
+    }
+
+    public function storeOrder()
+    {
+        $order = Order::create([
+            'subtotal' => $this->subtotal,
+            'vat' => null,
+            'discount' => $this->discount,
+            'coupon_code' => null,
+            'total' => $this->total,
+            'comments' => null,
+            'status' => 'open',
+            'user_id' => auth()->user()->id,
+            'author_id' => auth()->user()->id,
+        ]);
+
+        $courses = auth()->user()->pendingCourses()->pluck('course_id')->toArray();        
+        if ($courses) {                
+            $order->courses()->attach($courses);         
+            foreach ($courses as $id) {
+                $registration = Registration::where('course_id', $id)
+                    ->where('user_id', auth()->user()->id)
+                    ->where('role', 'student')
+                    ->first();                                            
+
+                $registration->status = 'processing';
+                $registration->save();
+                $order->status = 'open';                 
+                $order->save();
+                $order->registrations()->save($registration);
+                // RegistrationManager::registrationToOpen($registration->id);
+            }                  
+        }
+                
+        session()->flash('sucess','success');
+        Mail::to(auth()->user()->email)->send(new OrderRegistrationConfirmation($order->status)); 
+        
+        return redirect()->route('order.confirmation', ['order' => $order]);
     }
 
     public function updatedMethod($value)

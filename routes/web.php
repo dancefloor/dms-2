@@ -14,6 +14,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\StyleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,4 +68,12 @@ Route::get('course/{course}', [CourseController::class, 'view'])->name('courses.
 
 Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
 Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');
+
+Route::get('order/confirmation',[OrderController::class,'confirmation'])->name('order.confirmation');
+
+Route::get('test', function(){    
+    return App\Models\User::whereHas('orders', function (Builder $query){
+        $query->where('status','open');
+    })->get();
+});
 

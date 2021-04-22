@@ -26,7 +26,22 @@ class PaymentController extends Controller
      */
     public function create(Request $request)
     {
-        return view('payment.create');
+        $user = null;
+        $order = null;
+        
+
+        if ($request->user) {
+            $user = $request->user;
+        }
+
+        if ($request->order) {
+            $order = $request->order;
+        }
+        
+        return view('payment.create', [
+            'user'  => $user,
+            'order' => $order
+        ]);
     }
 
     /**

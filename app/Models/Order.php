@@ -81,8 +81,16 @@ class Order extends Model
         return $query->whereStatus('open');
     }
 
+    public function scopeByUserID($query, $id)
+    {
+        if (!empty($id)) {
+            $query->where('user_id',$id);
+        }
+        return $query;
+    }
+
     public function scopeIsUnpaid($query)
     {
-        return $query->where('status','open')->orWhere('status','partial')->get();
+        return $query->where('status','open')->orWhere('status','partial');
     }
 }

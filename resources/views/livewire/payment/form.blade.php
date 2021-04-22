@@ -17,9 +17,9 @@
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="user_id" class="df-form-label">User</label>
                                 <select wire:model.lazy="user_id" class="form-select df-form-select">
-                                    <option></option>
-                                    @foreach (\App\Models\User::all() as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }} {{ $user->lastname }}</option>
+                                    <option value="" selected disabled>Select user</option>
+                                    @foreach ($users as $u)
+                                    <option value="{{ $u->id }}">{{ $u->name }} {{ $u->lastname }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -27,8 +27,8 @@
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="order_id" class="df-form-label">Order</label>
                                 <select wire:model.lazy="order_id" class="form-select df-form-select">
-                                    <option></option>
-                                    @foreach (\App\Models\Order::isUnpaid() as $order)
+                                    <option value="" selected disabled>Select order</option>
+                                    @foreach ($orders as $order)
                                     <option value="{{ $order->id }}">
                                         ID: {{ $order->id}} | {{ $order->user->name }} {{ $order->user->lastname }} |
                                         amount: CHF {{ $order->total }}
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="amount" class="df-form-label">Amount</label>
+                                <label for="amount" class="df-form-label">Amount Paid</label>
                                 <input wire:model.lazy="amount" type="number" step=".01"
                                     class="form-input df-form-input">
                             </div>

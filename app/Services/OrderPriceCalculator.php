@@ -79,7 +79,7 @@ class OrderPriceCalculator
     {
         switch ($method) {
             case 'credit-card':
-                return 5;
+                return number_format(($subtotal + 0.30) * 0.028, 2, '.', ',');
                 break;
             case 'paypal':
                 return number_format($subtotal * 0.034, 2, '.', ',');

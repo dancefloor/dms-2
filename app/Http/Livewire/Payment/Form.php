@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire\Payment;
 
+use App\Models\Order;
 use App\Models\Payment;
+use App\Models\User;
 use App\Services\RegistrationManager;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
 class Form extends Component
@@ -20,8 +23,11 @@ class Form extends Component
     public $status;
     public $received_date;
     public $comments;
-    public $user_id;
-    public $order_id;
+    public $user_id = '';
+    public $order_id = '';
+    
+    // public $users;
+    // public $orders;
 
     public function create()
     {
@@ -75,7 +81,7 @@ class Form extends Component
         return redirect()->route('payments.index');
     }
 
-    public function mount($action, $payment = null)
+    public function mount($action, $payment = null, $uid = null, $oid = null)
     {
         $this->action = $action;
         if ($payment) {
@@ -92,10 +98,27 @@ class Form extends Component
             $this->user_id          = $payment->user_id;
             $this->order_id         = $payment->order_id;
         }
-    }
+        if ($uid) {
+            $this->user_id = $uid;
+        }        
+        if ($oid) {            
+            $this->order_id = $oid;
+            $order = Order::find($oid);
+            $this->user_id = $order->user_id;
+        }
+    }    
 
     public function render()
     {
-        return view('livewire.payment.form');
+        return view('livewire.payment.form', [
+            'users' => User::whereHas('orders', function (Builder $query){
+                $query->where('status','open');
+            })->get(),
+            'orders' => Order::byUserID($this->user_id)->isUnpaid()->get()            
+        ]);
     }
 }
+
+
+
+

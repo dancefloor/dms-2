@@ -35,7 +35,26 @@
                     </svg>
                     Edit
                 </a>
-                @include('shared.delete',['model'=> $item, 'action'=>'users.destroy', 'type'=>'link'])
+
+                @if (Request::is('users'))
+                <a href="{{ route('payments.create', ['user' => $item ]) }}"
+                    class="group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                    role="menuitem">
+                    @include('icons.payment', ['style'=>'h-5 w-5 text-gray-400 mr-2'])
+                    Add payment
+                </a>
+                @endif
+
+                @if (Request::routeIs('orders') || Request::routeIs('orders*'))
+                <a href="{{ route('payments.create', ['order' => $item ]) }}"
+                    class="group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                    role="menuitem">
+                    @include('icons.payment', ['style'=>'h-5 w-5 text-gray-400 mr-2'])
+                    Add payment
+                </a>
+                @endif
+
+                @include('shared.delete',['model'=> $item, 'action'=> $route . '.destroy', 'type'=>'link'])
             </div>
         </div>
     </div>

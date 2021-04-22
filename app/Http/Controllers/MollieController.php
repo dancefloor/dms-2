@@ -58,9 +58,9 @@ class MollieController extends Controller
             ]);     
                         
 
-            if (request()->courses) {
+            if (auth()->user()->pendingCourses()) {
                 
-                $order->courses()->attach(request()->courses);
+                $order->courses()->attach(auth()->user()->pendingCourses()->pluck('course_id')->toArray());
                 
                 foreach (request()->courses as $id) {
                     $registration = Registration::where('course_id', $id)
