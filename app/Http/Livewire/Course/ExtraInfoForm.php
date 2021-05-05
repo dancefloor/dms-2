@@ -7,7 +7,7 @@ use Livewire\Component;
 class ExtraInfoForm extends Component
 {
     public $course;
-    public $to_waiting;
+    public $standby;
     public $portrait;
     public $status;
     public $students;
@@ -50,7 +50,7 @@ class ExtraInfoForm extends Component
     public function mount($course)
     {
         $this->course       = $course;
-        $this->to_waiting   = $course->to_waiting;
+        $this->standby      = $course->standby;
         $this->status       = $course->status;
         $this->students     = $course->students;
         $this->portrait     = $course->portrait;

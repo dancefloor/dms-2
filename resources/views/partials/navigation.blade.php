@@ -72,17 +72,17 @@
         @endcan
 
 
-        <a href="{{ route('reports') }}"
-            class="group df_nav_links {{ Request::is('reports') ? 'df_nav_links_active' : '' }}">
-            @include('icons.pie-chart', ['style'=>'h-5 w-5 mr-4'])
-            Reports
-        </a>
+        {{-- <a href="{{ route('reports') }}"
+        class="group df_nav_links {{ Request::is('reports') ? 'df_nav_links_active' : '' }}">
+        @include('icons.pie-chart', ['style'=>'h-5 w-5 mr-4'])
+        Reports
+        </a> --}}
 
-        <a href="{{ route('roles.index') }}"
-            class="group df_nav_links {{ Request::is('roles') ? 'df_nav_links_active' : '' }}">
-            @include('icons.settings-tool', ['style'=>'h-5 w-5 mr-4'])
-            Settings
-        </a>
+        {{-- <a href="{{ route('roles.index') }}"
+        class="group df_nav_links {{ Request::is('roles') ? 'df_nav_links_active' : '' }}">
+        @include('icons.settings-tool', ['style'=>'h-5 w-5 mr-4'])
+        Settings
+        </a> --}}
         @can('crud_roles')
         @endcan
     </div>

@@ -46,16 +46,20 @@
                             Name
                         </th>
                         <th
-                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Method
-                        </th>
-                        <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                             Status
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                             Total
+                        </th>
+                        <th
+                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Received
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Qty
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -79,15 +83,20 @@
                             </a>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">{{ $order->method }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
                             <div class="text-sm leading-5 text-gray-500">
                                 <x-shared.display-status status="{{ $order->status }}" />
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
                             <div class="text-sm leading-5 text-gray-500">CHF {{ $order->total }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap">
+                            <div class="text-sm leading-5 text-gray-500">
+                                CHF {{$order->received ?? 0 }}
+                                (Diff. CHF {{ $order->amount_diff }})</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ $order->courses->count() }}
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $order->updated_at->diffForHumans() }}

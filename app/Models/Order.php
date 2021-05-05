@@ -19,6 +19,9 @@ class Order extends Model
         'subtotal',
         'vat',
         'discount',
+        'reduction',
+        'adjustment',
+        'received',
         'coupon_code',
         'total',
         'comments',
@@ -36,8 +39,10 @@ class Order extends Model
         'user_id'   => 'integer',
         'subtotal'  => 'float',
         'vat'       => 'float',
-        'discount'  => 'float',
+        'discount'  => 'float',        
+        'reduction' => 'float',        
         'total'     => 'float',
+        'received'  => 'float',
         'author_id' => 'integer',
     ];
 
@@ -92,5 +97,15 @@ class Order extends Model
     public function scopeIsUnpaid($query)
     {
         return $query->where('status','open')->orWhere('status','partial');
+    }
+
+    public function scopeIsRefundable($query)
+    {
+        return $query->where('status','paid')->orWhere('status','partial');
+    }
+
+    public function getAmountDiffAttribute()
+    {
+        return $this->received - $this->total;
     }
 }

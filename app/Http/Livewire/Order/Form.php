@@ -19,6 +19,8 @@ class Form extends Component
     public $status;
     public $coupon_code;
     public $discount;
+    public $reducedPrice;
+    public $adjustment;
     public $subtotal;
     public $vat;
     public $total;
@@ -35,7 +37,7 @@ class Form extends Component
             $amount += $course->full_price;
         }
         $this->subtotal = $amount;
-        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);  
+        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, 0, $this->adjustment);  
     }
 
     public function updatedDiscount($value)
@@ -43,18 +45,20 @@ class Form extends Component
         if ($value == "") {
             $this->discount = 0;
         }
-        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);
+        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, 0, $this->adjustment);
     }    
        
     public function create()
     {
-
+        
         $newOrder = Order::create([
             'user_id'       => $this->user_id,
             'method'        => $this->method,
             'status'        => $this->status,
             'coupon_code'   => $this->coupon_code,
             'discount'      => $this->discount,
+            'reduction'     => $this->reducedPrice,
+            'adjustment'    => $this->adjustment,
             'subtotal'      => $this->subtotal,
             'vat'           => $this->vat,
             'total'         => $this->total,
@@ -89,15 +93,29 @@ class Form extends Component
         return redirect()->route('orders.index');
     }
 
+    public function updatedAdjustment($value = 0):void
+    {    
+        if ($value != '') {
+            $this->adjustment =  $value;
+            
+        }else {
+            $this->adjustment = 0;    
+        }
+
+        $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, 0, $this->adjustment);        
+    }
+
     public function update()
-    {
+    {        
         $this->order->update([
             'user_id'       => $this->user_id,
             'method'        => $this->method,
             'status'        => $this->status,
             'coupon_code'   => $this->coupon_code,
+            'reduction'     => $this->reducedPrice,
             'discount'      => $this->discount,
             'subtotal'      => $this->subtotal,
+            'adjustment'    => $this->adjustment,
             'vat'           => $this->vat,
             'total'         => $this->total,
             'comments'      => $this->comments,
@@ -112,14 +130,15 @@ class Form extends Component
                 $registration = $this->getRegistration($cid);
                 if ($registration) {
                     $this->order->registrations()->save($registration);    
-                } else {
+                } else {                    
                     $course = Course::find($cid);
                     $course->students()->attach($this->user_id, ['role'=>'student', 'status'=>'pre-registered', 'created_at'=> now()]);
                     $registration = $this->getRegistration($cid);
-                }
-                
-                RegistrationManager::registrationToOpen($registration->id);
+                }                                
+                // RegistrationManager::registrationToOpen($registration->id);
             }
+            
+            (new RegistrationManager)->updateRegistrations($this->order);
         }
 
         session()->flash('success', 'Order updated successfully.');
@@ -128,7 +147,7 @@ class Form extends Component
     }
 
     public function mount($action, $order =  null)
-    {
+    {        
         $this->action = $action;
         if ($order) {
             $this->order        = $order;
@@ -137,8 +156,10 @@ class Form extends Component
             $this->status       = $order->status;
             $this->coupon_code  = $order->coupon_code;
             $this->discount     = $order->discount;
+            $this->reducedPrice = $order->reduction;
             $this->subtotal     = $order->subtotal;
             $this->vat          = $order->vat;
+            $this->adjustment   = $order->adjustment;
             $this->total        = $order->total;
             $this->comments     = $order->comments;
             $this->author_id    = $order->author_id;

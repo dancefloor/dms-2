@@ -41,8 +41,8 @@
                                             class="form-checkbox df-form-checkbox">
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
-                                        <label for="to_waiting" class="font-medium text-gray-700">
-                                            Waiting list?
+                                        <label for="standby" class="font-medium text-gray-700">
+                                            Standby list?
                                         </label>
                                     </div>
                                 </div>

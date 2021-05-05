@@ -22,6 +22,15 @@
 - mollie controllers improvemensts: check if order exist
 - Component: Select box - Users avec icons
 
+# DMS v0.0.8: May 3rd, 2021
+* Default date in payment removed
+* Validators added in payment (amount received, credit, debit, date, method)
+* Order/show: Add payment button added
+* Order/show: Add refund button when payment has been made added
+* payment method Swiss Post added to Cart
+* rounded amounts 
+*
+
 # DMS v0.0.7: December 30th, 2020
 * view button in every course component
 * Export styles

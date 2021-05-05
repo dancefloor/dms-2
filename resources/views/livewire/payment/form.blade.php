@@ -2,9 +2,9 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Order Information</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900">Transaction Information</h3>
                 <p class="mt-1 text-sm leading-5 text-gray-600">
-                    Use a permanent address where you can receive mail.
+                    Add all the necesary information regarding the transaction
                 </p>
             </div>
         </div>
@@ -31,7 +31,7 @@
                                     @foreach ($orders as $order)
                                     <option value="{{ $order->id }}">
                                         ID: {{ $order->id}} | {{ $order->user->name }} {{ $order->user->lastname }} |
-                                        amount: CHF {{ $order->total }}
+                                        to pay: CHF {{ $order->total - $order->received }}
                                     </option>
                                     @endforeach
                                 </select>
@@ -39,52 +39,67 @@
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="method" class="df-form-label">Method</label>
-                                <select wire:model.lazy="method" class="form-select df-form-select">
-                                    <option></option>
+                                <select wire:model.lazy="method"
+                                    class="form-select df-form-select @error('method') border-red-600 @enderror">
+                                    <option value="" selected disabled>Choose a method</option>
                                     <option value="credit card">Credit Card</option>
                                     <option value="revolut">Revolut</option>
+                                    <option value="post">Post</option>
                                     <option value="paypal">Paypal</option>
                                     <option value="Bank Transfer">Bank Transfer</option>
                                     <option value="cash">Cash</option>
                                     <option value="multiple">Multiple</option>
                                     <option value="other">Other</option>
                                 </select>
+                                @error('method')
+                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                @enderror
                             </div>
 
-                            <div class="col-span-6 sm:col-span-2">
+                            {{-- <div class="col-span-6 sm:col-span-2">
                                 <label for="provider" class="df-form-label">Provider</label>
                                 <input wire:model.lazy="provider" class="form-input df-form-input">
-                            </div>
+                            </div> --}}
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="status" class="df-form-label">Status</label>
-                                <select wire:model.lazy="status" class="form-select df-form-select">
-                                    <option disabled></option>
-                                    <option value="open">Open</option>
-                                    <option value="canceled">Canceled</option>
-                                    <option value="paid">Paid</option>
-                                    <option value="expired">Expired</option>
-                                    <option value="partial">Partial</option>
-                                    <option value="overpaid">Overpaid</option>
-                                    <option value="failed">Failed</option>
+                                <label for="type" class="df-form-label">Type</label>
+                                <select wire:model.lazy="type" class="form-select df-form-select">
+                                    <option disabled>Choose Type</option>
+                                    <option value="in">Credit (in)</option>
+                                    <option value="out">Debit (out)</option>
                                 </select>
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="received_date" class="df-form-label">Received date</label>
-                                <input wire:model.lazy="received_date" type="date" class="form-input df-form-input">
+                                <input wire:model.lazy="received_date" type="date"
+                                    class="form-input df-form-input @error('received_date') border-red-600 @enderror">
+                                @error('received_date')
+                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="amount" class="df-form-label">Amount Paid</label>
-                                <input wire:model.lazy="amount" type="number" step=".01"
+                                <label for="amount"
+                                    class="df-form-label">{{ $type == 'in' ? 'Amount credited' : 'Amount debited'}}</label>
+                                @if ($type == 'in')
+                                <input wire:model.lazy="credit" type="number" step=".01"
                                     class="form-input df-form-input">
+                                @error('credit')
+                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                @enderror
+                                @else
+                                <input wire:model.lazy="debit" type="number" step=".01"
+                                    class="form-input df-form-input">
+                                @error('debit')
+                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                @enderror
+                                @endif
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="currency" class="df-form-label">Currency</label>
                                 <select wire:model.lazy="currency" class="form-select df-form-select">
-                                    <option disabled></option>
                                     <option value="CHF">CHF</option>
                                     <option value="USD">USD</option>
                                     <option value="EUR">EUR</option>
@@ -95,9 +110,12 @@
                                 <label for="amount_received" class="df-form-label">Amount Received</label>
                                 <input wire:model.lazy="amount_received" type="number" step=".01"
                                     class="form-input df-form-input">
+                                @error('amount_received')
+                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                @enderror
                             </div>
 
-                            <div class="col-span-6 sm:col-span-2">
+                            {{-- <div class="col-span-6 sm:col-span-2">
                                 <label for="mollie_payment_id" class="df-form-label">Mollie payment ID</label>
                                 <input wire:model.lazy="mollie_payment_id" class="form-input df-form-input">
                             </div>
@@ -105,7 +123,7 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="code" class="df-form-label">Code</label>
                                 <input wire:model.lazy="code" class="form-input df-form-input">
-                            </div>
+                            </div> --}}
 
                             <div class="col-span-6">
                                 <label for="comments" class="df-form-label">Comments</label>

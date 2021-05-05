@@ -19,7 +19,9 @@ class Payment extends Model
         'code',
         'provider',
         'method',
-        'amount',
+        'type',
+        'credit',
+        'debit',
         'amount_received',
         'currency',
         'mollie_payment_id',
@@ -35,8 +37,9 @@ class Payment extends Model
      * @var array
      */
     protected $casts = [
-        'id'        => 'integer',
-        'user_id'   => 'integer',
+        'id'            => 'integer',
+        'user_id'       => 'integer',
+        'received_date' => 'date:Y-m-d',
     ];
 
     // /**

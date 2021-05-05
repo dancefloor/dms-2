@@ -14,7 +14,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\DB;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable //implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -115,7 +115,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function assists()
     {
-        return $this->belongsToMany(Course::class, 'registrations', 'user_id', 'course_id')
+        return $this->belongsToMany(Course::class, 'registrations', 'user_id', 'course_id')            
             ->using('App\Models\Registration')
             ->withPivot('role')
             ->wherePivot('role', 'assistant')

@@ -87,7 +87,14 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">CHF {{ $payment->total }}</div>
+                            <div class="text-sm leading-5 text-gray-500">
+                                CHF
+                                @if ($payment->type == 'in')
+                                {{ $payment->credit }}
+                                @else
+                                -{{ $payment->debit }}
+                                @endif
+                            </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $payment->updated_at->diffForHumans() }}

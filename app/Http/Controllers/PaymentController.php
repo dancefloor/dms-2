@@ -26,9 +26,9 @@ class PaymentController extends Controller
      */
     public function create(Request $request)
     {
-        $user = null;
-        $order = null;
-        
+        $user   = null;
+        $order  = null;
+        $refund = 0;        
 
         if ($request->user) {
             $user = $request->user;
@@ -37,10 +37,15 @@ class PaymentController extends Controller
         if ($request->order) {
             $order = $request->order;
         }
+
+        if ($request->order) {
+            $refund = $request->refund;
+        }
         
         return view('payment.create', [
-            'user'  => $user,
-            'order' => $order
+            'user'      => $user,
+            'order'     => $order,
+            'refund'    => $refund,
         ]);
     }
 

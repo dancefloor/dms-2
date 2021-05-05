@@ -30,8 +30,12 @@ class CourseCard2 extends Component
     {
         $uid = auth()->user()->id;   
 
-        $course->students()->attach($uid, ['role'=>'student', 'status'=>'pre-registered', 'created_at'=> now()]);
-        
+        if ($course->standby == 1) {
+            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'standby', 'created_at'=> now()]);
+        } else {
+            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'pre-registered', 'created_at'=> now()]);
+        }
+            
         session()->flash('sucess', 'You have successfully pre-register. Please proceed to pay on your ');
 
         $this->design(auth()->user()->registrationStatus($course->id));

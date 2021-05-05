@@ -66,7 +66,7 @@ class Course extends Model
         'is_online',
         'status',
         'online_link',
-        'to_waiting',
+        'standby',
         'user_id',
         'duration'
     ];

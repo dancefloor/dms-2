@@ -340,30 +340,7 @@
                             Students
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            <ul class="border border-gray-200 rounded-md">
-                                @forelse ($course->students as $p)
-                                <li
-                                    class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 {{ $loop->last ? '':'border-b border-gray-200'}}">
-                                    <div class="w-0 flex-1 flex items-center text-gray-700">
-                                        <img class="inline-block h-8 w-8 rounded-full" src="{{ $p->profile_photo_url }}"
-                                            alt="">
-                                        <span class="ml-2 flex-1 w-0 truncate">
-                                            {{ $p->name }} {{ $p->lastname }}
-                                        </span>
-                                    </div>
-                                    <div class="ml-4 flex-shrink-0">
-                                        <a href="{{ route('users.show', $p) }}"
-                                            class="font-medium text-red-700 hover:text-red-800 transition duration-150 ease-in-out">
-                                            Details
-                                        </a>
-                                    </div>
-                                </li>
-                                @empty
-                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                                    There are no students attached to this course
-                                </li>
-                                @endforelse
-                            </ul>
+                            <livewire:partials.students-list :course="$course" />
                         </dd>
                     </div>
                     <div

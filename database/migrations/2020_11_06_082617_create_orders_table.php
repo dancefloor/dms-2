@@ -21,9 +21,12 @@ class CreateOrdersTable extends Migration
             $table->decimal('vat')->nullable();
             $table->decimal('discount')->nullable();
             $table->string('coupon_code')->nullable();
+            $table->decimal('reduction')->nullable();
+            $table->decimal('adjustment')->nullable();
             $table->decimal('total')->nullable();
+            $table->decimal('received')->nullable();
             $table->text('comments')->nullable();
-            $table->enum('status', ["open","canceled","paid","expired","partial"])->nullable();
+            $table->enum('status', ["open","canceled","paid","expired","partial","overpaid", "refunded"])->nullable();
             $table->foreignId('author_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });

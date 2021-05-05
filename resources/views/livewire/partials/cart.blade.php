@@ -91,6 +91,12 @@
                     <span class="ml-2">Revolut</span>
                 </label>
             </div>
+            <div class="{{ $method == 'post' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="post" class="text-center" wire:model="method">
+                    <span class="ml-2">Post</span>
+                </label>
+            </div>
             {{-- <div class="{{ $method == 'paypal' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
             <label for="method" class="inline-flex items-center">
                 <input type="radio" name="method" value="paypal" class="text-center" wire:model="method">
@@ -147,10 +153,16 @@
                     @endif
 
 
-                    @if ($method == 'credit-card' || $method == 'paypal')
+                    @if ($method == 'credit-card' || $method == 'paypal' || $method == 'post')
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {{ $method == 'credit-card' ? 'Credit card' : 'PayPal'}}
+                            @if ($method == 'credit-card')
+                            Credit card
+                            @elseif ($method == 'credit-card')
+                            PayPal
+                            @elseif ($method == 'post')
+                            Swiss Post fee
+                            @endif
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             CHF {{ $commission }}
@@ -176,6 +188,9 @@
         @if ($method == 'revolut')
         @include('partials.payment-method.revolut')
         @endif
+        @if ($method == 'post')
+        @include('partials.payment-method.post')
+        @endif
         {{-- @if ($method == 'paypal')
         @include('partials.payment-method.paypal')
         @endif --}}
@@ -193,7 +208,8 @@
                         'courses'   => auth()->user()->pendingCourses()->pluck('course_id')->toArray(),
                         'user'      => Auth::id(),
                         'total'     => $total,
-                        'discount'  => $discount,
+                        'discount'  => $discount,  
+                        'reduction' => 20,                      
                         'subtotal'  => $subtotal, 
                         'title'     => $title,                                               
                         ])}}">
@@ -210,6 +226,7 @@
             @method('POST')
             <input type="hidden" value="{{ $total }}" name="total">
             <input type="hidden" value="{{ $discount }}" name="discount">
+            <input type="hidden" value="20" name="reduction">
             <input type="hidden" value="{{ $subtotal }}" name="subtotal">
             <input type="hidden" value="{{ $method }}" name="method">
             @if ($method == 'bank-transfer')
@@ -223,6 +240,13 @@
             <div class="flex justify-end">
                 <button type="submit" class="df-btn-primary">
                     Pay with Revolut
+                </button>
+            </div>
+            @endif
+            @if ($method == 'post')
+            <div class="flex justify-end">
+                <button type="submit" class="df-btn-primary">
+                    Pay by Post
                 </button>
             </div>
             @endif

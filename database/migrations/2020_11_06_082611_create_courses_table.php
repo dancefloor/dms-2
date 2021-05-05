@@ -84,7 +84,8 @@ class CreateCoursesTable extends Migration
             $table->string('online_link')->nullable();
             $table->string('online_password')->nullable();
             $table->text('online_embed')->nullable();
-            $table->boolean('to_waiting')->nullable();
+            $table->boolean('standby')->nullable();
+            
             $table->foreignId('user_id');
             $table->foreignId('classroom_id')->nullable();
             $table->softDeletes();

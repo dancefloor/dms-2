@@ -56,13 +56,13 @@
                             <fieldset class="col-span-6">
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">
-                                        <input id="to_waiting" name="to_waiting" type="checkbox"
+                                        <input id="standby" name="standby" type="checkbox"
                                             class="form-checkbox df-form-checkbox" value="1"
-                                            {{ $course->to_waiting == 1 ? 'checked':''}}>
+                                            {{ $course->standby == 1 ? 'checked':''}}>
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
-                                        <label for="to_waiting" class="font-medium text-gray-700">
-                                            Waiting list?
+                                        <label for="standby" class="font-medium text-gray-700">
+                                            Standby list?
                                         </label>
                                     </div>
                                 </div>

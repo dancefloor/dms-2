@@ -25,11 +25,10 @@ class OrderPriceCalculator
         return $subtotal;
     }
 
-    public static function getTotal($subtotal, $discount = 0, $commission = 0)
+    public static function getTotal($subtotal, $discount = 0, $reducedDiscount, $commission = 0, $adjustment = 0)
     {
-        // https://laracasts.com/discuss/channels/general-discussion/number-to-2-decimal-placed-blade
-        $reducedDiscount = auth()->user()->work_status != 'working' ? 20:0;
-        return number_format(floatval($subtotal) - $discount + $commission - $reducedDiscount, 2, '.', "'");
+        // https://laracasts.com/discuss/channels/general-discussion/number-to-2-decimal-placed-blade        
+        return number_format((floatval($subtotal) - $discount - $reducedDiscount) + $commission + $adjustment, 2, '.', "'");
         
         //return number_format($subtotal, 2, '.', ',');
         // return $subtotal;
@@ -46,10 +45,10 @@ class OrderPriceCalculator
                 return 0;
                 break;
             case 2:
-                return number_format($subtotal * $two_courses_discount, 2, '.', ',');
+                return round(number_format($subtotal * $two_courses_discount, 2, '.', ','));
                 break;
             case 3:
-                return number_format($subtotal * $three_courses_discount, 2, '.', ',');
+                return round(number_format($subtotal * $three_courses_discount, 2, '.', ','));
                 break;
             default:
                 return $subtotal * $four_courses_discount;
@@ -78,12 +77,15 @@ class OrderPriceCalculator
     public static function getCommission($method, $subtotal)
     {
         switch ($method) {
-            case 'credit-card':
-                return number_format(($subtotal + 0.30) * 0.028, 2, '.', ',');
+            case 'credit-card':                
+                return round(number_format(($subtotal + 0.30) * 0.028, 2, '.', ','));
                 break;
             case 'paypal':
-                return number_format($subtotal * 0.034, 2, '.', ',');
+                return round(number_format($subtotal * 0.034, 2, '.', ','));
                 break;
+            case 'post':
+                    return number_format(2, 2, '.', ',');
+                    break;
             default:
                 return 0;
                 break;

@@ -76,7 +76,7 @@ class CourseController extends Controller
         // dd($request->all());
         $course->update([
             'status'        => $request->status,
-            'to_waiting'    => $request->to_waiting,
+            'standby'       => $request->standby,
             'user_id'       =>  auth()->user()->id,
         ]);
 

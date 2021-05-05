@@ -20,11 +20,13 @@ class CreatePaymentsTable extends Migration
             $table->string('code')->nullable();
             $table->string('provider')->nullable();
             $table->string('method')->nullable();
-            $table->string('amount');
+            $table->string('type')->nullable();
+            $table->string('credit')->nullable();
+            $table->string('debit')->nullable();
             $table->string('amount_received')->nullable();
             $table->string('currency')->nullable();
             $table->string('mollie_payment_id')->nullable();
-            $table->enum('status', ["paid","partial","processing","overpaid","failed","open","canceled","expired"]);
+            $table->enum('status', ["paid","failed","open","canceled","expired", "refunded"]);
             $table->date('received_date')->nullable();
             $table->text('comments')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

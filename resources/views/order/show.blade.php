@@ -58,38 +58,10 @@
                     <div
                         class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Method
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->method }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
                             Status
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                             <x-shared.display-status status="{{ $order->status }}" />
-                            {{ $order->status }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            discount_code
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->discount_code }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            discount
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->discount }}
                         </dd>
                     </div>
                     <div
@@ -101,6 +73,45 @@
                             {{ $order->subtotal }}
                         </dd>
                     </div>
+                    @if ($order->discount_code)
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Discount code
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->discount_code }}
+                        </dd>
+                    </div>
+                    @endif
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Discount
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->discount }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Reduced Price
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->reduction }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Adjustments
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->adjustment }}
+                        </dd>
+                    </div>
+                    @if ($order->vat )
                     <div
                         class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
@@ -110,13 +121,23 @@
                             {{ $order->vat }}
                         </dd>
                     </div>
+                    @endif
                     <div
                         class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Total
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->total }}
+                            CHF {{ $order->total }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Amount received
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            CHF {{ $order->received }} (Difference CHF {{ $order->amount_diff }})
                         </dd>
                     </div>
                     <div
@@ -131,32 +152,61 @@
                     <div
                         class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Courses
+                            Registered Courses
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            <ul class="border border-gray-200 rounded-md">
-                                @forelse ($order->courses as $o)
-                                <li
-                                    class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 {{ $loop->last ? '':'border-b border-gray-200'}}">
-                                    <div class="w-0 flex-1 flex items-center text-gray-700">
-                                        @include('icons.user-access')
-                                        <span class="ml-2 flex-1 w-0 truncate">
-                                            {{ $o->name }}
-                                        </span>
-                                    </div>
-                                    <div class="ml-4 flex-shrink-0">
-                                        <a href="{{ route('courses.show', $o) }}"
-                                            class="font-medium text-red-700 hover:text-red-800 transition duration-150 ease-in-out">
-                                            Details
-                                        </a>
-                                    </div>
-                                </li>
-                                @empty
-                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                                    There are no course(s) attached to this order
-                                </li>
-                                @endforelse
-                            </ul>
+                            <livewire:partials.registrations-table :registrations="$order->registrations" />
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Payments
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            <div class="border border-gray-200 rounded-md">
+                                <table class="w-full divide-y">
+                                    @forelse ($order->payments as $o)
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3 text-sm leading-5 text-gray-500">{{ $o->id }}</td>
+                                        <td class="px-4 py-3 text-sm leading-5 text-gray-500">{{ $o->type }}</td>
+                                        <td class="px-4 py-3 text-sm leading-5 text-gray-500">
+                                            @if ($o->type == 'in')
+                                            <a href="{{ route('payments.show', $o) }}"
+                                                class="text-green-600 hover:underline">CHF {{ $o->credit }}</a>
+                                            @else
+                                            <a href="{{ route('payments.show', $o) }}"
+                                                class="text-red-600 hover:underline">CHF -{{ $o->debit }}</a>
+                                            @endif
+
+                                        </td>
+                                        <td class="px-4 py-3 text-sm leading-5 text-gray-500">{{ $o->method }}</td>
+                                        <td class="px-4 py-3 text-sm leading-5 text-gray-500">
+                                            {{ $o->created_at->format('d-m-Y') }}
+                                        </td>
+                                        <td class="text-gray-500">({{ $o->created_at->diffForHumans() }})</td>
+                                        <td>
+                                            <a href="{{ route('payments.show', $o) }}"
+                                                class="font-medium text-red-700 hover:text-red-800 hover:underline">view</a>
+                                        </td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm leading-5">
+                                            There are no payment(s) attached to this order.
+                                        </td>
+                                    </tr>
+                                    @endforelse
+                                </table>
+                            </div>
+                            <div class="flex justify-end my-3">
+                                <a href="{{ route('payments.create', ['order' => $order ]) }}"
+                                    class="font-medium text-red-700 hover:underline">Add payment</a>
+                                @if (count($order->payments) > 0)
+                                <a href="{{ route('payments.create', ['order' => $order, 'refund' => true ]) }}"
+                                    class="font-medium text-red-700 hover:underline ml-2">Add refund</a>
+                                @endif
+                            </div>
                         </dd>
                     </div>
                 </dl>

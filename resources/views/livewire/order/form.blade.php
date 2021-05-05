@@ -52,37 +52,52 @@
                                 <label for="coupon_code" class="df-form-label">Coupon code</label>
                                 <input wire:model.lazy="coupon_code" class="form-input df-form-input">
                             </div>
+                        </div>
+                        <table class="mt-8">
+                            <tr>
+                                <td><label for="subtotal" class="df-form-label">Subtotal</label></td>
+                                <td><input wire:model.lazy="subtotal" type="number" step=".01"
+                                        class="form-input df-form-input bg-gray-100" disabled></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/3"><label for="discount" class="df-form-label">Discount</label></td>
+                                <td>
+                                    <input wire:model.lazy="discount" type="number" step=".01"
+                                        class="form-input df-form-input bg-gray-100" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="reducedPrice" class="df-form-label">Reduction</label></td>
+                                <td><input wire:model.lazy="reducedPrice" type="number" step=".01"
+                                        class="form-input df-form-input bg-gray-100" disabled></td>
+                            </tr>
+                            {{-- <tr>
+                                <td><label for="vat" class="df-form-label">VAT (%)</label></td>
+                                <td>
+                                    <input wire:model.lazy="vat" type="number" step=".01"
+                                        class="form-input df-form-input">
+                                </td>
+                            </tr> --}}
+                            <tr>
+                                <td><label for="adjustment" class="df-form-label">Adjustment</label></td>
+                                <td><input wire:model.lazy="adjustment" type="number" step=".01"
+                                        class="form-input df-form-input"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="total" class="df-form-label">Total</label></td>
+                                <td>
+                                    <input wire:model.lazy="total" type="number" step=".01"
+                                        class="form-input df-form-input bg-gray-100" disabled>
+                                </td>
+                            </tr>
+                        </table>
 
-                            <div class="col-span-6 sm:col-span-2">
-                                <label for="discount" class="df-form-label">Discount</label>
-                                <input wire:model.lazy="discount" type="number" step=".01"
-                                    class="form-input df-form-input">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-2">
-                                <label for="subtotal" class="df-form-label">Subtotal</label>
-                                <input wire:model.lazy="subtotal" type="number" step=".01"
-                                    class="form-input df-form-input">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-2">
-                                <label for="vat" class="df-form-label">VAT (%)</label>
-                                <input wire:model.lazy="vat" type="number" step=".01" class="form-input df-form-input">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-2">
-                                <label for="total" class="df-form-label">Total</label>
-                                <input wire:model.lazy="total" type="number" step=".01"
-                                    class="form-input df-form-input">
-                            </div>
-
+                        <div class="grid grid-cols-4 gap-6 mt-6">
                             <div class="col-span-6">
                                 <label for="comments" class="df-form-label">Comments</label>
                                 <textarea wire:model.lazy="comments" rows="3"
                                     class="form-textarea df-form-textarea"></textarea>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
