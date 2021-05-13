@@ -25,8 +25,9 @@ class RegistrationManager {
         $amount = 0;
         
         foreach ($order->payments as $pay) {
-            $amount = $amount + $pay->credit;
+            $amount = $amount + $pay->credit - $pay->debit;
         }
+
         $order->received = $amount;        
 
         if ($amount == $order->total) {

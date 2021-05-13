@@ -71,30 +71,35 @@
     <br>
     <div class="grid grid-cols-6 gap-4">
         <div class="col-span-6 md:col-span-2">
-            <h2 class="text-lg font-medium text-gray-900 inline-flex items-center">Payment methods</h2>
-            <div class="{{ $method == 'credit-card' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+            <h2 class="text-xl font-medium text-gray-900 inline-flex items-center">Select a payment method</h2>
+            <div
+                class="{{ $method == 'credit-card' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
                 <label for="method" class="inline-flex items-center">
                     <input type="radio" name="method" value="credit-card" class="text-center" wire:model="method">
                     <span class="ml-2">Credit Card</span>
-                    <span class="text-sm italic text-gray-700 ml-2">(CHF 0.30 + 2.8%)</span>
+                    <span class="text-sm italic ml-2">(CHF 0.30 + 2.8%)</span>
                 </label>
             </div>
-            <div class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+            <div
+                class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
                 <label for="method" class="inline-flex items-center">
                     <input type="radio" name="method" value="bank-transfer" class="text-center" wire:model="method">
                     <span class="ml-2">Bank transfer</span>
                 </label>
             </div>
-            <div class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+            <div
+                class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
                 <label for="method" class="inline-flex items-center">
                     <input type="radio" name="method" value="revolut" class="text-center" wire:model="method">
                     <span class="ml-2">Revolut</span>
                 </label>
             </div>
-            <div class="{{ $method == 'post' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
+            <div
+                class="{{ $method == 'post' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
                 <label for="method" class="inline-flex items-center">
                     <input type="radio" name="method" value="post" class="text-center" wire:model="method">
                     <span class="ml-2">Post</span>
+                    <span class="text-sm italic ml-2">(CHF + 2)</span>
                 </label>
             </div>
             {{-- <div class="{{ $method == 'paypal' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
@@ -111,6 +116,7 @@
         </label>
     </div> --}}
     </div>
+    @if ($method)
     <div class="col-span-6 md:col-span-4">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200">
@@ -268,4 +274,5 @@
         </form>
         {{-- <x-partials.payment-method-checkout /> --}}
     </div>
+    @endif
 </section>

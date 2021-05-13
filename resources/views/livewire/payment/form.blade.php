@@ -71,12 +71,13 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="received_date" class="df-form-label">Received date</label>
+                                <x-form.date-input name="received_date" label="Received date" />
+                                {{-- <label for="" class="df-form-label">Received date</label>
                                 <input wire:model.lazy="received_date" type="date"
                                     class="form-input df-form-input @error('received_date') border-red-600 @enderror">
                                 @error('received_date')
                                 <span class="text-red-800 text-xs">{{ $message}}</span>
-                                @enderror
+                                @enderror --}}
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">

@@ -9,9 +9,13 @@
             </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
+
             <form method="POST" wire:submit.prevent="updateUserContact">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
+
+                        <x-shared.alert />
+
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="mobile" class="df-form-label">Mobile</label>
@@ -19,8 +23,8 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="mobile_verified_at" class="df-form-label">Verified at</label>
                                 @if ($mobile_verified_at)
+                                <label for="mobile_verified_at" class="df-form-label">Verified at</label>
                                 <span class="inline-flex text-sm text-gray-700 mt-3">
                                     {{date('d-m-Y', strtotime($user->mobile_verified_at)) }} @include('icons.success')
                                 </span>
@@ -38,8 +42,8 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="phone_verified_at" class="df-form-label">Verified at</label>
                                 @if ($phone_verified_at)
+                                <label for="phone_verified_at" class="df-form-label">Verified at</label>
                                 <span class="inline-flex text-sm text-gray-700 mt-3">
                                     {{date('d-m-Y', strtotime($user->phone_verified_at)) }} @include('icons.success')
                                 </span>

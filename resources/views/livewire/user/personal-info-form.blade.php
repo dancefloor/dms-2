@@ -37,8 +37,9 @@
 
                         <div class="grid grid-cols-6 gap-6 mt-6">
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="birthday" class="df-form-label">Birthday</label>
-                                <input id="birthday" class="form-input df-form-input" type="date" wire:model="birthday">
+                                <x-form.date-input name="birthday" />
+                                {{-- <label for="birthday" class="">Birthday</label> --}}
+                                {{-- <input id="birthday" class="" type="date" wire:model="birthday"> --}}
                             </div>
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="profession" class="df-form-label">Profession</label>
@@ -157,18 +158,6 @@
                                     </option>
                                 </select>
                             </div>
-
-
-                            <div class="col-span-6 sm:col-span-1">
-                                <label for="price_hour" class="df-form-label">Price per hour</label>
-                                <input id="price_hour" class="form-input df-form-input" type="number"
-                                    wire:model="price_hour">
-                            </div>
-                            @if (auth()->user()->isInstructor())
-                            @endif
-
-
-
 
                         </div>
 

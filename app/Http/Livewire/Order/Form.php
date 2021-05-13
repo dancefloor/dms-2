@@ -16,7 +16,7 @@ class Form extends Component
     public $order;
     public $user_id;
     public $method;
-    public $status;
+    public $status = 'open';
     public $coupon_code;
     public $discount;
     public $reducedPrice;

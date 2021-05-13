@@ -90,7 +90,10 @@ class Cart extends Component
     {                
         $course->students()->detach(auth()->user()->id);
 
-        $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);        
+        $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses); 
+        $this->count = count(Auth::user()->pendingCourses);
+        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);  
+        $this->discountText = OrderPriceCalculator::getDiscountText($this->count);     
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);            
 
         session()->flash('success', 'You have remove this class from your list successfully'); 
