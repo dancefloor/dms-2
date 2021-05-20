@@ -47,7 +47,11 @@
                         </th>
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Period
+                            Day
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Time
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -55,17 +59,65 @@
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Last updated
+                            Classroom
                         </th>
                         <th
                             class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <input type="search" wire:model="search" placeholder="Search..."
+                                class="shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-gray-400 rounded-md">
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <select wire:model="level">
+                                <option value="">All Level</option>
+                                <option value="Open level">Open level</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Upper Intermediate">Inter Advanced</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Expert">Master</option>
+                            </select>
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <select wire:model="day">
+                                <option value="" selected>All days</option>
+                                <option value="monday">Monday</option>
+                                <option value="tuesday">Tuesday</option>
+                                <option value="wednesday">Wednesday</option>
+                                <option value="thursday">Thursday</option>
+                            </select>
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <select wire:model="classroom">
+                                <option value="" selected>All Places</option>
+                                @foreach (\App\Models\Classroom::all() as $item)
+                                <option value="{{$item->id}}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </th>
+                        <th
+                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                         </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-100">
                     @foreach ($courses as $course)
                     <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 whitespace-no-wrap">
+                        <td class="px-6 py-2 whitespace-no-wrap">
                             <div class="flex items-center" x-data="{ preview:false }">
                                 <x-course.display-activity-color status="{{ $course->status }}" />
                                 <div class="ml-4">
@@ -76,21 +128,26 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $course->level }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{ $course->start_date }} | {{ $course->end_date }}
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ implode('', $course->days) }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            <x-shared.course-daily-schedule :course="$course" day="0" />
+                        </td>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             @foreach ($course->teachers as $item)
                             {{ $item->name }}
                             @endforeach
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{ $course->updated_at->diffForHumans() }}
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            @if ($course->classroom)
+                            {{ $course->classroom->name }}
+                            @endif
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                        <td class="px-6 py-2 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                             <x-shared.list-actions route="courses" :item="$course" />
                         </td>
 

@@ -48,9 +48,9 @@ class CourseCard2 extends Component
     {        
         $this->course = $course;        
         if (Auth::check()) {
-            $this->user = $user;
+            $this->user = auth()->user();
             
-            $this->design($user->registrationStatus($this->course->id));
+            $this->design($this->user->registrationStatus($course->id));
         }else{
             $this->border = 'border border-gray-200 bg-white';
             $this->text = 'text-gray-400';

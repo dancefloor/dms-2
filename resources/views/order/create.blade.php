@@ -22,6 +22,6 @@
         </div>
     </x-slot>
     <section class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <livewire:order.form action="create" />
+        <livewire:order.form action="create" :user="$user" />
     </section>
 </x-app-layout>

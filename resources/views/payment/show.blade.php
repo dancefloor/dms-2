@@ -146,34 +146,14 @@
                     <div
                         class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Order(s)
+                            Order
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            <ul class="border border-gray-200 rounded-md">
-                                {{-- @forelse ($item->permissions as $p)
-                                <li
-                                    class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 {{ $loop->last ? '':'border-b border-gray-200'}}">
-                                <div class="w-0 flex-1 flex items-center text-gray-700">
-                                    @include('icons.user-access')
-                                    <span class="ml-2 flex-1 w-0 truncate">
-                                        {{ $p->name }}
-                                    </span>
-                                </div>
-                                <div class="ml-4 flex-shrink-0">
-                                    <a href="{{ route('permissions.show', $p) }}"
-                                        class="font-medium text-red-700 hover:text-red-800 transition duration-150 ease-in-out">
-                                        Details
-                                    </a>
-                                </div>
-                                </li>
-                                @empty
-                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                                    There are no permissions attached to this role
-                                </li>
-                                @endforelse --}}
-                            </ul>
+                            <a href="{{ route('orders.show', $payment->order) }}"
+                                class="text-red-600 hover:underline">{{ $payment->order->id }}</a>
                         </dd>
                     </div>
+
                 </dl>
             </div>
         </div>

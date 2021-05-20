@@ -27,7 +27,12 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        return view('order.create');
+        $user = 0;
+        if ($request->has('user')) {
+            $user = $request->user;            
+        }
+        
+        return view('order.create', ['user' => $user ]);
     }
 
     /**
@@ -36,7 +41,7 @@ class OrderController extends Controller
      */
     public function store(OrderStoreRequest $request)
     {
-        dd('I am in the order controller!');
+        
         $order = Order::create($request->validated());
 
         $request->session()->flash('order.id', $order->id);

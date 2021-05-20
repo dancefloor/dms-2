@@ -8,7 +8,10 @@ use Livewire\Component;
 
 class DailySchedule extends Component
 {
-    public $courses;
+    public $monday;
+    public $tuesday;
+    public $wednesday;
+    public $thursday;
     public $style;
     public $level;
     public $focus;
@@ -16,34 +19,14 @@ class DailySchedule extends Component
     public $day;
     public $loading_message = '';
 
-    // public function updatedLevel($value)
-    // {
-    //     $this->level = ;
-    // }
-
     public function loadCourses()
     {
         $this->loading_message = "Loading Courses...";
-        // $query = [];
 
-        // $city = $this->city;            
-        // $this->courses = Course::whereHas('classroom.location', function (Builder $q) use ($city) {            
-        //     $q->where('city', $city);            
-        // })->style($this->style)->get();
-        
-
-
-        $this->courses = Course::city($this->city)->style($this->style)->level($this->level)->get();
-        //                         // ->
-        //                         // 
-        //                         // ->orderBy('start_time_mon','asc')
-        //                         // ->orderBy('start_time_tue','asc')
-        //                         // ->orderBy('start_time_wed','asc')
-        //                         // ->orderBy('start_time_thu','asc')
-        //                         // ->orderBy('start_time_fri','asc')                                
-        //                         ;
-
-
+        $this->monday   = Course::daysOfWeek('monday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_mon','asc')->get();
+        $this->tuesday  = Course::daysOfWeek('tuesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_tue','asc')->get();
+        $this->wednesday= Course::daysOfWeek('wednesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_wed','asc')->get();
+        $this->thursday = Course::daysOfWeek('thursday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_thu','asc')->get();    
     }    
 
     public function updatedCity($value)
@@ -65,8 +48,8 @@ class DailySchedule extends Component
     }
 
     public function mount()
-    {
-        $this->loadCourses();
+    {             
+        $this->loadCourses();        
     }
 
     public function render()

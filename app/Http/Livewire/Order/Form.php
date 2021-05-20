@@ -146,9 +146,14 @@ class Form extends Component
         return redirect()->route('orders.index');
     }
 
-    public function mount($action, $order =  null)
-    {        
+    public function mount($action, $order =  null, $user = 0)
+    {                
         $this->action = $action;
+        
+        if ($user > 0) {
+            $this->user_id = $user;
+        }
+
         if ($order) {
             $this->order        = $order;
             $this->user_id      = $order->user_id;

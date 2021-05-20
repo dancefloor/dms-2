@@ -66,22 +66,21 @@
                     @foreach ($users as $user)
                     <tr class="hover:bg-gray-100">
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="flex items-center" x-data="{ preview:false }">
+                            <div class="flex items-center">
                                 <x-user.role-gender-icon :user="$user" />
                                 <div class="flex-shrink-0 h-10 w-10 ml-2">
                                     <img class="h-10 w-10 rounded-full flex-shrink-0 bg-gray-300"
                                         src="{{ $user->profile_photo_url }}" alt="{{ $user->name}}">
                                 </div>
                                 <div class="ml-4">
-                                    <button type="button" @click="preview = true"
+                                    <a href="{{ route('users.show', $user) }}"
                                         class="text-sm leading-5 font-medium text-gray-900 hover:text-gray-800 hover:underline">
                                         {{ $user->name }} {{ $user->lastname }}
-                                    </button>
+                                    </a>
                                     <div class="text-sm leading-5 text-gray-500">
                                         {{ $user->email}}
                                     </div>
                                 </div>
-                                <x-user.preview :user="$user" />
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
@@ -98,8 +97,21 @@
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $user->updated_at->diffForHumans() }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                            <x-shared.list-actions route="users" :item="$user" />
+                        <td class="px-6 py-4 whitespace-no-wrap flex justify-end items-center text-gray-400">
+                            <a href="{{ route( 'users.edit', $user) }}" class="mx-1 hover:text-red-700">
+                                @include('icons.pen')
+                            </a>
+
+                            <a href="{{ route('orders.create', ['user' => $user ]) }}" class="mx-1 hover:text-red-700">
+                                @include('icons.new-order')
+                            </a>
+
+                            @if ($user->hasPendingOrders())
+                            <a href="{{ route('payments.create', ['user' => $user ]) }}"
+                                class="mx-1 hover:text-red-700">
+                                @include('icons.payment')
+                            </a>
+                            @endif
                         </td>
 
                     </tr>

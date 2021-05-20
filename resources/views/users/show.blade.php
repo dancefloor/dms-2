@@ -27,270 +27,216 @@
         </div>
     </x-slot>
 
+    <div class="my-10 mx-auto max-w-7xl">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="flex items-center border-b border-gray-200 py-3">
+                <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="h-20 w-20 rounded-full mx-3">
+                <div class="px-4 py-5 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        {{ $user->name }}'s Information
+                    </h3>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Personal details.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Full name
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->name }} {{ $user->lastname }}
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Mobile
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->mobile }}
+                            @if ($user->mobile_verified_at)
+                            (verified {{ $user->mobile_verified_at->diffForHumans() }})
+                            @endif
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Email address
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->email }}
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Phone
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->phone }}
+                            @if ($user->phone_verified_at)
+                            (verified {{ $user->phone_verified_at->diffForHumans() }})
+                            @endif
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Birthday
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            @if ($user->birthday)
+                            {{ $user->birthday->format('F d, Y') }} ({{ $user->age }} years old)
+                            @endif
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Gender
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->gender }}
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Work Status
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->work_status }}
+                            <a href="{{ asset('uploads/'. $user->unemployement_proof)}}">View</a>
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Profession
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->profession }}
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Professional Branch
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->branch }}
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            How did he/she heard of dancefloor
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->aware_of_df }}
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Address
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->address }} <br>
+                            @if ( $user->address_info )
+                            {{ $user->address_info }} <br>
+                            @endif
+                            {{ $user->postal_code }} {{ $user->city }} <br>
+                            {{ $user->state }} {{ $user->country }}
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Social Media
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            <div class="flex space-x-2 items-center">
+                                @if ($user->facebook)
+                                <a href="{{ $user->facebook }}" class="hover:text-red-700">
+                                    @include('icons.social.facebook-circled')
+                                </a>
+                                @endif
+
+                                @if ($user->linkedin)
+                                <a href="{{ $user->linkedin }}" class="hover:text-red-700">
+                                    @include('icons.social.linkedin')
+                                </a>
+                                @endif
+
+                                @if ($user->instagram)
+                                <a href="{{ $user->instagram }}" class="hover:text-red-700">
+                                    @include('icons.social.instagram-circled')
+                                </a>
+                                @endif
+
+                                @if ($user->youtube)
+                                <a href="{{ $user->youtube }}" class="hover:text-red-700">
+                                    @include('icons.social.youtube-circled')
+                                </a>
+                                @endif
+
+                                @if ($user->tiktok)
+                                <a href="{{ $user->tiktok }}" class="hover:text-red-700">
+                                    {{-- @include('icons.social.tiktok') --}}
+                                </a>
+                                @endif
+
+                                @if ($user->linkedin)
+                                <a href="{{ $user->twitter }}" class="hover:text-red-700">
+                                    @include('icons.social.twitter-circled')
+                                </a>
+                                @endif
+
+                                @if ($user->skype)
+                                <a href="{{ $user->skype }}" class="hover:text-red-700">
+                                    @include('icons.social.skype')
+                                </a>
+                                @endif
+
+                                @if ($user->snapchat)
+                                <a href="{{ $user->snapchat }}" class="hover:text-red-700">
+                                    @include('icons.social.snapchat')
+                                </a>
+                                @endif
+
+                                @if ($user->pinterest)
+                                <a href="{{ $user->pinterest }}" class="hover:text-red-700">
+                                    @include('icons.social.pinterest')
+                                </a>
+                                @endif
+                            </div>
+                        </dd>
+                    </div>
 
 
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            About
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $user->biography }}
+                        </dd>
+                    </div>
 
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div class="flex items-center border-b border-gray-200 py-3">
-            <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="h-20 w-20 rounded-full mx-3">
-            <div class="px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    {{ $user->name }}'s Information
-                </h3>
-                <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-                    Personal details.
-                </p>
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Orders
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            <livewire:user.orders-list user="{{ $user->id }}" />
+                        </dd>
+                    </div>
+                </dl>
             </div>
         </div>
-        <div>
-            <dl>
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Full name
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->name }} {{ $user->lastname }}
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Email
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->email }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Mobile
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->mobile }}
-                        @if ($user->mobile_verified_at)
-                        (verified {{ $user->mobile_verified_at->diffForHumans() }})
-                        @endif
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Phone
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->phone }}
-                        @if ($user->phone_verified_at)
-                        (verified {{ $user->phone_verified_at->diffForHumans() }})
-                        @endif
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Birthday
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        @if ($user->birthday)
-                        {{ $user->birthday->format('F d, Y') }} ({{ $user->age }} years old)
-                        @endif
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Gender
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->gender }}
-                    </dd>
-                </div>
-
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Work Status
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->work_status }}
-                        <a href="{{ asset('uploads/'. $user->unemployement_proof)}}">View</a>
-                    </dd>
-                </div>
-
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Profession
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profession }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Professional Branch
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->branch }}
-                    </dd>
-                </div>
-
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Heard of dancefloor
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->aware_of_df }}
-                    </dd>
-                </div>
-
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Price hour
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->price_hour }}
-                    </dd>
-                </div>
-
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        About
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->biography }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Address
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->address }} <br>
-                        @if ( $user->address_info )
-                        {{ $user->address_info }} <br>
-                        @endif
-                        {{ $user->postal_code }} {{ $user->city }} <br>
-                        {{ $user->state }} {{ $user->country }}
-                    </dd>
-                </div>
-
-                {{-- Social --}}
-
-                <h3 class="text-gray-700 uppercase text-sm px-6 py-1 font-semibold">Social</h3>
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Facebook
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->facebook }}
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Linkedin
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->linkedin }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Instagram
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->instagram }}
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Youtube
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->youtube }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Tiktok
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->tiktok }}
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Twitter
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->twitter }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Skype
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->skype }}
-                    </dd>
-                </div>
-
-                <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Snapchat
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->snapchat }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-100 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Pinterest
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->pinterest }}
-                    </dd>
-                </div>
-
-                {{-- <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Roles & Permissions
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        @if ($user->roles->count() > 0)
-                        <ul class="border border-gray-200 rounded-md">
-                            @foreach ($user->roles as $role)
-                            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                                <div class="w-0 flex-1 flex items-center text-gray-700">
-                                    @include('icons.user-access')
-                                    <span class="ml-2 flex-1 w-0 truncate">
-                                        {{$role->name}}
-                </span>
-        </div>
-        <div class="ml-4 flex-shrink-0">
-            <a href="#" class="font-medium text-red-700 hover:text-red-800 transition duration-150 ease-in-out">
-                details
-            </a>
-        </div>
-        </li>
-        @endforeach
-        </ul>
-        @endif
-        </dd>
-    </div> --}}
-    </dl>
-    </div>
     </div>
 </x-app-layout>

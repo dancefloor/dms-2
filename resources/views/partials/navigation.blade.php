@@ -15,7 +15,7 @@
         <a href="{{ route('geneva.courses') }}"
             class="group df_nav_links {{ Request::is('welcome') ? 'df_nav_links_active' : '' }}">
             @include('icons.catalogue', ['style'=>'h-5 w-5 mr-4'])
-            Courses
+            Schedule
         </a>
 
         @can('crud_courses')

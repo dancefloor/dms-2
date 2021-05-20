@@ -80,6 +80,9 @@
                                     <option value="draft" {{ $course->status == 'draft' ? 'selected':''}}>
                                         Draft
                                     </option>
+                                    <option value="billable" {{ $course->status == 'billable' ? 'selected':''}}>
+                                        Billable
+                                    </option>
                                 </select>
                             </div>
 

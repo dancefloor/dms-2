@@ -256,5 +256,21 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(\App\Models\Order::class);
     }
+
+    public function hasPendingOrders()
+    {        
+        
+        if ($this->orders->count() <= 0) {
+            return false;
+        }
+
+        foreach ($this->orders as $order) {
+            if ($order->status == 'open' || $order->status == 'partial') {
+                return true;
+            }    
+        }
+        
+        return false;
+    }
     
 }
