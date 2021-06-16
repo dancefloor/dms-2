@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LocationController;
@@ -14,7 +15,9 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\StyleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Mail\UnpaidOrderReminder;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +44,7 @@ Route::get('users/export/', [UserController::class,'export'])->name('users.expor
 Route::get('locations/export/', [LocationController::class, 'export'])->name('locations.export');
 Route::get('classrooms/export/', [ClassroomController::class, 'export'] )->name('classrooms.export');
 Route::get('courses/export/', [CourseController::class, 'export'] )->name('courses.export');
+Route::get('unpaid/export/', [OrderController::class,'exportUnpaid'])->name('orders.unpaid');
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('users', UserController::class)->middleware('auth');
@@ -53,7 +57,9 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('styles', StyleController::class);        
     Route::resource('classrooms', ClassroomController::class);
     Route::resource('orders', OrderController::class);
+    Route::resource('attendances', AttendanceController::class);
 
+    
     Route::get('checkout', [ProfileController::class, 'checkout'])->name('checkout');
     Route::get('catalogue', [ProfileController::class, 'catalogue'])->name('catalogue');
     Route::get('reports', [ProfileController::class, 'reports'])->name('reports');
@@ -71,9 +77,11 @@ Route::delete('registration/{course}',[RegistrationController::class, 'remove'])
 
 Route::get('order/confirmation',[OrderController::class,'confirmation'])->name('order.confirmation');
 
-Route::get('test', function(){    
-    return App\Models\User::whereHas('orders', function (Builder $query){
-        $query->where('status','open');
-    })->get();
+Route::get('test', function(){        
+    Mail::to('gab.zambrano@gmail.com')->send(new UnpaidOrderReminder());
+    // return App\Models\User::whereHas('orders', function (Builder $query){
+    //     $query->where('status','open');
+    // })->get();
+
 });
 

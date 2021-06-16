@@ -34,10 +34,10 @@
                 {{-- <span>CHF {{ $course->full_price }}</span> --}}
             </div>
 
-            <div class="flex justify-between text-sm text-gray-600">
+            <div class="flex justify-between text-sm text-{{ $course->classroom->color ?? '' }}">
                 <span class="inline-flex items-center">
                     @include('icons.geo-fill', ['style'=>'w-4 mr-2'])
-                    {{ $course->neighbourhood ?? '' }}
+                    <span class="text-gray-600">{{ $course->neighbourhood ?? '' }}</span>
                 </span>
                 {{-- {{ $course->classroom->name ?? '' }} --}}
                 {{-- <span>CHF {{ $course->full_price }}</span> --}}

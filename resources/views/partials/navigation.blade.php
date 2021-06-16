@@ -15,14 +15,22 @@
         <a href="{{ route('geneva.courses') }}"
             class="group df_nav_links {{ Request::is('welcome') ? 'df_nav_links_active' : '' }}">
             @include('icons.catalogue', ['style'=>'h-5 w-5 mr-4'])
-            Schedule
+            Courses
         </a>
+
+        @can('crud_courses')
+        <a href="{{ route('attendances.index') }}"
+            class="group df_nav_links {{ Request::is('attendances') ? 'df_nav_links_active' : '' }}">
+            @include('icons.classroom', ['style'=>'h-5 w-5 mr-4'])
+            Attendances
+        </a>
+        @endcan
 
         @can('crud_courses')
         <a href="{{ route('courses.index') }}"
             class="group df_nav_links {{ Request::is('courses') ? 'df_nav_links_active' : '' }}">
             @include('icons.classroom', ['style'=>'h-5 w-5 mr-4'])
-            Courses
+            Courses admin
         </a>
         @endcan
 

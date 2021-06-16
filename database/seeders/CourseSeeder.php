@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Course;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
@@ -21,7 +22,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-cubaine',
             'monday' => 1, 'level' => 'Open level',
             'start_time_mon' => '18:45', 'end_time_mon' => '19:45',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -32,18 +33,26 @@ class CourseSeeder extends Seeder
             'teaser_video_1'=> '<iframe width="100%" height="450" src="https://www.youtube.com/embed/bcECi554r30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
             'teaser_video_2' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/ii9BJ5GcgwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
             'teaser_video_3' => '<iframe width="100%" height="450" src="https://www.youtube.com/embed/2d6Iz0ZjQtk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        ]);
-        //$c1->students()->attach(1);
+        ]);        
         $c1->teachers()->attach(6);
         $c1->styles()->attach(1);        
         $c1->classroom()->associate(1)->save(); // AJ Studio
+        $c1->students()->attach(1, ['role'=>'student', 'status'=>'registered']);
+        $c1->students()->attach(5, ['role'=>'student', 'status'=>'registered']);
+        $c1->students()->attach(9, ['role'=>'student', 'status'=>'registered']);
+        $c1->students()->attach(15, ['role'=>'student', 'status'=>'registered']);
+        
+        // $c1->students()->attach(5, ['role'=>'student', 'status'=>'registered']);
+        // $c1->students()->attach(7, ['role'=>'student', 'status'=>'registered']);
+        // $c1->students()->attach(9, ['role'=>'student', 'status'=>'registered']);
+        // $c1->students()->attach(12, ['role'=>'student', 'status'=>'registered', 'option'=> '', 'created_at'=> now()]);
 
         $c2 = Course::create([
             'name' => 'Afrohouse Afrobeat',
             'slug' => 'afrohouse-afrobeat',
             'monday'=> 1, 'level' => 'Beginner',
             'start_time_mon' => '18:45', 'end_time_mon' => '19:45',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -58,6 +67,7 @@ class CourseSeeder extends Seeder
         $c2->teachers()->attach(14); //Ivan
         $c2->styles()->attach(12);        
         $c2->classroom()->associate(3)->save(); //CCA
+        // $c2->students()->attach([1,4,6,18,21,12,3]);
         
 
         $c3 = Course::create([
@@ -65,7 +75,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-con-rumba',
             'monday'=> 1, 'level' => 'Intermediate',
             'start_time_mon' => '19:00', 'end_time_mon' => '20:00',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'user_id' => 1,
             'status'=> 'active',
@@ -80,6 +90,7 @@ class CourseSeeder extends Seeder
         $c3->teachers()->attach([5,9]); //Kouame & Sonia
         $c3->styles()->attach([1,7]);
         $c3->classroom()->associate(11)->save();       // Holmes
+        // $c3->students()->associate([1,6,8,20,23,15,4]);
   
 
         $c4 = Course::create([
@@ -87,7 +98,7 @@ class CourseSeeder extends Seeder
             'slug' => 'house-dance',
             'monday'=> 1, 'level' => 'Open level',
             'start_time_mon' => '19:50', 'end_time_mon' => '20:50',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -110,7 +121,7 @@ class CourseSeeder extends Seeder
             'slug' => 'hip-hop',
             'monday'=> 1, 'level' => 'Intermediate',
             'start_time_mon' => '19:50', 'end_time_mon' => '19:50',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -132,7 +143,7 @@ class CourseSeeder extends Seeder
             'slug' => 'pasitos-con-styling',
             'monday'=> 1, 'level' => 'Intermediate',
             'start_time_mon' => '19:50', 'end_time_mon' => '20:50',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -156,7 +167,7 @@ class CourseSeeder extends Seeder
             'slug' => 'tiempo contra tiempo',
             'monday'=> 1, 'level' => 'Intermediate',
             'start_time_mon' => '20:00', 'end_time_mon' => '21:00',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 180, 'reduced_price' => 160,
             'status'=> 'active',
             'user_id' => 1,
@@ -177,7 +188,7 @@ class CourseSeeder extends Seeder
             'slug' => 'afrohouse-afrobeat',
             'monday'=> 1, 'level' => 'Beginner',
             'start_time_mon' => '20:55', 'end_time_mon' => '21:55',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -198,7 +209,7 @@ class CourseSeeder extends Seeder
             'slug' => 'afrohouse-afrobeat',
             'monday'=> 1, 'level' => 'Upper Intermediate',
             'start_time_mon' => '20:55', 'end_time_mon' => '21:55',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -219,7 +230,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-con-afrocubano',
             'monday'=> 1, 'level' => 'Open level',
             'start_time_mon' => '21:00', 'end_time_mon' => '22:00',
-            'start_date' => '2020-10-26', 'end_date' => '2020-12-14',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 180, 'reduced_price' => 160,
             'status'=> 'active',
             'user_id' => 1,
@@ -242,7 +253,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-cubaine',
             'tuesday'=> 1, 'level' => 'Beginner',
             'start_time_tue' => '18:45', 'end_time_tue' => '19:45',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -264,7 +275,7 @@ class CourseSeeder extends Seeder
             'slug' => 'footwork-bodymoves',
             'tuesday'=> 1, 'level' => 'Beginner',
             'start_time_tue' => '19:00', 'end_time_tue' => '20:00',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -286,7 +297,7 @@ class CourseSeeder extends Seeder
             'slug' => 'atelier-choregraphique',
             'tuesday'=> 1, 'level' => 'Advanced',
             'start_time_tue' => '19:50', 'end_time_tue' => '21:50',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 295, 'reduced_price' => 275,
             'status'=> 'active',
             'user_id' => 1,
@@ -308,7 +319,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-chore',
             'tuesday'=> 1, 'level' => 'Upper intermediate',
             'start_time_tue' => '19:50', 'end_time_tue' => '21:20',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,
@@ -330,7 +341,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-fusion',
             'tuesday'=> 1, 'level' => 'Open levels',
             'start_time_tue' => '20:00', 'end_time_tue' => '21:00',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 200, 'reduced_price' => 180,
             'status'=> 'active',
             'user_id' => 1,
@@ -352,7 +363,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling',
             'tuesday' => 1, 'level' => 'All levels',
             'start_time_tue' => '19:00', 'end_time_tue' => '20:15',
-            'start_date' => '2020-10-27', 'end_date' => '2020-12-15',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 180, 'reduced_price' => 160,
             'status'=> 'active',
             'user_id' => 1,
@@ -379,7 +390,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-cubaine',
             'wednesday'=> 1, 'level' => 'Intermediate',
             'start_time_wed' => '18:30', 'end_time_wed' => '19:45',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 200, 'reduced_price' => 180,
             'status'=> 'active',
             'user_id' => 1,
@@ -401,7 +412,7 @@ class CourseSeeder extends Seeder
             'slug' => 'shines-footwork',
             'wednesday'=> 1, 'level' => 'Upper Intermediate',
             'start_time_wed' => '18:45', 'end_time_wed' => '19:45',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -423,7 +434,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-improvisation',
             'wednesday'=> 1, 'level' => 'Upper Intermediate',
             'start_time_wed' => '19:30', 'end_time_wed' => '20:30',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -445,7 +456,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-fusion-hip-hop',
             'wednesday'=> 1, 'level' => 'Beginner',
             'start_time_wed' => '19:50', 'end_time_wed' => '20:50',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -467,7 +478,7 @@ class CourseSeeder extends Seeder
             'slug' => 'boogaloo',
             'wednesday'=> 1, 'level' => 'Advanced',
             'start_time_wed' => '19:50', 'end_time_wed' => '20:50',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -489,7 +500,7 @@ class CourseSeeder extends Seeder
             'slug' => 'afrobeat',
             'wednesday'=> 1, 'level' => 'Open level',
             'start_time_wed' => '20:15', 'end_time_wed' => '21:15',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -510,7 +521,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-cubaine',
             'wednesday'=> 1, 'level' => 'Beginner',
             'start_time_wed' => '20:30', 'end_time_wed' => '22:00',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -531,7 +542,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-fusion',
             'wednesday'=> 1, 'level' => 'Beginner',
             'start_time_wed' => '20:30', 'end_time_wed' => '22:00',
-            'start_date' => '2020-10-28', 'end_date' => '2020-12-16',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 160, 'reduced_price' => 140,
             'status'=> 'active',
             'user_id' => 1,
@@ -560,7 +571,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-fusion-debutant',
             'thursday'=> 1, 'level' => 'Open level',
             'start_time_thu' => '18:45', 'end_time_thu' => '20:15',
-            'start_date' => '2020-10-29', 'end_date' => '2020-12-17',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,
@@ -582,7 +593,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-con-reggaeton',
             'thursday'=> 1, 'level' => 'Open level',
             'start_time_thu' => '19:30', 'end_time_thu' => '20:30',
-            'start_date' => '2020-10-29', 'end_date' => '2020-12-17',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 200, 'reduced_price' => 180,
             'status'=> 'active',
             'user_id' => 1,
@@ -603,7 +614,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-Fusion-interadvance',
             'thursday'=> 1, 'level' => 'Upper Intermediate', 'level_number' => '2',
             'start_time_thu' => '20:20', 'end_time_thu' => '21:50',
-            'start_date' => '2020-10-29', 'end_date' => '2020-12-17',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,
@@ -624,7 +635,7 @@ class CourseSeeder extends Seeder
             'slug' => 'salsa-cubaine',
             'thursday'=> 1, 'level' => 'Advanced', 'level_number' => '2',
             'start_time_thu' => '20:20', 'end_time_thu' => '21:50',
-            'start_date' => '2020-10-29', 'end_date' => '2020-12-17',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,
@@ -645,7 +656,7 @@ class CourseSeeder extends Seeder
             'slug' => 'lady-styling-body-movements',
             'thursday'=> 1, 'level' => 'Upper intermediate', 'level_number' => '2',
             'start_time_thu' => '20:30', 'end_time_thu' => '22:00',
-            'start_date' => '2020-10-29', 'end_date' => '2020-12-17',
+            'start_date' => Carbon::now(), 'end_date' => Carbon::now()->addMonth(),
             'full_price' => 220, 'reduced_price' => 200,
             'status'=> 'active',
             'user_id' => 1,

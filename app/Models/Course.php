@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -76,8 +77,10 @@ class Course extends Model
      *
      * @var array
      */
-    protected $casts = [
+    protected $casts = [        
         'id'            => 'integer',
+        'start_date'    => 'date:Y-m-d',
+        'end_date'      => 'date:Y-m-d',
         'monday'        => 'boolean',
         'tuesday'       => 'boolean',
         'wednesday'     => 'boolean',
@@ -114,6 +117,11 @@ class Course extends Model
     public function styles()
     {
         return $this->belongsToMany(Style::class);
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
     }
 
     public function students()
@@ -178,6 +186,18 @@ class Course extends Model
         return $query->whereStatus('active');
     }
 
+    public function scopeShouldExpire($query)
+    {        
+        return $query->where('status', 'active')
+                    //  ->whereNotIn('status',['finished', 'draft'])
+                     ->where('end_date','<=', Carbon::now());
+    }
+  
+    public function expire()
+    {
+        return $this->update([ 'status' => 'finished' ]);
+    }
+
     public function scopeRegularCourses($query)
     {
         return $query->where('is_online', '0');
@@ -239,7 +259,6 @@ class Course extends Model
     {
         return $this->classroom->location->neighborhood ?? '';
     }
-
 
     public function getDaysAttribute()
     {

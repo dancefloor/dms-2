@@ -7,19 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderRegistrationConfirmation extends Mailable
+class UnpaidOrderReminder extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public $status;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($status)
+    public function __construct()
     {
-        $this->status = $status;
+        //
     }
 
     /**
@@ -28,8 +27,9 @@ class OrderRegistrationConfirmation extends Mailable
      * @return $this
      */
     public function build()
-    {        
+    {
+        
         return $this->from('info@dancefloor.family')
-        ->markdown('mail.order-confirmation');
+                ->markdown('mail.unpaid-order-reminder');
     }
 }

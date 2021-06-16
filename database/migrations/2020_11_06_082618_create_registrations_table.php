@@ -19,8 +19,8 @@ class CreateRegistrationsTable extends Migration
             $table->enum('status', ["waiting","pre-registered","registered","canceled","standby","processing","partial","rejected"])->default('pre-registered');
             $table->enum('role', ["instructor","assistant","student"]);
             $table->string('option')->nullable();
-            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('course_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('order_id')->nullable();
             $table->timestamps();
         });

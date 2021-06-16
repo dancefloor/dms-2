@@ -6,6 +6,8 @@ use App\Http\Requests\OrderStoreRequest;
 use App\Http\Requests\OrderUpdateRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Exports\UnpaidInvoicesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -101,4 +103,14 @@ class OrderController extends Controller
         $order = Order::find($request->order);
         return view('pages.order-completed')->with('order', $order);
     }
+
+    public function exportUnpaid() 
+    {
+        return (new UnpaidInvoicesExport)->download('unpaid.xlsx');        
+    }
+
 }
+
+
+
+

@@ -23,10 +23,14 @@ class DailySchedule extends Component
     {
         $this->loading_message = "Loading Courses...";
 
-        $this->monday   = Course::daysOfWeek('monday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_mon','asc')->get();
-        $this->tuesday  = Course::daysOfWeek('tuesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_tue','asc')->get();
-        $this->wednesday= Course::daysOfWeek('wednesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_wed','asc')->get();
-        $this->thursday = Course::daysOfWeek('thursday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_thu','asc')->get();    
+        // $expiredCourses = 
+        Course::shouldExpire()->get()->each->expire();
+        // dd($expiredCourses);
+
+        $this->monday   = Course::ActiveCourses()->daysOfWeek('monday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_mon','asc')->get();
+        $this->tuesday  = Course::ActiveCourses()->daysOfWeek('tuesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_tue','asc')->get();
+        $this->wednesday= Course::ActiveCourses()->daysOfWeek('wednesday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_wed','asc')->get();
+        $this->thursday = Course::ActiveCourses()->daysOfWeek('thursday')->city($this->city)->style($this->style)->level($this->level)->orderBy('start_time_thu','asc')->get();    
     }    
 
     public function updatedCity($value)

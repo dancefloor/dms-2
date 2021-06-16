@@ -32,6 +32,6 @@ class PaymentConfirmation extends Mailable
     {
         //return $this->view('view.name');
         return $this->from('info@dancefloor.family')
-        ->markdown('emails.payment-confirmation');
+        ->markdown('mail.payment-confirmation');
     }
 }

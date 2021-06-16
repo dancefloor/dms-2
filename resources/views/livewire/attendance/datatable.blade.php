@@ -3,18 +3,18 @@
     <!-- Projects list (only on smallest breakpoint) -->
     <div class="mt-10 sm:hidden">
         <div class="px-4 sm:px-6">
-            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">User</h2>
+            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Attendance</h2>
         </div>
         <ul class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
-            @foreach ($payments as $payment)
+            @foreach ($attendances as $attendance)
             <li>
-                <a href="{{ route('payments.show', $payment) }}"
+                <a href="{{ route('courses.show', $attendance) }}"
                     class="flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
                     <div class="flex items-center truncate space-x-3">
                         <div class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600"></div>
                         <p class="font-medium truncate text-sm leading-6">
-                            {{ $payment->name }} {{ $payment->lastname }}
-                            <span class="truncate font-normal text-gray-500">{{ $payment->email }}</span>
+                            {{ $attendance->name }} {{ $attendance->lastname }}
+                            <span class="truncate font-normal text-gray-500">{{ $attendance->email }}</span>
                         </p>
                     </div>
                     <!-- Heroicon name: chevron-right -->
@@ -39,31 +39,27 @@
                     <tr class="border-t border-gray-200">
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            ID
+                            <span class="lg:pl-2">Course name</span>
                         </th>
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Name
+                            Date
                         </th>
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Method
+                            Day
                         </th>
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Order
+                            Teacher(s)
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Status
+                            was cancelled?
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Total
-                        </th>
-                        <th
-                            class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Last updated
+                            Nb Students
                         </th>
                         <th
                             class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -71,54 +67,42 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-100">
-                    @foreach ($payments as $payment)
+                    @foreach ($attendances as $attendance)
                     <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">{{ $payment->id }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <a href="{{ route('payments.show', $payment) }}"
-                                class="text-sm leading-5 font-medium text-gray-900 hover:text-gray-800 hover:underline">
-                                {{ $payment->user->name }} {{ $payment->user->lastname }}
+                        <td class="px-6 py-2 whitespace-no-wrap">
+                            <a href="{{ route('attendances.show', $attendance) }}"
+                                class="font-semibold hover:text-gray-700">
+                                {{ $attendance->course->name }}
                             </a>
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">{{ $payment->method }}</div>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ $attendance->date }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <a href="{{ route('orders.show', $payment->order) }}"
-                                class="text-sm leading-5 text-gray-500 hover:text-red-600">{{ $payment->order->id }}
-                            </a>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ implode(',',$attendance->course->days) }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">
-                                <x-shared.display-status status="{{ $payment->status }}" />
-                            </div>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            @foreach ($attendance->course->teachers as $t)
+                            <span class="mr-1">{{ $t->name }}</span>
+                            @endforeach
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">
-                                CHF
-                                @if ($payment->type == 'in')
-                                {{ $payment->credit }}
-                                @else
-                                -{{ $payment->debit }}
-                                @endif
-                            </div>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                            {{ $attendance->is_cancelled == 1 ? 'yes': 'no' }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{ $payment->updated_at->diffForHumans() }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                            <x-shared.list-actions route="payments" :item="$payment" />
-                        </td>
+                        <td class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500">
 
+                        </td>
+                        <td class="px-6 py-2 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                            <a href="{{ route('attendances.edit', $attendance) }}"
+                                class="text-red-500 hover:underline">edit</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <div class="my-2 px-6">
-            {{ $payments->links() }}
+        <div class="my-3 mx-4">
+            {{ $attendances->links() }}
         </div>
     </div>
 </div>

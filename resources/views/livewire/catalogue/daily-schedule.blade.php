@@ -9,7 +9,7 @@
             <select id="city-filter"
                 class="mt-1 block w-full py-2 px-3 border border-red-700 bg-white rounded-md shadow-sm transition duration-150 ease-in-out text-sm leading-5 form-select"
                 wire:model="city">
-                <option value="">All Cities</option>
+                <option value="">Display all Cities</option>
                 <option value="Geneva">Geneva</option>
                 <option value="Lausanne">Lausanne</option>
                 <option value="France">France</option>
@@ -21,7 +21,7 @@
             <select id="style-filter"
                 class="mt-1 block w-full py-2 px-3 border border-red-700 bg-white rounded-md shadow-sm transition duration-150 ease-in-out text-sm leading-5 form-select"
                 wire:model="style">
-                <option value="">All Styles</option>
+                <option value="">Display all Styles</option>
                 @foreach (\App\Models\Style::all() as $s)
                 <option value="{{ $s->id }}">{{ $s->name }}</option>
                 @endforeach
@@ -33,15 +33,14 @@
             <select id="level-filter"
                 class="mt-1 block w-full py-2 px-3 border border-red-700 bg-white rounded-md shadow-sm transition duration-150 ease-in-out text-sm leading-5 form-select"
                 id="level" wire:model="level">
-                <option value="">All Levels</option>
-                <option value="open level">Open Level</option>
+                <option value="">Display all Levels</option>
+                <option value="All levels">All Levels</option>
                 <option value="Beginner">Beginner</option>
-                <option value="Elementary">Elementary</option>
                 <option value="Intermediate">Intermediate</option>
-                <option value="Upper Intermediate">Upper Intermediate</option>
+                {{-- <option value="Upper Intermediate">Upper Intermediate</option> --}}
                 <option value="Advanced">Advanced</option>
-                <option value="Expert">Expert</option>
-                <option value="Master">Master</option>
+                {{-- <option value="Expert">Expert</option> --}}
+                {{-- <option value="Master">Master</option> --}}
             </select>
             Level: {{ $level }}
         </div>
@@ -69,64 +68,7 @@
                 <h3 class="text-2xl font-bold mx-3">Monday</h3>
                 {{------------------------------ Monday -----------------------------------------------------------------}}
                 @forelse ($monday as $course)
-                <div class=" m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden">
-                    <div class="px-3 pt-3 pb-1">
-                        <div class="flex justify-between">
-                            <h2 class="font-black text-lg text-gray-700">
-                                {{ $course->name }}
-                            </h2>
-                            <span class="text-sm font-extrabold mt-1 w-20 text-right">
-                                <x-catalogue.display-price :course="$course" />
-                            </span>
-                        </div>
-                        <div class="w-full text-gray-600 text-sm mb-2">
-                            {{ $course->tagline}}
-                        </div>
-                        <x-shared.course-daily-schedule :course="$course" day="0" />
-                        <div class="flex justify-between text-sm text-gray-600 mb-1">
-                            <span class="inline-flex items-center">
-                                <x-partials.level-icon level="{{ $course->level }}" />
-                                {{ $course->level }}</span>
-                        </div>
-                        <div class="flex justify-between text-sm text-gray-600">
-                            <span class="inline-flex items-center">
-                                @include('icons.geo-fill', ['style'=>'w-4 mr-2'])
-                                {{ $course->neighbourhood ?? '' }}
-                            </span>
-                        </div>
-                        <x-catalogue.display-teachers :course="$course" />
-                    </div>
-                    @auth
-                    <div class="mb-3 mx-3 items-center">
-                        <div class="flex justify-between items-center text-gray-100">
-
-                            @if ($course->hasStudent(Auth::user()->id))
-                            <div>
-                                <x-partial.registration-status :user="auth()->user()" cid="{{ $course->id }}" />
-                            </div>
-                            <div>
-                                <form wire:submit.prevent="deregister({{$course}})">
-                                    <button type="submit" class="text-gray-500 hover:text-red-700 pt-2 pr-1">
-                                        @include('icons.x-circle-thin')
-                                    </button>
-                                </form>
-
-                            </div>
-                            @else
-                            <form wire:submit.prevent="register({{ $course }})" method="post">
-                                @csrf
-                                <button type="submit" title="Register"
-                                    class="w-full bg-gray-200 text-gray-700 hover:bg-red-800 hover:text-white text-sm px-2 py-1 rounded-full inline-flex items-center">
-                                    @include('icons.add-to-basket')
-                                    <span class="ml-2">Add to basket</span>
-                                </button>
-                                <input type="hidden" name="option" value="full-price">
-                            </form>
-                            @endif
-                        </div>
-                    </div>
-                    @endauth
-                </div>
+                <livewire:catalogue.course-card2 :course="$course" :key="$course->id" />
                 @empty
                 <div class="bg-white flex justify-center py-10 border font-semibold rounded-lg">
                     No courses found

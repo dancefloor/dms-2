@@ -272,5 +272,11 @@ class User extends Authenticatable //implements MustVerifyEmail
         
         return false;
     }
+
+    public function attendances()
+    {
+        // 'attedance_user','attendance_id','user_id'
+        return $this->belongsToMany(Attendance::class);
+    }
     
 }

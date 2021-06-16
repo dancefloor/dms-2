@@ -13,7 +13,7 @@ class Datatable extends Component
     public function render()
     {
         return view('livewire.payment.datatable', [
-            'payments' => Payment::paginate(10),
+            'payments' => Payment::latest()->paginate(10),
         ]);
     }
 }

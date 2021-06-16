@@ -24,10 +24,7 @@
         </div>
     </x-slot>
 
-
     <x-shared.alert />
-
-
 
     <!-- Pinned projects -->
     <div class="px-4 mt-6 sm:px-6 lg:px-8">
@@ -36,6 +33,9 @@
             <x-user.stat-males />
             <x-user.stat-females />
         </ul>
+        <div class="mt-4">
+            <a href="{{ route('orders.unpaid') }}">Export unpaid users</a>
+        </div>
     </div>
 
 

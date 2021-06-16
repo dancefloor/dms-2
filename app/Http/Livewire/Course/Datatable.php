@@ -20,7 +20,7 @@ class Datatable extends Component
     }
 
     public function render()
-    {
+    {        
         return view('livewire.course.datatable',[
             'courses' => Course::where('name', 'like', '%'. $this->search .'%')
                                 ->daysOfWeek($this->day)
