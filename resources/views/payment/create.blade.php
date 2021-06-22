@@ -12,7 +12,7 @@
             </div>
             <div class="mt-4 flex sm:mt-0 sm:ml-4">
                 <span class="order-1 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
-                    <a href="{{ route('payments.index') }}" class="df-btn-secondary">
+                    <a href="{{ url()->previous() }}" class="df-btn-secondary">
                         Back
                     </a>
                 </span>

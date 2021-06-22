@@ -24,9 +24,8 @@
         <tr valign="top" class="bg-gray-50">
             <td class="font-semibold pl-2">Address</td>
             <td class="text-gray-700">
-                c/o Diaz Eliseo <br>
-                Rue François-Durafour 14 <br>
-                1220 Les avanchets
+                Route de Meyrin 5<br>
+                1202 Genève
             </td>
         </tr>
         <tr>

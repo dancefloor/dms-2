@@ -25,259 +25,216 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Course Information
-                </h3>
-                <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-                    Created on {{ $course->created_at->format('M d, Y') }}
-                </p>
+            <div class="px-4 py-5 sm:px-6 flex justify-between">
+                <div>
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Course ID: {{ $course->id }}
+                    </h3>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Created on {{ $course->created_at->format('M d, Y') }}
+                    </p>
+                </div>
+                <div>
+                    @switch($course->status)
+                    @case('active')
+                    <span
+                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-200 text-green-800">
+                        {{ $course->status }}
+                    </span>
+                    @break
+                    @case('finished')
+                    <span
+                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-200 text-red-800">
+                        {{ $course->status }}
+                    </span>
+                    @break
+                    @default
+                    <span
+                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-200 text-gray-800">
+                        {{ $course->status }}
+                    </span>
+                    @endswitch
+                </div>
             </div>
-            <div class="px-4 py-5 sm:p-0">
-                <dl>
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            ID
+            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Course name
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->id }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Name
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             {{ $course->name }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            slug
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Slug
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             {{ $course->slug }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Confirmed Students
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Dates
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->confirmedStudents->count() }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Status
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            @switch($course->status)
-                            @case('active')
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-200 text-green-800">
-                                {{ $course->status }}
-                            </span>
-                            @break
-                            @case('finished')
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-200 text-red-800">
-                                {{ $course->status }}
-                            </span>
-                            @break
-                            @default
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-200 text-gray-800">
-                                {{ $course->status }}
-                            </span>
-                            @endswitch
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Tagline
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->tagline }}
-                        </dd>
-                    </div>
-
-                    @if ($course->keywords)
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Keywords
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->keywords }}
-                        </dd>
-                    </div>
-                    @endif
-
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Full Price
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->full_price }} CHF
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Reduced Price
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->reduced_price }} CHF
-                        </dd>
-                    </div>
-
-                    @if ($course->promo_price)
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Promo Price
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->promo_price }} ({{ $course->promo_price_expiry_date }}) CHF
-                        </dd>
-                    </div>
-                    @endif
-
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Live Price
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->live_price }} EUR
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Online Price
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->online_price }} EUR
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Start Date
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             @if ($course->start_date)
-                            {{ $course->start_date }}
+                            {{ $course->start_date->format('d F Y') }} - {{ $course->end_date->format('d F Y') }}
                             @endif
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            end_date
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Schedule
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->end_date }}
+                        <dd class="mt-1 text-sm text-gray-900">
+                            <x-partials.time-schedule :course="$course" />
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            level
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Level
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->level }}
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->level }} {{ $course->level_number }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Level Number
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->level_number }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
                             Focus
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             {{ $course->focus }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            type
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Pricing
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
+                            <div>Full price: {{ $course->full_price }} CHF</div>
+                            <div>Reduced price: {{ $course->reduced_price }} CHF</div>
+
+                            @if ($course->promo_price)
+                            <div>Promo Price: {{ $course->promo_price }} ({{ $course->promo_price_expiry_date }}) CHF
+                            </div>
+                            @endif
+
+                            @if ($course->live_price)
+                            <div>Live Price: {{ $course->live_price }} CHF</div>
+                            @endif
+
+                            @if ($course->online_price)
+                            <div>Online Price: {{ $course->online_price }} EUR</div>
+                            @endif
+                        </dd>
+                    </div>
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Type
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
                             {{ $course->type }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            is_online
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->is_online }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            online_link
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->online_link }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            to_waiting
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->to_waiting }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
                             Classroom
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             @if ($course->classroom)
                             {{ $course->classroom->name }}
                             @endif
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Schedule
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Is standby?
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            <x-partials.time-schedule :course="$course" />
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->to_waiting ? 'Yes':'No' }}
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
+
+
+                    @if ($course->keywords)
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Keywords
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->keywords }}
+                        </dd>
+                    </div>
+                    @endif
+
+                    @if ($course->tagline)
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Tagline
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->tagline }}
+                        </dd>
+                    </div>
+                    @endif
+
+                    @if ($course->excerpt)
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Excerpt
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->excerpt }}
+                        </dd>
+                    </div>
+                    @endif
+
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Description
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->description }}
+                        </dd>
+                    </div>
+
+                    @if ($course->live_description)
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Live Description
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->live_description }}
+                        </dd>
+                    </div>
+                    @endif
+
+                    @if ($course->online_description)
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Online Description
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            {{ $course->online_description }}
+                        </dd>
+                    </div>
+                    @endif
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
                             Teachers
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             <ul class="border border-gray-200 rounded-md">
                                 @forelse ($course->teachers as $p)
                                 <li
@@ -304,12 +261,12 @@
                             </ul>
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
+
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
                             Styles
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900">
                             <ul class="border border-gray-200 rounded-md">
                                 @forelse ($course->styles as $p)
                                 <li
@@ -334,101 +291,20 @@
                             </ul>
                         </dd>
                     </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Students
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            <livewire:partials.students-list :course="$course" />
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Thumbnail
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            @if ($course->thumbnail)
-                            <img src="{{ asset('uploads/'. $course->thumbnail) }}" alt="">
-                            @endif
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Video 1
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            @if ($course->teaser_video_1)
-                            {!! $course->teaser_video_1 !!}
-                            @endif
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Video 2
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            @if ($course->teaser_video_2)
-                            {!! $course->teaser_video_2 !!}
-                            @endif
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Video 3
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            @if ($course->teaser_video_3)
-                            {!! $course->teaser_video_3 !!}
-                            @endif
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Excerpt
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->excerpt }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Description
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->description }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Online Description
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->online_description }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Live Description
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $course->live_description }}
-                        </dd>
-                    </div>
                 </dl>
             </div>
         </div>
+
+        <br>
+
+        @include('courses.view.attendances')
+
+        <br>
+
+        @include('courses.view.students')
+
+        <br>
+
+        @include('courses.view.media')
     </div>
 </x-app-layout>
-
-
-$table->string('portrait')->nullable();
-$table->foreignId('user_id');

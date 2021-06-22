@@ -17,9 +17,13 @@ class Attendance extends Model
         'is_cancelled',        
     ];
 
+    protected $casts = [
+        'date'  => 'date:Y-m-d'
+    ];
+
     public function attendees()
     {
-        return $this->belongsToMany(User::class,'attendance_user','attendance_id','user_id')->withPivot('status', 'comments');
+        return $this->belongsToMany(User::class,'presences','attendance_id','user_id')->withPivot('status', 'comments');
     }
 
     public function course()
@@ -27,3 +31,6 @@ class Attendance extends Model
         return $this->belongsTo(Course::class);
     }
 }
+
+
+

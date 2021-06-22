@@ -20,11 +20,11 @@
                     profile
                 </a> and by sending us proof by
                 email to
-                <a href="#" class="font-medium underline text-yellow-700 hover:text-yellow-600">
+                <a href="#" class="font-bold text-yellow-700 hover:text-yellow-600">
                     support@dms.com
                 </a>
                 or by phone to
-                <a href="#" class="font-medium underline text-yellow-700 hover:text-yellow-600">
+                <a href="#" class="font-bold text-yellow-700 hover:text-yellow-600">
                     +41 22 123 45678
                 </a>
             </p>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendanceUserTable extends Migration
+class CreatePresencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAttendanceUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_user', function (Blueprint $table) {
+        Schema::create('presences', function (Blueprint $table) {
             $table->id();
             $table->text('comments')->nullable();
             $table->string('status')->nullable();
@@ -31,6 +31,6 @@ class CreateAttendanceUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_user');
+        Schema::dropIfExists('presences');
     }
 }

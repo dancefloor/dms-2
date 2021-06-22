@@ -49,14 +49,6 @@ class User extends Authenticatable //implements MustVerifyEmail
         'two_factor_secret',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'birthday',
-        'mobile_verified_at',
-        'phone_verified_at',
-    ];
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -65,6 +57,16 @@ class User extends Authenticatable //implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'birthday' => 'date:Y-m-d',
+        'unemployement_expiry_date' => 'date:Y-m-d',
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'birthday',
+        'mobile_verified_at',
+        'phone_verified_at',
+        'unemployement_expiry_date',
     ];
 
     
@@ -274,9 +276,8 @@ class User extends Authenticatable //implements MustVerifyEmail
     }
 
     public function attendances()
-    {
-        // 'attedance_user','attendance_id','user_id'
-        return $this->belongsToMany(Attendance::class);
+    {        
+        return $this->belongsToMany(Attendance::class,'presences','user_id','attendance_id')->withPivot('status', 'comments');
     }
     
 }

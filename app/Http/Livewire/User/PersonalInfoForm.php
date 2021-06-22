@@ -10,38 +10,31 @@ class PersonalInfoForm extends Component
 {
     use WithFileUploads;
 
-    public $user;
-    public $birthday;
-    public $profession;
-    public $biography;
-    public $gender;
-    public $branch;
-    public $aware_of_df;
-    public $work_status;
+    public $user;           
     public $unemployementProof;
-    public $unemployementProofTemp;
-    public $unemployement_expiry_date;
-    public $price_hour;
-    public $workStatusVerified;
+    public $unemployementProofTemp;    
+
+    protected $rules = [
+        'user.birthday'     => 'nullable|date',
+        'user.gender'       => 'required',
+        'user.branch'       => 'nullable',
+        'user.profession'   => 'nullable',
+        'user.biography'    => 'nullable',
+        'user.work_status'  => 'required',
+        'user.aware_of_df'  => 'required',
+        'user.work_status_verified'         =>  'nullable',
+        'user.unemployement_expiry_date'    =>  'nullable',        
+    ];
 
     public function updatePersonalInfo()
-    {
-        $this->user->update([
-            'gender'        => $this->gender,
-            'birthday'      => $this->birthday,
-            'branch'        => $this->branch,
-            'profession'    => $this->profession,
-            'biography'     => $this->biography,
-            'aware_of_df'   => $this->aware_of_df,
-            'work_status'   => $this->work_status,
-            'price_hour'    => $this->price_hour,                        
-            'unemployement_expiry_date' => $this->unemployement_expiry_date,
-            'work_status_verified'  => $this->workStatusVerified,
-        ]);
+    {        
+        $this->validate();
 
         if ($this->unemployementProofTemp != null) {
             $this->user->update(['unemployement_proof' => $this->unemployementProofTemp]);           
         }
+
+        $this->user->save();
 
         session()->flash('success','Personal information updated successfully');
     }
@@ -64,17 +57,7 @@ class PersonalInfoForm extends Component
     public function mount($user)
     {
         $this->user = $user;
-        $this->birthday = $user->birthday;
-        $this->profession = $user->profession;
-        $this->biography = $user->biography;
-        $this->gender = $user->gender;
-        $this->branch = $user->branch;
-        $this->aware_of_df = $user->aware_of_df;
-        $this->work_status = $user->work_status;
-        $this->unemployementProof = $user->unemployement_proof;
-        $this->unemployement_expiry_date = $user->unemployement_expiry_date;
-        $this->price_hour = $user->price_hour;       
-        $this->workStatusVerified = $user->work_status_verified;       
+        $this->unemployementProof = $user->unemployement_proof;                        
     }
 
     public function render()

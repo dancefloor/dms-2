@@ -150,7 +150,7 @@
                     @if (auth()->user()->work_status != 'working')
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            Reduced price discount
+                            Student/unemployment discount
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             CHF 20.-

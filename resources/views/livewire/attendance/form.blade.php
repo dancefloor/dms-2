@@ -75,44 +75,8 @@
                             <ul class="-my-5 divide-y divide-gray-200">
                                 @foreach ($attendance->attendees as $student)
                                 <li class="py-2 border-t border-gray-200">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="flex-shrink-0">
-                                            <img class="h-8 w-8 rounded-full" src="{{ $student->profile_photo_url }}"
-                                                alt="">
-                                        </div>
-                                        <div class="flex-1 min-w-0">
-                                            <p class="text-sm font-medium text-gray-900 truncate">
-                                                {{ $student->name }} {{ $student->lastname }}
-                                            </p>
-                                            <p class="text-sm text-gray-500 truncate">
-                                                {{ $student->email }}
-                                            </p>
-                                        </div>
-                                        <div class="text-sm font-medium text-green-500 truncate mx-2">
-                                            {{ $student->pivot->status }}
-                                        </div>
-                                        <div class="flex justify-between">
-
-                                            <select wire:model="studentStatus.{{$student->id}}"
-                                                class="form-select mt-1 block w-full pl-3 pr-10 py-1 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                                                <option value="">Select</option>
-                                                <option value="present"
-                                                    {{ $student->pivot->status == 'present' ? 'selected' : '' }}>
-                                                    Present
-                                                </option>
-                                                <option value="absent"
-                                                    {{ $student->pivot->status == 'absent' ? 'selected' : '' }}>Absent
-                                                </option>
-                                                <option value="excused"
-                                                    {{ $student->pivot->status == 'excused' ? 'selected' : '' }}>Excused
-                                                </option>
-                                            </select>
-                                            <button type="button" wire:click.prevent="status({{$student->id}})"
-                                                class="ml-2 df-btn-primary">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <livewire:attendance.student-status :attendance="$attendance" :student="$student"
+                                        :key="$student->id" />
                                 </li>
                                 @endforeach
                             </ul>

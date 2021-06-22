@@ -11,14 +11,10 @@ class WelcomeController extends Controller
         return view('welcome');
     }
     
-    public function genevaCourses()
+    public function courses()
     {
-        return view('pages.geneva');
+        return view('pages.schedule');
     }
 
-    public function lausanneCourses()
-    {
-        return view('pages.geneva');
-    }
 
 }

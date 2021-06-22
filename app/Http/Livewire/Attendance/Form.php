@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Attendance;
 use Illuminate\Support\Str;
 use App\Models\Attendance;
 use App\Models\Course;
+use App\Models\Presence;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -15,13 +16,14 @@ class Form extends Component
     public $students;
     public $status = '';  
     public $studentStatus = [];  
+    public $presences;    
 
     protected $rules = [
         'attendance.date'           => 'required|date',
         'attendance.is_cancelled'   => 'nullable',
         'attendance.comments'       => 'nullable',
         'attendance.user_id'        => 'nullable',
-        'attendance.course_id'      => 'required',
+        'attendance.course_id'      => 'required',        
     ];
     
     public function save()
@@ -45,13 +47,6 @@ class Form extends Component
         return redirect(route('attendances.edit', $this->attendance));
     }
 
-    public function status($id)
-    {
-        
-        $this->attendance->attendees()->updateExistingPivot($id,['status'=> $this->studentStatus[$id]]);
-        session()->flash('updated', 'status updated!');
-    }
-
     // public function updatedAttendanceCourseId($value)
     // {
     //     dd($value);
@@ -62,6 +57,7 @@ class Form extends Component
         if ($attendance->exists) {
             $this->attendance = $attendance;                                 
             $this->action = 'update';
+            $this->presences = Presence::where('attendance_id',$this->attendance->id)->get();
         }else{
             $this->attendance = new Attendance;
             $this->attendance->course_id;            

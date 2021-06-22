@@ -168,6 +168,7 @@ class Course extends Model
             ->using(Registration::class)
             ->withPivot('role', 'status')            
             ->wherePivot('status','processing')
+            ->orWherePivot('status','registered')
             ->wherePivot('role','student');
     }
 

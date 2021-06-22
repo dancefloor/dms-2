@@ -6,6 +6,7 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
+                @if (Request::is('/'))
                 <button @click="SlideOverMenu = true" class="text-gray-400 hover:text-gray-100 mr-2 hidden sm:inline">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -13,6 +14,8 @@
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
+                @endif
+
                 <div class="flex-shrink-0">
                     <a href="{{ route('welcome') }}">
                         @include('icons.logo-white', ['style'=>'h-10'])
@@ -33,17 +36,16 @@
                 <div class="flex items-center">
                     @auth
                     @isset($course)
-                    @if (Request::is('course/'. $course->slug))
+                    @if (Request::is('course/'. $course->id))
                     @can('crud_courses')
                     <a class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                        aria-label="Notifications" href="{{ route('courses.edit', $course) }}">
+                        href="{{ route('courses.edit', $course) }}">
                         @include('icons.edit')
 
                     </a>
                     @endcan
                     @endif
                     @endisset
-
 
                     <button
                         class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"

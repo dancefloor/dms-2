@@ -32,8 +32,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
-Route::get('/courses/geneva', [WelcomeController::class, 'genevaCourses'])->name('geneva.courses');
-Route::get('/courses/lausanne', [WelcomeController::class, 'lausanneCourses'])->name('lausanne.courses');
+Route::get('/courses/schedule', [WelcomeController::class, 'courses'])->name('courses');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('profile/dashboard');
