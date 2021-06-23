@@ -39,6 +39,12 @@
 <div class="hidden lg:flex lg:flex-shrink-0">
     <div class="flex flex-col w-64 border-r border-gray-800 pt-5 pb-4 bg-gray-800">
         <div class="flex items-center flex-shrink-0 px-6">
+            <button @click="SlideOverMenu = true" class="text-gray-400 hover:text-gray-100 mr-2 hidden sm:inline">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
             <a href="{{ route('dashboard') }}">
                 @include('icons.logo-white', ['style'=> 'h-12 w-auto'])
             </a>

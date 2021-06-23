@@ -57,8 +57,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('classrooms', ClassroomController::class);
     Route::resource('orders', OrderController::class);
     Route::resource('attendances', AttendanceController::class);
-
     
+    Route::get('cart', [ProfileController::class, 'cart'])->name('cart');
     Route::get('checkout', [ProfileController::class, 'checkout'])->name('checkout');
     Route::get('catalogue', [ProfileController::class, 'catalogue'])->name('catalogue');
     Route::get('reports', [ProfileController::class, 'reports'])->name('reports');

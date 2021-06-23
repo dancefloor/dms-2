@@ -16,9 +16,9 @@
                 </span>
                 @if (auth()->user()->pendingCourses()->count() > 0)
                 <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
-                    <a href="{{ route('checkout') }}" class="df-btn-primary">
+                    <a href="{{ route('cart') }}" class="df-btn-primary">
                         @include('icons.checkout-cart')
-                        <span class="ml-2">Checkout</span>
+                        <span class="ml-2">Cart</span>
                     </a>
                 </span>
                 @endif
@@ -35,5 +35,6 @@
     </div>
 
     <livewire:profile.registered-courses />
+
 
 </x-app-layout>

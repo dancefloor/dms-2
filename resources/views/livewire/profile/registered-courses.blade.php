@@ -89,7 +89,7 @@
                         <div class="flex items-center" x-data="{ preview:false }">
                             <x-course.display-activity-color status="{{ $course->status }}" />
                             <div class="ml-4">
-                                <a href="{{ route('courses.view', $course->slug) }}"
+                                <a href="{{ route('courses.view', $course) }}"
                                     class="text-sm leading-5 font-bold text-gray-900 hover:text-gray-800 hover:underline">
                                     {{ $course->name }} | {{ $course->level_number }}
                                 </a>

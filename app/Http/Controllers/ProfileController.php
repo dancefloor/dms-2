@@ -11,6 +11,11 @@ class ProfileController extends Controller
         return view('profile.checkout');
     }
 
+    public function cart()
+    {
+        return view('profile.cart');
+    }
+
     public function catalogue()
     {
         return view('profile.catalogue');

@@ -47,7 +47,7 @@
                                     @foreach (\App\Models\Classroom::all() as $classroom)
                                     <option value="{{ $classroom->id }}"
                                         {{ $course->classroom_id == $classroom->id ? 'selected' : ''}}>
-                                        {{ $classroom->name }} ({{ $classroom->shortname }})
+                                        {{ $classroom->name }} ({{ $classroom->location->name }})
                                     </option>
                                     @endforeach
                                 </select>

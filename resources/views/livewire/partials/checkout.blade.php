@@ -44,7 +44,7 @@
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    CHF {{ $item->full_price }}
+                                    {{ $item->full_price }}
                                 </td>
                                 <td class="pr-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
@@ -67,94 +67,60 @@
             </div>
         </div>
     </div>
-    <br>
 
-    <div class="flex justify-end">
-        <div>
-            <table class=" shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td colspan="2" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            Subtotal
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                            CHF {{ number_format($subtotal, 2, '.', "'") }}
-                        </td>
-                        <td></td>
-                    </tr>
-                    @if ($count > 1)
-                    <tr>
-                        <td colspan="2" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            Discount ({{ $discountText }})
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-bold">
-                            CHF {{ $discount }}
-                        </td>
-                        <td></td>
-                    </tr>
-                    @endif
-                </tbody>
-            </table>
-            <div class="my-4">
-                <a href="{{ route('checkout') }}" class="df-btn-primary">Proceed to checkout</a>
+    <br>
+    <div class="grid grid-cols-2 gap-5">
+        <div class="col-span-2 sm:col-span-1">
+            <h2 class="text-xl font-medium text-gray-900 inline-flex items-center">Select a payment method</h2>
+            <div
+                class="{{ $method == 'credit-card' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="credit-card" class="text-center" wire:model="method">
+                    <span class="ml-2">Credit Card</span>
+                    <span class="text-sm italic ml-2">(CHF 0.30 + 2.8%)</span>
+                </label>
             </div>
+            <div
+                class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="bank-transfer" class="text-center" wire:model="method">
+                    <span class="ml-2">Bank transfer</span>
+                </label>
+            </div>
+            <div
+                class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="revolut" class="text-center" wire:model="method">
+                    <span class="ml-2">Revolut</span>
+                </label>
+            </div>
+            <div
+                class="{{ $method == 'post' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600 hover:text-white my-1">
+                <label for="method" class="inline-flex items-center">
+                    <input type="radio" name="method" value="post" class="text-center" wire:model="method">
+                    <span class="ml-2">Post</span>
+                    <span class="text-sm italic ml-2">(CHF + 2)</span>
+                </label>
+            </div>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+            @if ($method == 'bank-transfer')
+            @include('partials.payment-method.bank-transfer')
+            @endif
+            @if ($method == 'revolut')
+            @include('partials.payment-method.revolut')
+            @endif
+            @if ($method == 'post')
+            @include('partials.payment-method.post')
+            @endif
         </div>
     </div>
 
+
+
+
     <br>
-    {{-- <div class="grid grid-cols-6 gap-4"> --}}
-    {{-- <div class="col-span-6 md:col-span-2"> --}}
-    {{-- <h2 class="text-xl font-medium text-gray-900 inline-flex items-center">Select a payment method</h2> --}}
-    {{-- <div
-                class="{{ $method == 'credit-card' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3
-    hover:bg-red-600 hover:text-white my-1">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="credit-card" class="text-center" wire:model="method">
-        <span class="ml-2">Credit Card</span>
-        <span class="text-sm italic ml-2">(CHF 0.30 + 2.8%)</span>
-    </label>
-    </div> --}}
-    {{-- <div
-                class="{{ $method == 'bank-transfer' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3
-    hover:bg-red-600 hover:text-white my-1">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="bank-transfer" class="text-center" wire:model="method">
-        <span class="ml-2">Bank transfer</span>
-    </label>
-    </div> --}}
-    {{-- <div
-                class="{{ $method == 'revolut' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600
-    hover:text-white my-1">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="revolut" class="text-center" wire:model="method">
-        <span class="ml-2">Revolut</span>
-    </label>
-    </div> --}}
-    {{-- <div
-                class="{{ $method == 'post' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3 hover:bg-red-600
-    hover:text-white my-1">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="post" class="text-center" wire:model="method">
-        <span class="ml-2">Post</span>
-        <span class="text-sm italic ml-2">(CHF + 2)</span>
-    </label>
-    </div> --}}
-    {{-- <div class="{{ $method == 'paypal' ? 'bg-gray-100': 'bg-gray-150'}} rounded-lg py-2 px-3">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="paypal" class="text-center" wire:model="method">
-        <span class="ml-2">Paypal </span>
-        <span class="text-sm italic text-gray-700 ml-2">(€0.10 % + 3.40% + 0.55CHF)</span>
-    </label>
-    </div> --}}
-    {{-- <div class="{{ $method == 'cash' ? 'bg-gray-100': 'bg-gray-150' }} rounded-lg py-2 px-3">
-    <label for="method" class="inline-flex items-center">
-        <input type="radio" name="method" value="cash" class="text-center" wire:model="method">
-        <span class="ml-2">Cash</span>
-    </label>
-    </div> --}}
-    {{-- </div> --}}
-    @if ($method)
-    <div class="col-span-6 md:col-span-4">
+    <div>
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -167,9 +133,9 @@
                         </td>
                     </tr>
                     {{-- <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">VAT (8%)</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            CHF {{ $subtotal * 0.08 }}
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">VAT (8%)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        CHF {{ $subtotal * 0.08 }}
                     </td>
                     </tr> --}}
 
@@ -223,25 +189,11 @@
                 </tbody>
             </table>
         </div>
-        <br>
+    </div>
+    <br>
 
-        @if ($method == 'bank-transfer')
-        @include('partials.payment-method.bank-transfer')
-        @endif
-        @if ($method == 'revolut')
-        @include('partials.payment-method.revolut')
-        @endif
-        @if ($method == 'post')
-        @include('partials.payment-method.post')
-        @endif
-        {{-- @if ($method == 'paypal')
-        @include('partials.payment-method.paypal')
-        @endif --}}
-        {{-- @if ($method == 'cash')
-        @include('partials.payment-method.cash')
-        @endif --}}
-
-
+    <div>
+        @if ($method)
         @if ($method == 'credit-card')
         <div class="flex justify-end">
             <a class="df-btn-primary" href="{{ route('mollie.payment', [
@@ -312,4 +264,6 @@
         {{-- <x-partials.payment-method-checkout /> --}}
     </div>
     @endif
+    </div>
+
 </section>

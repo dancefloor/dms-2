@@ -15,7 +15,7 @@
             </div>
             <div class="mt-4 flex sm:mt-0 sm:ml-4">
                 <span class="order-1 mr-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
-                    <a href="{{ route('courses.view', $course->slug) }}" class="df-btn-secondary">
+                    <a href="{{ route('courses.view', $course) }}" class="df-btn-secondary">
                         View
                     </a>
                 </span>

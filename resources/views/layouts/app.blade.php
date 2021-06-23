@@ -29,7 +29,9 @@
     <x-partials.flash-message />
     @endif
 
-    <div class="h-screen flex overflow-hidden bg-white" x-data="{ showMobileSidebar: false}">
+    <div class="h-screen flex overflow-hidden bg-white"
+        x-data="{ showMobileSidebar: false, slideOver:false, openMenu: false, SlideOverMenu: false}">
+        <x-layouts.slide-over-sidebar-nav />
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
         <x-layouts.sidebar />
         <!-- Main column -->

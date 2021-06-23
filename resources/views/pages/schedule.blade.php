@@ -1,6 +1,7 @@
 <x-guest-layout>
 
     <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }">
+        <x-layouts.slide-over-sidebar-nav />
         @include('partials.navbar')
 
         <section id="catalogue" class="bg-gray-100 py-16">
@@ -12,6 +13,10 @@
                 <livewire:catalogue.daily-schedule />
             </div>
         </section>
+
+        @auth
+        <x-partials.slide-over />
+        @endauth
     </div>
 
     @push('scripts')
