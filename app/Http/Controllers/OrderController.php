@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrdersExport;
 use App\Http\Requests\OrderStoreRequest;
 use App\Http\Requests\OrderUpdateRequest;
 use App\Models\Order;
@@ -99,14 +100,24 @@ class OrderController extends Controller
 
     public function confirmation(Request $request)
     {
-        // dd($request->order);
+        // dd($request->all());
         $order = Order::find($request->order);
-        return view('pages.order-completed')->with('order', $order);
+        $method = $request->method;
+        
+        return view('pages.order-completed',[
+            'order'  => $order,
+            'method' => $method,
+        ]);
     }
 
     public function exportUnpaid() 
     {
         return (new UnpaidInvoicesExport)->download('unpaid.xlsx');        
+    }
+
+    public function export() 
+    {
+        return Excel::download(new OrdersExport, 'orders.csv');
     }
 
 }

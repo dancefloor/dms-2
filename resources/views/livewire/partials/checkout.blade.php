@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="col-span-2 sm:col-span-1">
-            @if ($method == 'bank-transfer')
+            {{-- @if ($method == 'bank-transfer')
             @include('partials.payment-method.bank-transfer')
             @endif
             @if ($method == 'revolut')
@@ -112,7 +112,7 @@
             @endif
             @if ($method == 'post')
             @include('partials.payment-method.post')
-            @endif
+            @endif --}}
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 <div class="mt-12 fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end"
-    x-data="{ open: true }" x-show="open">
+    x-data="{ open: true }" x-show="open" x-init="setTimeout( () => open = false, 3000)">
     <!-- Notification panel, show/hide based on alert state. -->
     <!-- Entering: "transform ease-out duration-300 transition" From: "translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2" To: "translate-y-0 opacity-100 sm:translate-x-0" -->
     <!-- Leaving: "transition ease-in duration-100" From: "opacity-100" To: "opacity-0" -->

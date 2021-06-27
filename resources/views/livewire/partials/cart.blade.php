@@ -96,7 +96,7 @@
                 </tbody>
             </table>
             <div class="my-4">
-                <a href="{{ route('checkout') }}" class="df-btn-primary">Proceed to checkout</a>
+                <a href="{{ route('checkout') }}" class="df-btn-primary">Select payment method</a>
             </div>
         </div>
     </div>

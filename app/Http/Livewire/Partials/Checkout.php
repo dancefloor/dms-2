@@ -41,7 +41,7 @@ class Checkout extends Component
     }
 
     public function storeOrder()
-    {
+    {        
         $order = Order::create([
             'subtotal'              => $this->subtotal,
             'vat'                   => null,
@@ -76,7 +76,7 @@ class Checkout extends Component
         session()->flash('sucess','success');
         Mail::to(auth()->user()->email)->send(new OrderRegistrationConfirmation($order->status)); 
         
-        return redirect()->route('order.confirmation', ['order' => $order]);
+        return redirect()->route('order.confirmation', ['order' => $order, 'method'=> $this->method]);
     }
 
     public function updatedMethod($value)

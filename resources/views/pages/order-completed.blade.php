@@ -28,12 +28,16 @@
             status is {{ $order->status == 'open' ? 'processing': $order->status }}
         </h2>
         <p class="text-base my-5">
-            You have been registered you
+            You have been registered you!
+            <br>
+            We are now waiting for payment.
+            Please be aware that you need to pay in order to confirm your place
 
-            We are now waiting for payment
-            Please be aware that you will need
+            Here is the procedure to follow:
+        </p>
 
-
+        @if ($method == 'revolut')
+        <p>
             It is now possible to pay your membership fee via Revolut.
 
             As this is a professional Revolut, the first transfer takes a little longer than a classic Revolut transfer,
@@ -41,8 +45,8 @@
 
             Here is the procedure to follow:
         </p>
-
-        <h3 class="text-lg font-medium text-gray-800">Revolut</h3>
+        <br>
+        <h3 class="text-lg font-bold text-gray-800 capitalize">{{ $method }}</h3>
         <ol class="list-decimal ml-6">
             <li>Go to Payments then choose Bank Transfer</li>
             <li>Add a new recipient “company” (be careful not to choose a “individual” recipient. If you do not have
@@ -58,6 +62,14 @@
             <li><strong>Bank/payment institution:</strong> Revolut</li>
             <li>And you can make the payment</li>
         </ol>
+        @endif
+
+        @if ($method == 'bank-transfer' || $method == 'post')
+        <h3 class="text-lg font-bold text-gray-800 capitalize">{{ $method }}</h3>
+        @include('partials.payment-method.bank-transfer')
+        @endif
+
+
     </div>
 
 </x-app-layout>

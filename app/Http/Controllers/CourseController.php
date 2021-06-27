@@ -117,7 +117,9 @@ class CourseController extends Controller
     {
         $course->delete();
 
-        return redirect()->route('course.index');
+        session()->flash('success', 'Course deleted successfully.');
+
+        return redirect()->route('courses.index');
     }
 
     public function view(Course $course)

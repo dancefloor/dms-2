@@ -139,12 +139,12 @@
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                         @if ($course->pivot->status === 'registered')
-                        <a href="{{$course->online_link}}"
-                            class="bg-blue-700 px-2 py-1 rounded-full inline-flex items-center text-white"
-                            target="_blank">
-                            @include('icons.social.facebook', ['style'=>'w-4 h-4 mr-2'])
-                            Group
-                        </a>
+                        {{-- <a href="{{$course->online_link}}"
+                        class="bg-blue-700 px-2 py-1 rounded-full inline-flex items-center text-white"
+                        target="_blank">
+                        @include('icons.social.facebook', ['style'=>'w-4 h-4 mr-2'])
+                        Group
+                        </a> --}}
                         @elseif($course->pivot->status === 'pre-registered')
                         <form action="{{ route('registration.remove', $course)}}" method="post">
                             @csrf
