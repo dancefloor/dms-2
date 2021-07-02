@@ -18,6 +18,12 @@
             Courses
         </a>
 
+        <a href="{{ route('my-orders') }}"
+            class="group df_nav_links {{ Request::is('welcome') ? 'df_nav_links_active' : '' }}">
+            @include('icons.orders', ['style'=>'h-5 w-5 mr-4'])
+            My orders
+        </a>
+
         @can('crud_courses')
         <a href="{{ route('attendances.index') }}"
             class="group df_nav_links {{ Request::is('attendances') ? 'df_nav_links_active' : '' }}">

@@ -57,39 +57,16 @@
     </div>
 </div>
 
-<div x-data="{courses:false}">
-    <button @click="courses=!courses"
-        class="w-full text-white group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-700 hover:font-semibold">
-        <span>
-            Courses
-        </span>
-        <div>
-            <span x-show="courses" class="text-2xl font-bold">-</span>
-            <span x-show="!courses" class="text-2xl font-bold">+</span>
-        </div>
-    </button>
-    <div x-show="courses" class="ml-5">
-        <div>
-            <a href="#"
-                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                Schedule
-            </a>
-            {{-- <a href="#"
-                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                Lausanne
-            </a>
-            <a href="#"
-                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                France Voisine
-            </a> --}}
-            <a href="#"
-                class="group flex items-center px-2 py-2 font-medium rounded-md text-sm text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">
-                Pricing
-            </a>
-        </div>
-    </div>
-</div>
 
+<a href="{{ route('courses') }}"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Courses
+</a>
+
+<a href="#"
+    class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">
+    Pricing
+</a>
 
 <a href="#"
     class="text-white hover:bg-gray-700 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:font-semibold">

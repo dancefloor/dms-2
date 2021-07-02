@@ -17,9 +17,9 @@
                         Edit
                     </a>
                 </span>
-                <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
+                {{-- <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
                     @include('shared.delete',['item'=> $order, 'action'=>'orders.destroy', 'type'=> 'button'])
-                </span>
+                </span> --}}
             </div>
         </div>
     </x-slot>

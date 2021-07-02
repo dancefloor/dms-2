@@ -15,6 +15,15 @@ class CourseCard2 extends Component
     public $style;
     public $period;
     
+    protected $listeners = [
+        'courseRemoved'   => 'updateStatusCard',        
+    ];
+
+    public function updateStatusCard()
+    {
+        $this->design($this->user->registrationStatus($this->course->id));
+    }
+
     public function deregister(Course $course)
     {        
         $course->students()->detach(auth()->user()->id);

@@ -86,11 +86,10 @@
                                     </option>
                                 </select>
                             </div>
-                            {{ $user->work_status }}
 
                             @if ($user->work_status != 'working')
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="unemployementProof" class="df-form-label">Unemployement proof</label>
+                                <label for="unemployementProof" class="df-form-label">Student/Unemployment proof</label>
                                 <input type="file" class="mt-1" wire:model="unemployementProof">
                                 @error('unemployementProof')
                                 {{ $message}}

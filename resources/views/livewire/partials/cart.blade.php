@@ -78,7 +78,7 @@
                             Subtotal
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                            CHF {{ number_format($subtotal, 2, '.', "'") }}
+                            CHF {{ number_format($subtotal, 0, '.', "'") }}
                         </td>
                         <td></td>
                     </tr>
@@ -89,6 +89,17 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-bold">
                             CHF {{ $discount }}
+                        </td>
+                        <td></td>
+                    </tr>
+                    @endif
+                    @if (auth()->user()->work_status != 'working')
+                    <tr>
+                        <td colspan="2" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            Student/unemployment discount
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-bold">
+                            CHF 20
                         </td>
                         <td></td>
                     </tr>

@@ -25,4 +25,9 @@ class ProfileController extends Controller
     {
         return view('profile.reports');
     }
+
+    public function orders()
+    {
+        return view('profile.orders');
+    }
 }

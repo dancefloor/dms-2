@@ -70,6 +70,7 @@
 
     <br>
     <div class="grid grid-cols-2 gap-5">
+        @if ($subtotal > 0)
         <div class="col-span-2 sm:col-span-1">
             <h2 class="text-xl font-medium text-gray-900 inline-flex items-center">Select a payment method</h2>
             <div
@@ -114,6 +115,14 @@
             @include('partials.payment-method.post')
             @endif --}}
         </div>
+        @else
+        <div class="my-5">
+            <a href="{{ route('dashboard') }}" class="df-btn-primary">
+                Back to Dashboard
+            </a>
+        </div>
+        @endif
+
     </div>
 
 
@@ -121,6 +130,8 @@
 
     <br>
     <div>
+        @if ($subtotal > 0)
+        hola
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -189,7 +200,10 @@
                 </tbody>
             </table>
         </div>
+        @endif
+
     </div>
+
     <br>
 
     <div>

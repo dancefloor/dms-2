@@ -62,6 +62,11 @@
             <li><strong>Bank/payment institution:</strong> Revolut</li>
             <li>And you can make the payment</li>
         </ol>
+        <div class="my-5">
+            <a href="{{ route('dashboard') }}" class="df-btn-primary">
+                Back to Dashboard
+            </a>
+        </div>
         @endif
 
         @if ($method == 'bank-transfer' || $method == 'post')

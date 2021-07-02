@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('checkout', [ProfileController::class, 'checkout'])->name('checkout');
     Route::get('catalogue', [ProfileController::class, 'catalogue'])->name('catalogue');
     Route::get('reports', [ProfileController::class, 'reports'])->name('reports');
+    Route::get('my-orders', [ProfileController::class, 'orders'])->name('my-orders');
     
     Route::get('/mollie-payment', [MollieController::class, 'preparePayment'])->name('mollie.payment');
     Route::get('/payment-success', [MollieController::class, 'paymentSuccess'])->name('payment.status');

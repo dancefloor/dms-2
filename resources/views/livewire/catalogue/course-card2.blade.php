@@ -9,7 +9,8 @@
                 </h2>
                 {{-- <span class="{{ $text }} capitalize text-sm">{{ $course->focus }}</span> --}}
                 <span class="{{ $text }} text-sm font-extrabold mt-1 w-20 text-right">
-                    <x-catalogue.display-price :course="$course" />
+                    {{-- <x-catalogue.display-price :course="$course" /> --}}
+                    CHF {{ $course->full_price }}
                 </span>
             </div>
 

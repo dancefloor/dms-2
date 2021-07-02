@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(SendUnpaidOrderReminderEmails::class)->everyMinute();
+        $schedule->command(SendUnpaidOrderReminderEmails::class)->weeklyOn(1, '10:00');
     }
 
     /**

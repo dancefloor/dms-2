@@ -23,13 +23,21 @@ class Cart extends Component
     public $discountText;
     public $commission = 0;
     public $title;
+    public $pendingCourses;
 
     protected $listeners = [
-        'subtotalUpdated' => 'removeCourse',
+        'subtotalUpdated'   => 'removeCourse',
+        'cartCountRefresh'  =>  'card',
     ];
+
+    public function card()
+    {
+        $this->pendingCourse = auth()->user()->pendingCourses;
+    }
 
     public function mount()
     {
+        // $this->pendingCourses = auth()->user()->pendingCourses;
         $this->reducedPrice = auth()->user()->work_status != 'working' ? 20:0;
         $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);          
         $this->count = count(Auth::user()->pendingCourses);
@@ -97,7 +105,8 @@ class Cart extends Component
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);            
 
         session()->flash('success', 'You have remove this class from your list successfully'); 
-        $this->emit('cartCountRefresh');          
+        $this->emit('cartCountRefresh');       
+        $this->emit('courseRemoved');  
     }
 
     public function render()

@@ -42,7 +42,11 @@
                                     @foreach (\App\Models\Course::all() as $item)
                                     <option value="{{ $item->id }}" @isset($order)
                                         {{ $order->hasCourse($item->id) ? 'selected' : '' }} @endisset>
-                                        {{ $item->name }}
+                                        {{ $item->name }} ({{ implode('', $item->days) }} -
+                                        @foreach ($item->teachers as $t)
+                                        {{ $t->name}}
+                                        @endforeach
+                                        )
                                     </option>
                                     @endforeach
                                 </select>
@@ -60,14 +64,16 @@
                                         class="form-input df-form-input bg-gray-100" disabled></td>
                             </tr>
                             <tr>
-                                <td class="w-1/3"><label for="discount" class="df-form-label">Discount</label></td>
+                                <td class="w-1/3"><label for="discount" class="df-form-label">Multiple classes
+                                        discount</label></td>
                                 <td>
                                     <input wire:model.lazy="discount" type="number" step=".01"
                                         class="form-input df-form-input bg-gray-100" disabled>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="reducedPrice" class="df-form-label">Reduction</label></td>
+                                <td><label for="reducedPrice" class="df-form-label">Student / unemployment
+                                        discount</label></td>
                                 <td><input wire:model.lazy="reducedPrice" type="number" step=".01"
                                         class="form-input df-form-input bg-gray-100" disabled></td>
                             </tr>

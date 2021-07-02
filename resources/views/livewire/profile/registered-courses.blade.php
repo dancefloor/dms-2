@@ -145,7 +145,7 @@
                         @include('icons.social.facebook', ['style'=>'w-4 h-4 mr-2'])
                         Group
                         </a> --}}
-                        @elseif($course->pivot->status === 'pre-registered')
+                        @elseif($course->pivot->status === 'pre-registered' || $course->pivot->status === 'standby')
                         <form action="{{ route('registration.remove', $course)}}" method="post">
                             @csrf
                             @method('DELETE')

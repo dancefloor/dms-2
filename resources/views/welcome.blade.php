@@ -35,8 +35,8 @@
         <section>
             @include('partials.testimonials')
         </section>
-
-        {{-- <section id="catalogue" class="bg-gray-100">
+        {{-- 
+        <section id="catalogue" class="bg-gray-100">
             <div class="container mx-auto">
                 <livewire:catalogue.schedule />
             </div>

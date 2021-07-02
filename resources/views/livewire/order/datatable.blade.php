@@ -101,8 +101,18 @@
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $order->updated_at->diffForHumans() }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                            <x-shared.list-actions route="orders" :item="$order" />
+                        <td
+                            class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium flex justify-end items-center">
+                            <a href="{{ route('orders.show', $order) }}" class="text-gray-400 hover:text-gray-500 mx-1">
+                                @include('icons.view', ['style' => 'w-6 h-6'])
+                            </a>
+                            <a href="{{ route('orders.edit', $order) }}" class="text-gray-400 hover:text-gray-500 mx-1">
+                                @include('icons.pen', ['style'=>'h-5 w-5'])
+                            </a>
+                            <a href="{{ route('payments.create', ['order' => $order ]) }}"
+                                class="text-gray-400 hover:text-gray-500 mx-1">
+                                @include('icons.payment', ['style'=>'h-5 w-5'])
+                            </a>
                         </td>
 
                     </tr>
