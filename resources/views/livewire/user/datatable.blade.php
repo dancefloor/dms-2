@@ -94,7 +94,7 @@
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $user->mobile }}
                         </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 inline-flex">
                             <span class="mr-1">{{ $user->work_status }}</span>
                             @if ($user->work_status != 'working')
                             @if ($user->work_status_verified == 1)
