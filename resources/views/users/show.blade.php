@@ -136,6 +136,7 @@
                                     </td>
                                     <td>
                                         <div class="inline-flex capitalize">
+                                            @if ($user->unemployement_expiry_date)
                                             <span class="mr-1">Expiry date:
                                                 {{ $user->unemployement_expiry_date->format('Y-m-d') }}
                                             </span>
@@ -152,6 +153,7 @@
                                                 class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
                                                 expired
                                             </span>
+                                            @endif
                                             @endif
                                         </div>
                                     </td>
