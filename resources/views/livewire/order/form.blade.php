@@ -34,6 +34,9 @@
                                     <option value="expired">Expired</option>
                                     <option value="partial">Partial</option>
                                 </select>
+                                @error('status')
+                                <p class="dkdkd">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div class="col-span-6" wire:ignore>

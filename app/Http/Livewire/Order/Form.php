@@ -4,19 +4,21 @@ namespace App\Http\Livewire\Order;
 
 use App\Models\Course;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\Registration;
 use App\Services\RegistrationManager;
 use App\Services\OrderPriceCalculator;
 use Livewire\Component;
-use phpDocumentor\Reflection\Types\This;
+
 
 class Form extends Component
 {
     public $action;
     public $order;
+    public $user;
     public $user_id;
     public $method;
-    public $status = 'open';
+    public $status = "open";
     public $coupon_code;
     public $discount;
     public $reducedPrice;
@@ -29,6 +31,10 @@ class Form extends Component
     public $courses;
     public $cids;
 
+    protected $rules = [
+        'status' => 'requiried'
+    ];
+
     public function updatedCids()
     {
         $amount = 0;
@@ -36,8 +42,16 @@ class Form extends Component
             $course = Course::findOrFail($c);
             $amount += $course->full_price;
         }
-        $this->subtotal = $amount;
+        $this->subtotal = $amount;        
+        $this->count = count($this->cids);
+        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);  
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, 0, $this->adjustment);  
+    }
+
+    public function updatedUserId($value)
+    {                
+        $this->user = User::findOrFail($value);        
+        $this->reducedPrice = $this->user->work_status != 'working' ? 20:0;
     }
 
     public function updatedDiscount($value)
@@ -70,13 +84,19 @@ class Form extends Component
         $newOrder->courses()->attach($this->cids);
 
         foreach ($this->cids as $id) {            
+            
             $registration = Registration::where('course_id', $id)
                 ->where('user_id', $this->user_id)
                 ->where('role', 'student')
-                ->first();
+                ->first();            
+
+            
             if ($registration ==  null) {
-                $course = Course::findOrFail($id);
+                
+                $course = Course::findOrFail($id);                
+                
                 $course->students()->attach($this->user_id, ['role'=>'student', 'status'=>'open', 'created_at'=> now()]);
+                
                 $registration = Registration::where('course_id', $course->id)
                 ->where('user_id', $this->user_id)
                 ->where('role', 'student')
@@ -152,6 +172,8 @@ class Form extends Component
         
         if ($user > 0) {
             $this->user_id = $user;
+            $this->user = User::findOrFail($user);        
+            $this->reducedPrice = $this->user->work_status != 'working' ? 20:0;
         }
 
         if ($order) {
@@ -172,6 +194,10 @@ class Form extends Component
         }
     }
 
+
+
+
+
     public function getRegistration($id)
     {
         return Registration::where('course_id', $id)
@@ -185,3 +211,11 @@ class Form extends Component
         return view('livewire.order.form');
     }
 }
+
+
+
+// $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);          
+      
+// $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, $this->commission, 0);                
+// $this->discountText = OrderPriceCalculator::getDiscountText($this->count);
+// $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses); 

@@ -8,6 +8,7 @@ use App\Http\Requests\CourseUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Exports\CoursesExport;
+use App\Exports\CourseStudentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
@@ -132,6 +133,11 @@ class CourseController extends Controller
     public function export() 
     {
         return Excel::download(new CoursesExport, 'courses.csv');
+    }
+
+    public function exportCourseStudents(Course $course)
+    {
+        return (new CourseStudentsExport($course->id))->download('course-students.xlsx');
     }
 
 

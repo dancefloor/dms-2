@@ -108,8 +108,60 @@
                             Work Status
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            {{ $user->work_status }}
-                            <a href="{{ asset('uploads/'. $user->unemployement_proof)}}">View</a>
+                            <table class="w-full">
+                                <tr>
+                                    <td>
+                                        <div class="inline-flex capitalize">
+                                            <span class="mr-2">{{ $user->work_status }}</span>
+                                            @if ($user->work_status_verified == 1)
+                                            <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20"
+                                                fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            @else
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                Not verified
+                                            </span>
+                                            {{-- <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                    clip-rule="evenodd" />
+                                            </svg> --}}
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inline-flex capitalize">
+                                            <span class="mr-1">Expiry date:
+                                                {{ $user->unemployement_expiry_date->format('Y-m-d') }}
+                                            </span>
+                                            @if ($user->unemployement_expiry_date->gt(Carbon\Carbon::now()))
+                                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-500"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            @else
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                expired
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ asset('uploads/'. $user->unemployement_proof)}}" target="_blank"
+                                            class="text-red-600 hover:underline">view
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </dd>
                     </div>
 

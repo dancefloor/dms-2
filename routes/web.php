@@ -45,6 +45,7 @@ Route::get('classrooms/export/', [ClassroomController::class, 'export'] )->name(
 Route::get('courses/export/', [CourseController::class, 'export'] )->name('courses.export');
 Route::get('orders/export/', [OrderController::class, 'export'] )->name('orders.export');
 Route::get('unpaid/export/', [OrderController::class,'exportUnpaid'])->name('orders.unpaid');
+Route::get('course-students/export/{course}', [CourseController::class,'exportCourseStudents'])->name('course-students.export');
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('users', UserController::class)->middleware('auth');

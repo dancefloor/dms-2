@@ -58,7 +58,7 @@ class RegistrationStatus extends Component
                 $this->bgColor = 'bg-green-400';
                 $this->label = 'Partially registered';      
                 break;  
-            case 'processing':
+            case 'open':
                 $this->icon = 'open';
                 $this->bgColor = 'bg-teal-300';
                 $this->label = 'Processing';                          

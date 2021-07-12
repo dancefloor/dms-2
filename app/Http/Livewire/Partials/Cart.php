@@ -71,7 +71,7 @@ class Cart extends Component
                     ->where('role', 'student')
                     ->first();                                            
 
-                $registration->status = 'processing';
+                $registration->status = 'open';
                 $registration->save();
                 $order->status = 'open';                 
                 $order->save();

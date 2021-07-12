@@ -81,6 +81,20 @@ class Course extends Model
         'id'            => 'integer',
         'start_date'    => 'date:Y-m-d',
         'end_date'      => 'date:Y-m-d',
+        'start_time_mon'=> 'datetime:H:i',
+        'start_time_tue'=> 'datetime:H:i',
+        'start_time_wed'=> 'datetime:H:i',
+        'start_time_thu'=> 'datetime:H:i',
+        'start_time_fri'=> 'datetime:H:i',
+        'start_time_sat'=> 'datetime:H:i',
+        'start_time_sun'=> 'datetime:H:i',
+        'end_time_mon'  => 'datetime:H:i',
+        'end_time_tue'  => 'datetime:H:i',
+        'end_time_wed'  => 'datetime:H:i',
+        'end_time_thu'  => 'datetime:H:i',
+        'end_time_fri'  => 'datetime:H:i',
+        'end_time_sat'  => 'datetime:H:i',
+        'end_time_sun'  => 'datetime:H:i',
         'monday'        => 'boolean',
         'tuesday'       => 'boolean',
         'wednesday'     => 'boolean',
@@ -162,14 +176,16 @@ class Course extends Model
         return in_array($id, $this->students()->pluck('user_id')->toArray());
     }
 
-    public function confirmedStudents()
+    public function confirmedStudents(int $id)
     {
-        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')
-            ->using(Registration::class)
-            ->withPivot('role', 'status')            
-            ->wherePivot('status','processing')
-            ->orWherePivot('status','registered')
-            ->wherePivot('role','student');
+        // return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')
+        //     ->using(Registration::class)
+        //     ->withPivot('role', 'status')            
+        //     ->wherePivot('status','open')
+        //     ->orWherePivot('status','registered')
+        //     ->orWherePivot('role','student');
+
+            return Registration::where('course_id', $id)->where('role','student')->whereIn('status',['registered','open'])->get();
     }
 
     public function scopeLiveCourses($query)
@@ -322,5 +338,30 @@ class Course extends Model
         }
 
         return $url;
+    }
+
+    function getHoraireAttribute()
+    {
+        if ($this->monday) {
+            return $this->start_time_mon->format('H:i') . '-' . $this->start_time_mon->format('H:i');
+        }
+        if ($this->tuesday) {
+            return $this->start_time_tue->format('H:i') . '-' . $this->end_time_tue->format('H:i');
+        }
+        if ($this->wednesday) {
+            return $this->start_time_wed->format('H:i') . '-' . $this->end_time_wed->format('H:i');
+        }
+        if ($this->thursday) {
+            return $this->start_time_thu->format('H:i') . '-' . $this->end_time_thu->format('H:i');
+        }
+        if ($this->friday) {
+            return $this->start_time_fri->format('H:i') . '-' . $this->end_time_fri->format('H:i');
+        }
+        if ($this->saturday) {
+            return $this->start_time_sat->format('H:i') . '-' . $this->end_time_sat->format('H:i');
+        }
+        if ($this->sunday) {
+            return $this->start_time_sun->format('H:i') . '-' . $this->end_time_sun->format('H:i');
+        }
     }
 }

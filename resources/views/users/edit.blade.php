@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="head">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    </x-slot>
     <x-slot name="header">
         <div
             class="bg-white border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
@@ -23,10 +26,13 @@
         <livewire:user.default-info :user="$user" />
         <x-jet-section-border />
 
-
-
         <div class="mt-10 sm:mt-0">
             <livewire:user.personal-info-form :user="$user" />
+        </div>
+        <x-jet-section-border />
+
+        <div class="mt-10 sm:mt-0">
+            <livewire:user.work-status :user="$user" />
         </div>
         <x-jet-section-border />
 
@@ -34,7 +40,6 @@
             <livewire:user.contact-form :user="$user" />
         </div>
         <x-jet-section-border />
-
 
         <div class="mt-10 sm:mt-0">
             <livewire:user.address-form :user="$user" />
@@ -55,4 +60,10 @@
         @endcan
 
     </div>
+    @push('modals')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    @endpush
 </x-app-layout>

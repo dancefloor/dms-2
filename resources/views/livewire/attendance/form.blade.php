@@ -20,8 +20,11 @@
                                     class="form-select df-form-select">
                                     <option value="" selected>Select Course</option>
                                     @foreach (\App\Models\Course::activeCourses()->get() as $course)
-                                    <option value="{{ $course->id }}">{{ $course->name }} |
-                                        {{ implode(',',$course->days)}}</option>
+                                    <option value="{{ $course->id }}">
+                                        {{ $course->name }} |
+                                        {{ implode(', ', $course->teachers()->pluck('name')->toArray())}} |
+                                        {{ substr(implode(',',$course->days), 0, 3)  }} {{ $course->horaire}}
+                                    </option>
                                     @endforeach
                                 </select>
                                 @error('attendance.course_id')

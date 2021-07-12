@@ -36,6 +36,11 @@
             <x-jet-section-border />
 
             <div class="mt-10 sm:mt-0">
+                <livewire:user.work-status :user="Auth::user()" />
+            </div>
+            <x-jet-section-border />
+
+            <div class="mt-10 sm:mt-0">
                 <livewire:user.contact-form :user="Auth::user()" />
             </div>
             <x-jet-section-border />

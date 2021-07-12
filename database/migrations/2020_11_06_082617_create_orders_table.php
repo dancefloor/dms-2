@@ -26,7 +26,8 @@ class CreateOrdersTable extends Migration
             $table->decimal('total')->nullable();
             $table->decimal('received')->nullable();
             $table->text('comments')->nullable();
-            $table->enum('status', ["open","canceled","paid","expired","partial","overpaid", "refunded"])->nullable();
+            $table->string('status')->nullable(); //["open","canceled","paid","expired","partial","overpaid", "refunded"]
+            $table->string('method')->nullable(); 
             $table->foreignId('author_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });

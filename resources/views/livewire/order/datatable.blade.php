@@ -59,7 +59,7 @@
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Qty
+                            Courses
                         </th>
                         <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -96,7 +96,9 @@
                                 (Diff. CHF {{ $order->amount_diff }})</div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{ $order->courses->count() }}
+                            {{ implode(', ', $order->courses->pluck('name')->toArray())}}
+
+                            {{-- {{ $order->courses->count() }} --}}
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $order->updated_at->diffForHumans() }}

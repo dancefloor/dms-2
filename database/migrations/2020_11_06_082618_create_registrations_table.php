@@ -16,7 +16,7 @@ class CreateRegistrationsTable extends Migration
         // Schema::disableForeignKeyConstraints();
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ["waiting","pre-registered","registered","canceled","standby","processing","partial","rejected"])->default('pre-registered');
+            $table->enum('status', ["waiting","pre-registered","registered","canceled","standby","open","partial","rejected"])->default('pre-registered');
             $table->enum('role', ["instructor","assistant","student"]);
             $table->string('option')->nullable();
             $table->foreignId('course_id')->nullable()->constrained()->cascadeOnDelete();
