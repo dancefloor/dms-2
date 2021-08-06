@@ -17,9 +17,11 @@
                         Edit
                     </a>
                 </span>
+                @if ($course->students->count() == 0)
                 <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
                     @include('shared.delete',['item'=> $course, 'action'=>'courses.destroy', 'type'=> 'button'])
                 </span>
+                @endif
             </div>
         </div>
     </x-slot>

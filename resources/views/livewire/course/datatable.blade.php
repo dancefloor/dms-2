@@ -148,9 +148,11 @@
                             @endif
                         </td>
                         <td class="px-6 py-2 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                            <x-shared.list-actions route="courses" :item="$course" />
+                            <a href="{{ route('courses.edit', $course) }}"
+                                class="text-gray-400 hover:text-gray-500 mx-1">
+                                @include('icons.pen', ['style'=>'h-5 w-5'])
+                            </a>
                         </td>
-
                     </tr>
                     @endforeach
                 </tbody>

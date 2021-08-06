@@ -22,9 +22,11 @@ class AttendanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('attendances.create');
+    public function create(Request $request)
+    {        
+        return view('attendances.create', [
+            'course' => $request->course ?? null
+        ]);
     }
 
     /**

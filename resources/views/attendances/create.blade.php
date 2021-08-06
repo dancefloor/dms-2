@@ -21,7 +21,7 @@
         </div>
     </x-slot>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <livewire:attendance.form />
+        <livewire:attendance.form course="{{$course}}" />
     </div>
     @push('modals')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"

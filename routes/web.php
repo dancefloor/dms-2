@@ -7,6 +7,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MollieController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentMethodPageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
@@ -33,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/courses/schedule', [WelcomeController::class, 'courses'])->name('courses');
+Route::get('/payment-methods', PaymentMethodPageController::class)->name('payment-methods');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('profile/dashboard');

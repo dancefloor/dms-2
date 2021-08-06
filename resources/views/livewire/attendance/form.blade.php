@@ -16,17 +16,28 @@
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="course" class="block text-sm font-medium text-gray-700">Course</label>
+                                @if ($action == 'store')
                                 <select wire:model="attendance.course_id" id="course"
                                     class="form-select df-form-select">
                                     <option value="" selected>Select Course</option>
                                     @foreach (\App\Models\Course::activeCourses()->get() as $course)
                                     <option value="{{ $course->id }}">
                                         {{ $course->name }} |
-                                        {{ implode(', ', $course->teachers()->pluck('name')->toArray())}} |
-                                        {{ substr(implode(',',$course->days), 0, 3)  }} {{ $course->horaire}}
+                                        {{ implode(', ', $course->teachers()->pluck('name')->toArray()) }} |
+                                        {{ substr(implode(',',$course->days), 0, 3)  }} {{ $course->horaire }}
                                     </option>
                                     @endforeach
                                 </select>
+                                @else
+                                <div>
+                                    {{ $attendance->course->name }} |
+                                    {{ implode(', ', $attendance->course->teachers()->pluck('name')->toArray())}}
+                                    <br>
+                                    <span class="capitalize">{{ implode(', ', $attendance->course->days) }}</span>
+                                    {{ $attendance->course->horaire }}
+                                </div>
+                                @endif
+
                                 @error('attendance.course_id')
                                 <span class="text-red-700 text-sm">{{ $message}}</span>
                                 @enderror

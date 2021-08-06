@@ -1,13 +1,9 @@
-<!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
 <nav class="bg-gray-800 w-full fixed z-10">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
 
-                <button @click="SlideOverMenu = true" class="text-gray-400 hover:text-gray-100 mr-2 hidden sm:inline">
+                <button @click="SlideOverMenu = true" class="text-gray-400 hover:text-gray-100 mr-2 sm:inline">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -65,8 +61,17 @@
                 </div>
             </div>
             <div class="-mr-2 flex sm:hidden">
+                @auth
+                <x-shared.account-dropdown />
+                @else
+                <a href="{{ route('login') }}"
+                    class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
+                <a href="{{ route('register') }}"
+                    class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Register</a>
+                @endauth
+
                 <!-- Mobile menu button -->
-                <button @click="openMenu = !openMenu"
+                {{-- <button @click="openMenu = !openMenu"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
                     aria-label="Main menu" aria-expanded="false">
                     <!-- Icon when menu is closed. -->
@@ -83,7 +88,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                </button>
+                </button> --}}
             </div>
         </div>
     </div>

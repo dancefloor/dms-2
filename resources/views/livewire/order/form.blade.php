@@ -42,7 +42,7 @@
                             <div class="col-span-6" wire:ignore>
                                 <label for="comments" class="df-form-label">Courses</label>
                                 <select id="cids" class="w-full" multiple>
-                                    @foreach (\App\Models\Course::all() as $item)
+                                    @foreach($courseList as $item)
                                     <option value="{{ $item->id }}" @isset($order)
                                         {{ $order->hasCourse($item->id) ? 'selected' : '' }} @endisset>
                                         {{ $item->name }} ({{ implode('', $item->days) }} -
@@ -105,6 +105,14 @@
                             <div class="col-span-6">
                                 <label for="comments" class="df-form-label">Comments</label>
                                 <textarea wire:model.lazy="comments" rows="3"
+                                    class="form-textarea df-form-textarea"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-4 gap-6 mt-6">
+                            <div class="col-span-6">
+                                <label for="comments_admin" class="df-form-label">Comments admin</label>
+                                <textarea wire:model.lazy="comments_admin" rows="3"
                                     class="form-textarea df-form-textarea"></textarea>
                             </div>
                         </div>

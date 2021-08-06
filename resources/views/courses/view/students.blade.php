@@ -1,5 +1,5 @@
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex justify-between">
+    <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex justify-between items-center">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             Students
         </h3>

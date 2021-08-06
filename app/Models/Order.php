@@ -25,6 +25,7 @@ class Order extends Model
         'coupon_code',
         'total',
         'comments',
+        'comments_admin',
         'status',
         'author_id',
     ];

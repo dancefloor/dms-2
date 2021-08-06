@@ -26,6 +26,12 @@
         </div>
     </x-slot>
 
+    <div class="mx-3 sm:mx-4 md:mx-5 lg:mx-6 xl:mx-8 my-4">
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+            <x-partials.user-balance :user="auth()->user()" />
+        </div>
+    </div>
+
 
 
     <div class="px-4 mt-5 md:px-6 lg:px-8">

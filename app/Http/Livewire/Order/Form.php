@@ -27,9 +27,11 @@ class Form extends Component
     public $vat;
     public $total;
     public $comments;
+    public $comments_admin;
     public $author_id;
     public $courses;
     public $cids;
+    public $courseList;
 
     protected $rules = [
         'status' => 'requiried'
@@ -77,6 +79,7 @@ class Form extends Component
             'vat'           => $this->vat,
             'total'         => $this->total,
             'comments'      => $this->comments,
+            'comments_admin'=> $this->comments_admin,
             'author_id'     => auth()->user()->id,
         ]);
 
@@ -139,6 +142,7 @@ class Form extends Component
             'vat'           => $this->vat,
             'total'         => $this->total,
             'comments'      => $this->comments,
+            'comments_admin'=> $this->comments_admin,
             'author_id'     => auth()->user()->id,
         ]);       
         
@@ -161,6 +165,8 @@ class Form extends Component
             (new RegistrationManager)->updateRegistrations($this->order);
         }
 
+        RegistrationManager::updateOrder($this->order->id);         
+
         session()->flash('success', 'Order updated successfully.');
 
         return redirect()->route('orders.index');
@@ -169,6 +175,9 @@ class Form extends Component
     public function mount($action, $order =  null, $user = 0)
     {                
         $this->action = $action;
+        
+        
+        $this->courseList = \App\Models\Course::where('status','active')->orWhere('status','billable')->get();
         
         if ($user > 0) {
             $this->user_id = $user;
@@ -193,9 +202,6 @@ class Form extends Component
             $this->courses      = $order->courses;
         }
     }
-
-
-
 
 
     public function getRegistration($id)

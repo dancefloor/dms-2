@@ -52,7 +52,7 @@ class Form extends Component
     //     dd($value);
     // }
 
-    public function mount(Attendance $attendance = null)
+    public function mount(Attendance $attendance = null, $course = null)
     {
         if ($attendance->exists) {
             $this->attendance = $attendance;                                 
@@ -60,7 +60,8 @@ class Form extends Component
             $this->presences = Presence::where('attendance_id',$this->attendance->id)->get();
         }else{
             $this->attendance = new Attendance;
-            $this->attendance->course_id;            
+            // dd($course);
+            $this->attendance->course_id = $course;            
         }
     }
 

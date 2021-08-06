@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Presence;
 
 class Attendance extends Model
 {
@@ -29,6 +30,12 @@ class Attendance extends Model
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function studentStatusAttendance($id)
+    {
+        return Presence::where('user_id',$id)->where('attendance_id', $this->id)->first();
+        
     }
 }
 
