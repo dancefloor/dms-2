@@ -42,7 +42,7 @@ class WorkStatus extends Component
         $this->unemployementProofTemp = $this->unemployementProof->store('proof');      
         $this->unemployementProof = $this->unemployementProofTemp;
         if ($this->user->work_status == 'student') {
-            $this->user->unemployement_expiry_date = Carbon::createFromFormat('Y-m-d',date('y').'-07-31');    
+            $this->user->unemployement_expiry_date = Carbon::createFromFormat('Y-m-d', date('Y').'-07-31');    
         }
         if ($this->user->work_status == 'unemployed') {
             $this->user->unemployement_expiry_date = Carbon::now()->addMonth(2);

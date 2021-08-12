@@ -21,6 +21,9 @@
                             <div class="col-span-6 sm:col-span-4">
                                 <label for="name" class="df-form-label">Name</label>
                                 <input wire:model="name" class="df-form-input">
+                                @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
@@ -62,6 +65,7 @@
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="level" class="df-form-label">Level</label>
                                 <select wire:model="level" class="form-select df-form-select">
+                                    <option value="" disabled selected>Select level</option>
                                     <option>Open level</option>
                                     <option>Beginner</option>
                                     <option>Elementary</option>
@@ -72,6 +76,9 @@
                                     <option>Master</option>
                                     <option>Pro</option>
                                 </select>
+                                @error('level')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
@@ -118,6 +125,9 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                                @error('type')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6">
@@ -173,6 +183,9 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                                @error('focus')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6">

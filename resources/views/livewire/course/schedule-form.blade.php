@@ -17,17 +17,18 @@
 
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="start_date" class="df-form-label">Start date</label>
-                                <input wire:model="start_date" class="df-form-input" type="date">
+
+                                <x-form.date-input name="start_date" label="Start Date" />
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="end_date" class="df-form-label">End date</label>
-                                <input wire:model="end_date" class="df-form-input" type="date">
+                                <x-form.date-input name="end_date" label="End Date" />
                             </div>
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="duration" class="df-form-label">Duration</label>
-                                <input wire:model="duration" class="df-form-input" type="time">
+                                <input wire:model="duration" class="df-form-input" type="time"
+                                    placeholder="ex: 18:30 or 09:15">
+                                <p class="text-sm text-gray-500">format: HH:MM</p>
                                 @error('duration')
                                 {{ $message }}
                                 @enderror
@@ -225,7 +226,7 @@
 
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <a href="{{ route('courses.view', $course->slug) }}" class="df-btn-secondary">
+                        <a href="{{ route('courses.view', $course) }}" class="df-btn-secondary">
                             View
                         </a>
                         <button class="df-form-btn">

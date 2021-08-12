@@ -18,7 +18,15 @@
                     </a>
                 </span>
                 <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
-                    @include('shared.delete',['item'=> $permission, 'action'=>'permissions.destroy'])
+                    <form action="{{ route('permissions.destroy', $permission) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            class="inline-flex items-center text-sm bg-red-700 px-3 py-2 text-white rounded hover:bg-red-600">
+                            @include('icons.trash')
+                            <span class="ml-2">Delete</span>
+                        </button>
+                    </form>
                 </span>
             </div>
         </div>

@@ -75,6 +75,8 @@ Route::middleware(['auth'])->group(function(){
 
 // Route::get('course/{slug}', [CourseController::class, 'view'])->name('courses.view');
 Route::get('course/{course}', [CourseController::class, 'view'])->name('courses.view');
+Route::get('workshops', [CourseController::class, 'workshops'])->name('workshops');
+Route::get('bootcamps', [CourseController::class, 'bootcamps'])->name('bootcamps');
 
 Route::post('registration/{course}', [RegistrationController::class,'add'])->name('registration.add');
 Route::delete('registration/{course}',[RegistrationController::class, 'remove'])->name('registration.remove');

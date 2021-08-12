@@ -12,6 +12,7 @@
                 <p class="ml-20 text-sm font-medium text-gray-500 truncate">{{ $text }}</p>
             </dt>
             <dd class="ml-20 pb-6 flex items-baseline sm:pb-4">
+
                 <p class="text-3xl font-semibold {{ $style}}">CHF {{ abs($balance) }}</p>
                 <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
                     <div class="text-sm flex justify-between">

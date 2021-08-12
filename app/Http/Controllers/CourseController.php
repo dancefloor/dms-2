@@ -130,6 +130,13 @@ class CourseController extends Controller
         return view('courses.view')->with('course', $course);
     }
 
+    public function workshops()
+    {
+        $courses = Course::where('type','workshop')->get();
+
+        return view('pages.workshops', compact('courses'));        
+    }
+
     public function export() 
     {
         return Excel::download(new CoursesExport, 'courses.csv');

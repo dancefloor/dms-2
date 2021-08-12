@@ -38,6 +38,22 @@
                 {{ __('Dashboard') }}
             </x-jet-dropdown-link>
 
+            <x-jet-dropdown-link href="{{ route('courses') }}">
+                {{ __('Courses') }}
+            </x-jet-dropdown-link>
+
+            <x-jet-dropdown-link href="{{ route('workshops') }}">
+                {{ __('Workshops') }}
+            </x-jet-dropdown-link>
+
+            <x-jet-dropdown-link href="{{ route('bootcamps') }}">
+                {{ __('Bootcamps') }}
+            </x-jet-dropdown-link>
+
+            <x-jet-dropdown-link href="{{ route('my-orders') }}">
+                {{ __('My orders') }}
+            </x-jet-dropdown-link>
+
             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                 {{ __('Profile') }}
             </x-jet-dropdown-link>
@@ -49,6 +65,12 @@
             @endif
 
             <div class="border-t border-gray-100"></div>
+
+            @can('crud_courses')
+            <x-jet-dropdown-link href="{{ route('courses.index') }}">
+                {{ __('Manage Courses') }}
+            </x-jet-dropdown-link>
+            @endcan
 
             <!-- Team Management -->
             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

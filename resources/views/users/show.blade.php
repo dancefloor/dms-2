@@ -30,15 +30,30 @@
     <div class="my-10 mx-auto max-w-7xl">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div class="flex items-center border-b border-gray-200 py-3">
-                <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="h-20 w-20 rounded-full mx-3">
-                <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        {{ $user->name }}'s Information
-                    </h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        Personal details.
-                    </p>
+            <div class="flex justify-between items-center border-b border-gray-200 py-3">
+                <div class="flex items-center">
+                    <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
+                        class="h-20 w-20 rounded-full mx-3">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            {{ $user->name }}'s Information
+                        </h3>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                            Personal details.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-3 sm:px-4 md:px-5 lg:px-6">
+                    <h4 class="mt-1 max-w-2xl text-sm text-gray-500 text-right">Balance</h4>
+                    <div class="text-2xl">
+                        @if ($user->balance < 0) <span class="text-red-600">CHF {{ $user->balance }}</span>
+                            @elseif ($user->balance > 0) <span class="text-green-600">CHF {{ $user->balance }}</span>
+                            @else
+                            <span class="text-gray-600">CHF {{ $user->balance }}</span>
+                            @endif
+
+
+                    </div>
                 </div>
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:px-6">

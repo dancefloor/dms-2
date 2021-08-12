@@ -70,7 +70,7 @@
                     @foreach ($attendances as $attendance)
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-2 whitespace-no-wrap">
-                            <a href="{{ route('attendances.show', $attendance) }}"
+                            <a href="{{ route('attendances.edit', $attendance) }}"
                                 class="font-semibold hover:text-gray-700">
                                 {{ $attendance->course->name }}
                             </a>

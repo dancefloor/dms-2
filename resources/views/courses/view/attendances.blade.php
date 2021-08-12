@@ -42,6 +42,7 @@
                                     @foreach ($course->attendances as $a)
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
 
+                                        @if ($a->studentStatusAttendance($student->id))
                                         @switch($a->studentStatusAttendance($student->id)->status)
                                         @case('present')
                                         <span class="text-green-600">@include('icons.check-fill')</span>
@@ -61,7 +62,11 @@
                                             -
                                         </span>
                                         @endswitch
-
+                                        @else
+                                        <span class="text-gray-400">
+                                            -
+                                        </span>
+                                        @endif
 
                                     </td>
                                     @endforeach

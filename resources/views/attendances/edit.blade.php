@@ -11,7 +11,7 @@
                 </h1>
             </div>
             <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                <span class="order-1 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
+                <span class="order-1 shadow-sm rounded-md sm:order-0 sm:ml-0">
                     <a href="{{ url()->previous() }}"
                         class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-red-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
                         Cancel
@@ -20,6 +20,12 @@
                         class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-red-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
                         View course
                     </a>
+
+                    <a href="{{ route('attendances.create', ['course'=> $attendance->course_id ]) }}"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-red-700 hover:bg-red-600 focus:outline-none focus:shadow-outline-red focus:border-red-700 active:bg-red-700 transition duration-150 ease-in-out">
+                        Add Attendance
+                    </a>
+
                 </span>
             </div>
         </div>

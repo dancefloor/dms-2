@@ -279,5 +279,10 @@ class User extends Authenticatable //implements MustVerifyEmail
     {        
         return $this->belongsToMany(Attendance::class,'presences','user_id','attendance_id')->withPivot('status', 'comments');
     }
+
+    public function getBalanceAttribute()
+    {
+        return $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('received') - $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('total');
+    }
     
 }

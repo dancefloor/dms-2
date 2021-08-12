@@ -26,7 +26,8 @@
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="order_id" class="df-form-label">Order</label>
-                                <select wire:model.lazy="order_id" class="form-select df-form-select">
+                                <select wire:model.lazy="order_id"
+                                    class="form-select df-form-select @error('order_id') border-red-600 @enderror">
                                     <option value="" selected disabled>Select order</option>
                                     @foreach ($orders as $order)
                                     <option value="{{ $order->id }}">
@@ -35,6 +36,9 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @error('order_id')
+                                <span class="text-red-600 text-xs">{{ $message}}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
@@ -52,7 +56,7 @@
                                     <option value="other">Other</option>
                                 </select>
                                 @error('method')
-                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                <span class="text-red-600 text-xs">{{ $message}}</span>
                                 @enderror
                             </div>
 
@@ -87,13 +91,13 @@
                                 <input wire:model.lazy="credit" type="number" step=".01"
                                     class="form-input df-form-input">
                                 @error('credit')
-                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                <span class="text-red-600 text-xs">{{ $message}}</span>
                                 @enderror
                                 @else
                                 <input wire:model.lazy="debit" type="number" step=".01"
                                     class="form-input df-form-input">
                                 @error('debit')
-                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                <span class="text-red-600 text-xs">{{ $message}}</span>
                                 @enderror
                                 @endif
                             </div>
@@ -112,7 +116,7 @@
                                 <input wire:model.lazy="amount_received" type="number" step=".01"
                                     class="form-input df-form-input">
                                 @error('amount_received')
-                                <span class="text-red-800 text-xs">{{ $message}}</span>
+                                <span class="text-red-600 text-xs">{{ $message}}</span>
                                 @enderror
                             </div>
 

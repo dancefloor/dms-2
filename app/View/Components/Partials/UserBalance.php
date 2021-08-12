@@ -22,9 +22,11 @@ class UserBalance extends Component
     public function __construct(User $user)
     {
         $this->user = $user;
-        $this->total = Order::where('user_id',$user->id)->whereStatus('open')->orWhere('status','partial')->orWhere('status','overpaid')->sum('total');
-        $this->received = Order::where('user_id',$user->id)->whereStatus('open')->orWhere('status','partial')->orWhere('status','overpaid')->sum('received');
-        $this->balance = $this->total - $this->received;
+        // $this->total = Order::where('user_id', $this->user->id)->whereStatus('open')->orWhere('status','partial')->orWhere('status','overpaid')->sum('total');
+        // $this->received = Order::where('user_id', $this->user->id)->whereStatus('open')->orWhere('status','partial')->orWhere('status','overpaid')->sum('received');        
+        // $this->balance = $this->total - $this->received;
+        $this->balance = $this->user->balance;
+        
         if ($this->balance > 0) 
         {
             $this->text = 'You have to pay';

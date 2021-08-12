@@ -19,8 +19,8 @@ class DefaultForm extends Component
     public $keywords;
     public $excerpt;
     public $description;
-    public $level;
-    public $level_number = 'OL';
+    public $level = '';
+    public $level_number = '';
     public $type;
     public $focus;
     public $thumbnail;
@@ -29,6 +29,10 @@ class DefaultForm extends Component
     public function createCourse()
     {
         $this->validate([
+            'name'      => 'required',
+            'level'     => 'required',
+            'type'      => 'required',
+            'focus'     => 'required',
             'thumbnail' => 'nullable|image|max:1024',  
         ]);
 

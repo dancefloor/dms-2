@@ -35,7 +35,8 @@ class Form extends Component
 
     public function create()
     {
-        $this->validate([            
+        $this->validate([       
+            'order_id'          => 'required|integer',     
             'received_date'     => 'required|date',            
             'method'            => 'required',
             'credit'            => 'required_if:type,in',

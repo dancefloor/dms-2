@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <a href="{{ route('courses.view', $course->slug) }}" class="df-btn-secondary">
+                        <a href="{{ route('courses.view', $course) }}" class="df-btn-secondary">
                             View
                         </a>
                         <button class="df-form-btn">
