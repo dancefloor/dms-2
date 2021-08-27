@@ -63,8 +63,8 @@
             <li>And you can make the payment</li>
         </ol>
         <div class="my-5">
-            <a href="{{ route('dashboard') }}" class="df-btn-primary">
-                Back to Dashboard
+            <a href="{{ route('welcome') }}" class="df-btn-primary">
+                Back to the homepage
             </a>
         </div>
         @endif
@@ -72,6 +72,11 @@
         @if ($method == 'bank-transfer' || $method == 'post')
         <h3 class="text-lg font-bold text-gray-800 capitalize">{{ $method }}</h3>
         @include('partials.payment-method.bank-transfer')
+        <div class="my-5">
+            <a href="{{ route('welcome') }}" class="df-btn-primary">
+                Back to the homepage
+            </a>
+        </div>
         @endif
 
 

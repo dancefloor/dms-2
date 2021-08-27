@@ -31,7 +31,7 @@
                             @forelse (auth()->user()->pendingCourses as $item)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    <a href="{{ route('courses.view', $item->slug) }}">
+                                    <a href="{{ route('courses.view', $item) }}">
                                         <span class="hover:underline">{{ $item->name }}</span>
                                         <span class="block text-xs text-gray-600">{{ $item->level }}
                                             {{ $item->focus }}</span>

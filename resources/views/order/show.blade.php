@@ -38,7 +38,7 @@
             </div>
             <div class="px-4 py-5 sm:p-0">
                 <dl>
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
+                    <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Order ID
                         </dt>
@@ -47,7 +47,7 @@
                         </dd>
                     </div>
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             User
                         </dt>
@@ -56,7 +56,7 @@
                         </dd>
                     </div>
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Status
                         </dt>
@@ -65,83 +65,7 @@
                         </dd>
                     </div>
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Subtotal
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->subtotal }}
-                        </dd>
-                    </div>
-                    @if ($order->discount_code)
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Discount code
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->discount_code }}
-                        </dd>
-                    </div>
-                    @endif
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Multiple classes discount
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->discount }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Student/unemployment discount
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->reduction }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Adjustments
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->adjustment }}
-                        </dd>
-                    </div>
-                    @if ($order->vat )
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            VAT
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $order->vat }}
-                        </dd>
-                    </div>
-                    @endif
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Total
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            CHF {{ $order->total }}
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                        <dt class="text-sm leading-5 font-medium text-gray-500">
-                            Amount received
-                        </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                            CHF {{ $order->received }} (Difference CHF {{ $order->amount_diff }})
-                        </dd>
-                    </div>
-                    <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Comments
                         </dt>
@@ -152,7 +76,7 @@
                     @can('crud_orders')
                     @if ($order->comments_admin)
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Comments Admin
                         </dt>
@@ -163,20 +87,108 @@
                     @endif
                     @endcan
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Registered Courses
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-3">
                             <livewire:partials.registrations-table :registrations="$order->registrations" />
                         </dd>
                     </div>
                     <div
-                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Subtotal
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-3">
+                            CHF {{ $order->subtotal }}
+                        </dd>
+                    </div>
+                    @if ($order->discount_code)
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Discount code
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->discount_code }}
+                        </dd>
+                    </div>
+                    @endif
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Multiple classes discount
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->discount }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Student/unemployment discount
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->reduction }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Adjustments
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->adjustment }}
+                        </dd>
+                    </div>
+                    @if ($order->vat )
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            VAT
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $order->vat }}
+                        </dd>
+                    </div>
+                    @endif
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Total
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            CHF {{ $order->total }}
+                        </dd>
+                    </div>
+
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Amount received
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            CHF {{ $order->received ?? 0 }}
+                        </dd>
+                    </div>
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Difference
+                        </dt>
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                            CHF <span
+                                class="{{ $order->amount_diff < 0 ? 'text-red-600 font-semibold' : 'text-gray-500'}}">{{ $order->amount_diff }}</span>
+                        </dd>
+                    </div>
+
+                    <div
+                        class="mt-8 sm:mt-0 sm:grid sm:grid-cols-4 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                         <dt class="text-sm leading-5 font-medium text-gray-500">
                             Payments
                         </dt>
-                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-3">
                             <div class="border border-gray-200 rounded-md">
                                 <table class="w-full divide-y">
                                     @forelse ($order->payments as $o)
@@ -213,12 +225,14 @@
                                 </table>
                             </div>
                             <div class="flex justify-end my-3">
+                                @can('crud_orders')
                                 <a href="{{ route('payments.create', ['order' => $order ]) }}"
                                     class="font-medium text-red-700 hover:underline">Add payment</a>
                                 @if (count($order->payments) > 0)
                                 <a href="{{ route('payments.create', ['order' => $order, 'refund' => true ]) }}"
                                     class="font-medium text-red-700 hover:underline ml-2">Add refund</a>
                                 @endif
+                                @endcan
                             </div>
                         </dd>
                     </div>

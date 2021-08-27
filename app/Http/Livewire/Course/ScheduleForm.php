@@ -36,7 +36,8 @@ class ScheduleForm extends Component
     public function updateSchedule()
     {
         $this->validate([                        
-            'duration' => 'nullable|date_format:H:i',        
+            'duration'          => 'nullable|date_format:H:i:s',
+            'start_time_mon'    => 'nullable|date_format:H:i:s'       
         ]);
 
         $this->course->update([

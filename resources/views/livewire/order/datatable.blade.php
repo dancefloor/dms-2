@@ -58,6 +58,10 @@
                             Received
                         </th>
                         <th
+                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Diff.
+                        </th>
+                        <th
                             class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-left bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                             Courses
                         </th>
@@ -91,22 +95,45 @@
                             <div class="text-sm leading-5 text-gray-500">CHF {{ $order->total }}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">
-                                CHF {{$order->received ?? 0 }}
-                                (Diff. CHF {{ $order->amount_diff }})</div>
+                            <div class="text-sm leading-5 text-gray-500">CHF {{$order->received ?? 0 }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                            @if ($order->amount_diff > 0)
+                            <span class="text-green-600 text-semibold">
+                                CHF {{ $order->amount_diff }}
+                            </span>
+                            @elseif ($order->amount_diff < 0) <span class="text-red-600 text-semibold">
+                                CHF {{ $order->amount_diff }}
+                                </span>
+                                @else
+                                <span class="text-gray-500">
+                                    CHF {{ $order->amount_diff }}
+                                </span>
+                                @endif
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{ implode(', ', $order->courses->pluck('name')->toArray())}}
-
-                            {{-- {{ $order->courses->count() }} --}}
+                            <ul>
+                                @foreach ($order->courses as $course)
+                                <li>
+                                    <a href="{{ route('courses.show', $course ) }}"
+                                        class="text-red-700 hover:underline">{{ $course->name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             {{ $order->updated_at->diffForHumans() }}
                         </td>
                         <td
                             class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium flex justify-end items-center">
+
                             <a href="{{ route('orders.show', $order) }}" class="text-gray-400 hover:text-gray-500 mx-1">
                                 @include('icons.view', ['style' => 'w-6 h-6'])
+                            </a>
+                            @can('crud_orders')
+                            <a href="{{ route('users.show', $order->user_id) }}"
+                                class="text-gray-400 hover:text-gray-500 mx-1">
+                                @include('icons.user', ['style'=>'h-5 w-5'])
                             </a>
                             <a href="{{ route('orders.edit', $order) }}" class="text-gray-400 hover:text-gray-500 mx-1">
                                 @include('icons.pen', ['style'=>'h-5 w-5'])
@@ -115,6 +142,7 @@
                                 class="text-gray-400 hover:text-gray-500 mx-1">
                                 @include('icons.payment', ['style'=>'h-5 w-5'])
                             </a>
+                            @endcan
                         </td>
 
                     </tr>

@@ -23,7 +23,9 @@
             <div class="font-bold text-sm mb-2 inline-flex items-center text-gray-700">
                 @include('icons.calendar')
                 <span class="ml-2 capitalize">
-                    Period {{ $course->start_date->format('d F Y') }} - {{ $course->end_date->format('d F Y') }}
+                    Period {{ Carbon\Carbon::parse($course->start_date)->format('d F Y') }} -
+                    {{ Carbon\Carbon::parse($course->end_date)->format('d F Y') }}
+                    -
                 </span>
             </div>
 

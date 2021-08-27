@@ -32,8 +32,7 @@ class Registration extends Pivot
      *
      * @var array
      */
-    protected $casts = [
-        'id' => 'integer',
+    protected $casts = [        
         'course_id' => 'integer',
         'user_id' => 'integer',
         'order_id' => 'integer',
@@ -55,6 +54,14 @@ class Registration extends Pivot
     public function order()
     {
         return $this->belongsTo(\App\Models\Order::class);
+    }
+
+    public function scopeHasOrder($query, $id)
+    {
+        if (!empty($id)) {
+            return $query->where('order_id', $id);
+        }
+        return $query;
     }
 }
 

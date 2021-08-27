@@ -84,7 +84,8 @@
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
                             @if ($course->start_date)
-                            {{ $course->start_date->format('d F Y') }} - {{ $course->end_date->format('d F Y') }}
+                            {{ Carbon\Carbon::parse($course->start_date)->format('d F Y') }} -
+                            {{ Carbon\Carbon::parse($course->end_date)->format('d F Y') }}
                             @endif
                         </dd>
                     </div>

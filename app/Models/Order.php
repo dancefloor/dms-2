@@ -38,15 +38,14 @@ class Order extends Model
     protected $casts = [
         'id'        => 'integer',
         'user_id'   => 'integer',
-        'subtotal'  => 'float',
-        'vat'       => 'float',
-        'discount'  => 'float',        
-        'reduction' => 'float',        
-        'total'     => 'float',
-        'received'  => 'float',
+        'subtotal'  => 'double',
+        'vat'       => 'double',
+        'discount'  => 'double',        
+        'reduction' => 'double',        
+        'total'     => 'double',
+        'received'  => 'double',
         'author_id' => 'integer',
     ];
-
 
     public function user()
     {
@@ -59,7 +58,7 @@ class Order extends Model
     }
 
     public function courses(){
-        return $this->belongsToMany(\App\Models\Course::class);
+        return $this->belongsToMany(\App\Models\Course::class)->withTimestamps();
     }
 
     public function hasCourse($id)

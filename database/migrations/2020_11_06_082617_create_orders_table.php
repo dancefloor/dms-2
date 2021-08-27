@@ -21,9 +21,10 @@ class CreateOrdersTable extends Migration
             $table->decimal('vat')->nullable();
             $table->decimal('discount')->nullable();
             $table->string('coupon_code')->nullable();
+            $table->decimal('coupon_discount')->nullable();
             $table->decimal('reduction')->nullable();
             $table->decimal('adjustment')->nullable();
-            $table->decimal('total')->nullable();
+            $table->decimal('total', 24,2)->nullable();
             $table->decimal('received')->nullable();
             $table->text('comments')->nullable();
             $table->text('comments_admin')->nullable();

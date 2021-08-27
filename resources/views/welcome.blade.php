@@ -22,7 +22,7 @@
 
         @include('partials.banner-beginner')
 
-        <x-welcome.video-slider />
+        {{-- <x-welcome.video-slider /> --}}
 
         @include('partials.banner-locations')
 

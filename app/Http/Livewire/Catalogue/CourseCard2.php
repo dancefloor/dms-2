@@ -30,7 +30,7 @@ class CourseCard2 extends Component
         
         $this->design(auth()->user()->registrationStatus($course->id));
         
-        session()->flash('success', 'You have remove this class from your list successfully');                        
+        session()->flash('success', 'You have successfully removed this class from your list.');                        
         
         $this->emit('cartCountRefresh'); 
     }
@@ -40,14 +40,14 @@ class CourseCard2 extends Component
         $uid = auth()->user()->id;   
 
         if ($course->standby == 1) {
-            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'standby', 'created_at'=> now()]);
+            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'standby']);
         } else {
-            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'pre-registered', 'created_at'=> now()]);
-        }
-            
-        session()->flash('sucess', 'You have successfully pre-register. Please proceed to pay on your ');
-
+            $course->students()->attach($uid, ['role'=>'student', 'status'=> 'pre-registered']);
+        }                                             
+        
         $this->design(auth()->user()->registrationStatus($course->id));
+
+        session()->flash('success', 'You have successfully pre-register. View your cart at the top right corner.');
         
         $this->emit('cartCountRefresh'); 
     }

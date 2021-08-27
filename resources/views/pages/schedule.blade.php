@@ -1,5 +1,4 @@
 <x-guest-layout>
-
     <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }">
         <x-layouts.slide-over-sidebar-nav />
         @include('partials.navbar')

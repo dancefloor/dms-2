@@ -17,20 +17,21 @@
 
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-2">
-
                                 <x-form.date-input name="start_date" label="Start Date" />
+                                <p class="text-sm text-gray-500">format: yyyy-mm-dd</p>
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <x-form.date-input name="end_date" label="End Date" />
+                                <p class="text-sm text-gray-500">format: yyyy-mm-dd</p>
                             </div>
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="duration" class="df-form-label">Duration</label>
-                                <input wire:model="duration" class="df-form-input" type="time"
-                                    placeholder="ex: 18:30 or 09:15">
-                                <p class="text-sm text-gray-500">format: HH:MM</p>
+                                <input wire:model="duration" class="df-form-input"
+                                    placeholder="ex: 00:18:30 or 01:09:15">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
                                 @error('duration')
-                                {{ $message }}
+                                <span class="text-sm text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
 
@@ -56,11 +57,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_mon" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_mon" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_mon')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_mon" class="df-form-label">End time</label>
                                 <input wire:model="end_time_mon" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_mon')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -81,11 +90,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_tue" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_tue" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_tue')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_tue" class="df-form-label">End time</label>
                                 <input wire:model="end_time_tue" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_tue')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -108,11 +125,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_wed" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_wed" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_wed')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_wed" class="df-form-label">End time</label>
                                 <input wire:model="end_time_wed" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_wed')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -135,11 +160,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_thu" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_thu" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_thu')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_thu" class="df-form-label">End time</label>
                                 <input wire:model="end_time_thu" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_thu')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -162,11 +195,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_fri" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_fri" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_fri')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_fri" class="df-form-label">End time</label>
                                 <input wire:model="end_time_fri" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_fri')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -188,11 +229,19 @@
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="start_time_sat" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_sat" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_sat')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_sat" class="df-form-label">End time</label>
                                 <input wire:model="end_time_sat" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_sat')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>
@@ -215,11 +264,19 @@
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="start_time_sun" class="df-form-label">Start time</label>
                                 <input wire:model="start_time_sun" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('start_time_sun')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-2">
                                 <label for="end_time_sun" class="df-form-label">End time</label>
                                 <input wire:model="end_time_sun" class="df-form-input" type="time">
+                                <p class="text-sm text-gray-500">format: hh:mm:ss</p>
+                                @error('end_time_sun')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
                             @endif
                         </div>

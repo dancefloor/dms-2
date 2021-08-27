@@ -144,6 +144,15 @@ class User extends Authenticatable //implements MustVerifyEmail
             ->withTimestamps();
     }
 
+    public function openCourses()
+    {
+        return $this->belongsToMany(Course::class, 'registrations', 'user_id', 'course_id')
+            ->using('App\Models\Registration')
+            ->withPivot('status')
+            ->wherePivot('status', 'open')
+            ->wherePivot('role', 'student')
+            ->withTimestamps();
+    }
 
     public function payedCourses()
     {

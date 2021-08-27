@@ -79,22 +79,22 @@ class Course extends Model
      */
     protected $casts = [        
         'id'            => 'integer',
-        'start_date'    => 'date:Y-m-d',
-        'end_date'      => 'date:Y-m-d',
-        'start_time_mon'=> 'datetime:H:i',
-        'start_time_tue'=> 'datetime:H:i',
-        'start_time_wed'=> 'datetime:H:i',
-        'start_time_thu'=> 'datetime:H:i',
-        'start_time_fri'=> 'datetime:H:i',
-        'start_time_sat'=> 'datetime:H:i',
-        'start_time_sun'=> 'datetime:H:i',
-        'end_time_mon'  => 'datetime:H:i',
-        'end_time_tue'  => 'datetime:H:i',
-        'end_time_wed'  => 'datetime:H:i',
-        'end_time_thu'  => 'datetime:H:i',
-        'end_time_fri'  => 'datetime:H:i',
-        'end_time_sat'  => 'datetime:H:i',
-        'end_time_sun'  => 'datetime:H:i',
+        // 'start_date'    => 'date:Y-m-d',
+        // 'end_date'      => 'date:Y-m-d',
+        // 'start_time_mon'=> 'datetime:H:i',
+        // 'start_time_tue'=> 'datetime:H:i',
+        // 'start_time_wed'=> 'datetime:H:i',
+        // 'start_time_thu'=> 'datetime:H:i',
+        // 'start_time_fri'=> 'datetime:H:i',
+        // 'start_time_sat'=> 'datetime:H:i',
+        // 'start_time_sun'=> 'datetime:H:i',
+        // 'end_time_mon'  => 'datetime:H:i',
+        // 'end_time_tue'  => 'datetime:H:i',
+        // 'end_time_wed'  => 'datetime:H:i',
+        // 'end_time_thu'  => 'datetime:H:i',
+        // 'end_time_fri'  => 'datetime:H:i',
+        // 'end_time_sat'  => 'datetime:H:i',
+        // 'end_time_sun'  => 'datetime:H:i',
         'monday'        => 'boolean',
         'tuesday'       => 'boolean',
         'wednesday'     => 'boolean',
@@ -130,7 +130,7 @@ class Course extends Model
 
     public function styles()
     {
-        return $this->belongsToMany(Style::class);
+        return $this->belongsToMany(Style::class)->withTimestamps();
     }
 
     public function attendances()
@@ -143,17 +143,18 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')
             ->using(Registration::class)
             ->withPivot('role', 'status')
-            ->wherePivot('role', 'student');
+            ->wherePivot('role', 'student')
+            ->withTimestamps();
     }
 
     public function teachers()
     {
-        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')->using(Registration::class)->wherePivot('role', 'instructor');
+        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')->using(Registration::class)->wherePivot('role', 'instructor')->withTimestamps();
     }
 
     public function assistants()
     {
-        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')->using(Registration::class)->wherePivot('role', 'assistant');
+        return $this->belongsToMany(User::class, 'registrations', 'course_id', 'user_id')->using(Registration::class)->wherePivot('role', 'assistant')->withTimestamps();
     }
 
     public function classroom()
@@ -220,6 +221,15 @@ class Course extends Model
         return $query->where('is_online', '0');
     }
 
+    public function scopeExcluding($query, $ids)
+    {        
+        if (!empty($ids)) {            
+            return $query->whereNotIn('id', $ids);            
+        }
+        return $query;
+    }
+
+
     public function scopeLevel($query, $level)
     {        
         if (!empty($level)) {                
@@ -276,6 +286,7 @@ class Course extends Model
     {
         return $this->classroom->location->neighborhood ?? '';
     }
+
 
     public function getDaysAttribute()
     {

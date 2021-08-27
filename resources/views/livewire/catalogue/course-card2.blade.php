@@ -1,4 +1,7 @@
 <div class="{{ $border }} m-2 shadow-md hover:shadow-2xl rounded-lg overflow-hidden">
+    @if (session()->has('success'))
+    <x-partials.flash-message />
+    @endif
     <a href="{{ route('courses.view', $course ) }}" wire:key="$loop->index">
 
         <div class="px-3 pt-3 pb-1">
@@ -59,11 +62,14 @@
                     <x-partial.registration-status :user="auth()->user()" cid="{{ $course->id }}" />
                 </div>
                 <div>
+                    @if (auth()->user()->registrationStatus($course->id) == 'pre-registered')
                     <form wire:submit.prevent="deregister({{$course}})">
                         <button type="submit" class="text-gray-500 hover:text-red-700 pt-2 pr-1">
                             @include('icons.x-circle-thin')
                         </button>
                     </form>
+                    @endif
+
 
                 </div>
                 @else

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Payment;
 
+use App\Mail\PaymentConfirmation;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\User;
@@ -10,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class Form extends Component
 {       
@@ -66,8 +68,8 @@ class Form extends Component
 
             RegistrationManager::updateOrder($this->order_id);                           
     
-            // Mail::to(auth()->user()->email)->send(new RegistrationPaymentConfirmation($status));
-    
+            Mail::to(auth()->user()->email)->send(new PaymentConfirmation($payment->order->status, $payment->credit));
+                            
             session()->flash('success','Payment created successfully');
         });
 

@@ -12,15 +12,17 @@ class PaymentConfirmation extends Mailable
     use Queueable, SerializesModels;
 
     public $status;
+    public $amount;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($status)
+    public function __construct($status, $amount)
     {
         $this->status = $status;
+        $this->amount = $amount;
     }
 
     /**

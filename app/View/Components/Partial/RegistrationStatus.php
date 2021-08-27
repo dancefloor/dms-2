@@ -61,7 +61,7 @@ class RegistrationStatus extends Component
             case 'open':
                 $this->icon = 'open';
                 $this->bgColor = 'bg-teal-300';
-                $this->label = 'Processing';                          
+                $this->label = 'Waiting payment';                          
                 break;        
             default:                
                 $this->icon = 'warning-circle';

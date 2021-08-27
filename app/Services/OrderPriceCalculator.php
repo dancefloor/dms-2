@@ -28,7 +28,7 @@ class OrderPriceCalculator
     public static function getTotal($subtotal, $discount = 0, $reducedDiscount, $commission = 0, $adjustment = 0)
     {
         // https://laracasts.com/discuss/channels/general-discussion/number-to-2-decimal-placed-blade        
-        return number_format((floatval($subtotal) - $discount - $reducedDiscount) + $commission + $adjustment, 2, '.', "'");
+        return (floatval($subtotal) - $discount - $reducedDiscount) + $commission + $adjustment;
         
         //return number_format($subtotal, 2, '.', ',');
         // return $subtotal;
@@ -51,7 +51,7 @@ class OrderPriceCalculator
                 return round(number_format($subtotal * $three_courses_discount, 2, '.', ','));
                 break;
             default:
-                return $subtotal * $four_courses_discount;
+                return round(number_format($subtotal * $four_courses_discount, 2, '.', ','));
                 break;
         }
     }

@@ -21,11 +21,17 @@ class RegistrationManager {
     public static function updateOrder($id)
     {
         $order = Order::findOrFail($id);
-        
-        $amount = 0;
-        
-        foreach ($order->payments as $pay) {
-            $amount = $amount + $pay->credit - $pay->debit;
+                
+        if ($order->payments->count() > 0) {            
+            $amount = 0;
+            
+            foreach ($order->payments as $pay) {
+                $amount = $amount + $pay->credit - $pay->debit;
+            }        
+        } else {            
+            $order->status = 'open';
+            $order->save();
+            return $order->status;
         }
 
         $order->received = $amount;        
@@ -64,9 +70,10 @@ class RegistrationManager {
     {
         $status = $this->verifyOrderPaymentStatus($order);
 
+        // dd($status);
         switch ($order->status) {
             case 'open':                                
-                $this->updateRegistrationStatus($order, 'processing');
+                $this->updateRegistrationStatus($order, 'open');
                 break;
             case 'paid':
                 $this->updateRegistrationStatus($order, 'registered');
@@ -88,6 +95,11 @@ class RegistrationManager {
 
     public function verifyOrderPaymentStatus($order)
     {
+
+        if ($order->payments->count() < 1) {                                
+            return $order->status;
+        }
+
         if ($order->total == $order->received) {
             $order->status = 'paid';            
         } elseif ($order->total > $order->received) {

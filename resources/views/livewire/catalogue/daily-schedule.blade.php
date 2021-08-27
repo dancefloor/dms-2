@@ -1,5 +1,4 @@
 <div class="py-10">
-
     <h1 class="mx-2 text-xl inline-flex items-center mb-5">
         @include('icons.funnel-fill')
         <span class="ml-2">Filter your courses</span>
