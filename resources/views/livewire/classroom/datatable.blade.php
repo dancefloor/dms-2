@@ -47,7 +47,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                {{ $classroom->location->name }}
+                                {{ $classroom->location->name ?? '' }}
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                                 {{ $classroom->m2 }}

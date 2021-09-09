@@ -115,8 +115,14 @@
                             <ul>
                                 @foreach ($order->courses as $course)
                                 <li>
+                                    @can('crud_orders')
                                     <a href="{{ route('courses.show', $course ) }}"
                                         class="text-red-700 hover:underline">{{ $course->name }}</a>
+                                    @else
+                                    <a href="{{ route('courses.view', $course ) }}"
+                                        class="text-red-700 hover:underline">{{ $course->name }}</a>
+                                    @endcan
+
                                 </li>
                                 @endforeach
                             </ul>

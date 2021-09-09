@@ -353,26 +353,26 @@ class Course extends Model
 
     function getHoraireAttribute()
     {
-        if ($this->monday) {
-            return $this->start_time_mon->format('H:i') . '-' . $this->start_time_mon->format('H:i');
+        if ($this->monday) {            
+            return Carbon::parse($this->start_time_mon)->format('H:i') . '-' . Carbon::parse($this->start_time_mon)->format('H:i');
         }
         if ($this->tuesday) {
-            return $this->start_time_tue->format('H:i') . '-' . $this->end_time_tue->format('H:i');
+            return Carbon::parse($this->start_time_tue)->format('H:i') . '-' . Carbon::parse($this->end_time_tue)->format('H:i');
         }
         if ($this->wednesday) {
-            return $this->start_time_wed->format('H:i') . '-' . $this->end_time_wed->format('H:i');
+            return Carbon::parse($this->start_time_wed)->format('H:i') . '-' . Carbon::parse($this->end_time_wed)->format('H:i');
         }
         if ($this->thursday) {
-            return $this->start_time_thu->format('H:i') . '-' . $this->end_time_thu->format('H:i');
+            return Carbon::parse($this->start_time_thu)->format('H:i') . '-' . Carbon::parse($this->end_time_thu)->format('H:i');
         }
         if ($this->friday) {
-            return $this->start_time_fri->format('H:i') . '-' . $this->end_time_fri->format('H:i');
+            return Carbon::parse($this->start_time_fri)->format('H:i') . '-' . Carbon::parse($this->end_time_fri)->format('H:i');
         }
         if ($this->saturday) {
-            return $this->start_time_sat->format('H:i') . '-' . $this->end_time_sat->format('H:i');
+            return Carbon::parse($this->start_time_sat)->format('H:i') . '-' . Carbon::parse($this->end_time_sat)->format('H:i');
         }
         if ($this->sunday) {
-            return $this->start_time_sun->format('H:i') . '-' . $this->end_time_sun->format('H:i');
+            return Carbon::parse($this->start_time_sun)->format('H:i') . '-' . Carbon::parse($this->end_time_sun)->format('H:i');
         }
     }
 }

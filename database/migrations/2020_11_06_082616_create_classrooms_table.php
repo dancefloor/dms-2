@@ -27,8 +27,7 @@ class CreateClassroomsTable extends Migration
             $table->boolean('dance_shoes')->nullable();
             $table->text('comments')->nullable();
             $table->string('color')->nullable();
-            $table->foreignId('location_id')->constrained()->cascadeOnDelete();
-            $table->softDeletes();
+            $table->foreignId('location_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
         });
 

@@ -26,8 +26,8 @@
                             <option value="" selected disabled>Choose status</option>
                             <option value="canceled">Canceled</option>
                             <option value="standby">Standby</option>
-                            <option value="pre-registered">Pre-register</option>
-                            <option value="rejected">Rejected</option>
+                            {{-- <option value="pre-registered">Pre-register</option> --}}
+                            {{-- <option value="rejected">Rejected</option> --}}
                         </select>
                     </div>
                     <button type="submit" class="ml-4 text-red-700 hover:underline" @click="form=false">Save</button>

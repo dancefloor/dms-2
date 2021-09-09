@@ -35,8 +35,7 @@ class CreateLocationsTable extends Migration
             $table->string('entry_code')->nullable();
             $table->string('google_maps_shortlink')->nullable();
             $table->text('google_maps')->nullable();
-            $table->text('public_transportation')->nullable();
-            $table->softDeletes();
+            $table->text('public_transportation')->nullable();            
             $table->timestamps();
         });
     }

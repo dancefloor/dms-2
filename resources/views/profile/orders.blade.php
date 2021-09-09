@@ -22,5 +22,12 @@
             </div>
         </div>
     </x-slot>
+
+    <div class="mx-3 sm:mx-4 md:mx-5 lg:mx-6 xl:mx-8 my-4">
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+            <x-partials.user-balance :user="auth()->user()" />
+        </div>
+    </div>
+
     <livewire:order.datatable :user="auth()->user()" />
 </x-app-layout>

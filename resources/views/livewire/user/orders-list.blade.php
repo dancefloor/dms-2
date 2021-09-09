@@ -14,7 +14,15 @@
 
             </div>
             <div class="ml-4 flex-shrink-0">
-                <x-shared.display-status status="{{ $o->status }}" />
+                <div class="inline-flex">
+                    <x-shared.display-status status="{{ $o->status }}" />
+                    <a href="{{ route('payments.create', ['user' => $user ]) }}"
+                        class="ml-2 text-gray-500 hover:text-red-700">
+                        @include('icons.payment')
+                    </a>
+                </div>
+
+
             </div>
         </li>
         @endforeach

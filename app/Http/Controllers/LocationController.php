@@ -88,6 +88,8 @@ class LocationController extends Controller
     {
         $location->delete();
 
+        session()->flash('success', 'Location deleted successfully!');
+
         return redirect()->route('locations.index');
     }
 

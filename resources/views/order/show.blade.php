@@ -12,10 +12,13 @@
             </div>
             <div class="flex sm:mt-0 sm:ml-4">
                 <span class="order-1 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
+                    @can('crud_orders')
                     <a href="{{ route('orders.edit', $order )}}"
                         class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
                         Edit
                     </a>
+                    @endcan
+
                 </span>
                 {{-- <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
                     @include('shared.delete',['item'=> $order, 'action'=>'orders.destroy', 'type'=> 'button'])

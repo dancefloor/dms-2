@@ -87,7 +87,9 @@ class ClassroomController extends Controller
     {
         $classroom->delete();
 
-        return redirect()->route('classrooms.index');
+        session()->flash('success', 'Classroom deleted successfully!');
+
+        return redirect()->route('locations.index');
     }
 
     public function export() 

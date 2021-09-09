@@ -43,9 +43,13 @@
                                     {{ $r->id }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @can('crud_courses', Model::class)
                                     <a href="{{ route('courses.show', $r->course->id) }}"
                                         class="text-red-700 hover:underline">{{ $r->course->name }}</a>
-
+                                    @else
+                                    <a href="{{ route('courses.view', $r->course->id) }}"
+                                        class="text-red-700 hover:underline">{{ $r->course->name }}</a>
+                                    @endcan
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $r->course->level }}

@@ -18,7 +18,7 @@
                     </a>
                 </span>
                 <span class="order-0 sm:order-1 sm:ml-3 shadow-sm rounded-md">
-                    @include('shared.delete',['item'=> $classroom, 'action'=>'locations.destroy', 'type'=> 'button'])
+                    @include('shared.delete',['item'=> $classroom, 'action'=>'classrooms.destroy', 'type'=> 'button'])
                 </span>
             </div>
         </div>
