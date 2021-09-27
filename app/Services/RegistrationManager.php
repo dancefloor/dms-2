@@ -125,5 +125,30 @@ class RegistrationManager {
         $registration->status = 'partial';
         $registration->save();
     }
+
+    public static function getRegistrationStatusFromOrder($status)
+    {
+
+        switch ($status) {
+            case 'open':
+                return 'open';
+                break;
+            case 'paid':
+                return 'registered';
+                break;
+            case 'partial':
+                return 'partial';
+                break;
+            case 'overpaid':
+                return 'registered';                
+                break;
+            case 'canceled':        
+                return 'canceled';                     
+                break;
+            default:
+                return 'standby';                
+                break;
+        }
+    }
     
 }

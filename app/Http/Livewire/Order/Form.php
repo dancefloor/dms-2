@@ -38,10 +38,12 @@ class Form extends Component
     ];
 
     public function addCourse(int $cid, int $uid)
-    {        
+    {                
         $course = Course::findOrFail($cid);                
-        $this->order->courses()->attach($course);
-        $course->students()->attach($uid, ['role'=>'student', 'status'=> $this->order->status, 'order_id' => $this->order->id ]);                    
+        $this->order->courses()->attach($course);        
+        $status = RegistrationManager::getRegistrationStatusFromOrder($this->order->status);         
+        $course->students()->attach($uid, ['role'=>'student', 'status'=> $status, 'order_id' => $this->order->id ]);                    
+        
         $this->emit('courseListUpdated');
         $this->calculateAmounts();
     }
@@ -82,8 +84,7 @@ class Form extends Component
         
         (new RegistrationManager)->updateRegistrations($this->order);
 
-        RegistrationManager::updateOrder($this->order->id);         
-
+        RegistrationManager::updateOrder($this->order->id);
 
         session()->flash('success', 'Order saved successfully.');
 

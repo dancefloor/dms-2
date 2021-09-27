@@ -34,7 +34,7 @@ class Checkout extends Component
         $this->reducedPrice = auth()->user()->work_status != 'working' ? 20:0;
         $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses);          
         $this->count = count(Auth::user()->pendingCourses);
-        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);        
+        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal, $this->discount, $this->reducedPrice);        
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice, $this->commission, 0);                
         $this->discountText = OrderPriceCalculator::getDiscountText($this->count);
         $this->title = OrderPriceCalculator::getTitle(Auth::user()->pendingCourses);             
@@ -82,7 +82,7 @@ class Checkout extends Component
     public function updatedMethod($value)
     {        
         $this->method = $value;
-        $this->commission = OrderPriceCalculator::getCommission($this->method, $this->subtotal);
+        $this->commission = OrderPriceCalculator::getCommission($this->method, $this->subtotal, $this->discount, $this->reducedPrice);
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, $this->reducedPrice,$this->commission);
         $this->emit('cartCountRefresh');   
     }
@@ -93,7 +93,7 @@ class Checkout extends Component
 
         $this->subtotal = OrderPriceCalculator::getSubtotal(Auth::id(), Auth::user()->pendingCourses); 
         $this->count = count(Auth::user()->pendingCourses);
-        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal);  
+        $this->discount = OrderPriceCalculator::getDiscount($this->count,$this->subtotal, $this->discount, $this->reducedPrice);  
         $this->discountText = OrderPriceCalculator::getDiscountText($this->count);     
         $this->total = OrderPriceCalculator::getTotal($this->subtotal, $this->discount, 0);            
 

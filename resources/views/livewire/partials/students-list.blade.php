@@ -23,14 +23,18 @@
                     <div>
                         <select wire:model="status.{{$s->id}}"
                             class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="" selected disabled>Choose status</option>
+                            <option value="" default selected>Choose status</option>
                             <option value="canceled">Canceled</option>
                             <option value="standby">Standby</option>
                             {{-- <option value="pre-registered">Pre-register</option> --}}
                             {{-- <option value="rejected">Rejected</option> --}}
                         </select>
+                        @error('status')
+                        <span class="text-xs text-red-600">{{ $message }}</span>
+                        @enderror
                     </div>
                     <button type="submit" class="ml-4 text-red-700 hover:underline" @click="form=false">Save</button>
+                    <button type="button" @click="form=false" class="ml-2 text-red-700 hover:underline">Cancel</button>
                     @if (session('success'))
                     {{ session('sucess') }}
                     @endif

@@ -78,10 +78,15 @@
                     @foreach ($orders as $order)
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <div class="text-sm leading-5 text-gray-500">{{ $order->id }}</div>
+                            <div class="text-sm leading-5 text-gray-500">
+                                <a href="{{ route('orders.show', $order) }}"
+                                    class="text-sm leading-5 font-medium text-gray-900 hover:text-gray-800 hover:underline">
+                                    {{ $order->id }}
+                                </a>
+                            </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap">
-                            <a href="{{ route('orders.show', $order) }}"
+                            <a href="{{ route('users.show', $order->user) }}"
                                 class="text-sm leading-5 font-medium text-gray-900 hover:text-gray-800 hover:underline">
                                 {{ $order->user->name }} {{ $order->user->lastname }}
                             </a>
@@ -137,10 +142,6 @@
                                 @include('icons.view', ['style' => 'w-6 h-6'])
                             </a>
                             @can('crud_orders')
-                            <a href="{{ route('users.show', $order->user_id) }}"
-                                class="text-gray-400 hover:text-gray-500 mx-1">
-                                @include('icons.user', ['style'=>'h-5 w-5'])
-                            </a>
                             <a href="{{ route('orders.edit', $order) }}" class="text-gray-400 hover:text-gray-500 mx-1">
                                 @include('icons.pen', ['style'=>'h-5 w-5'])
                             </a>

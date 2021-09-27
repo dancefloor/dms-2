@@ -30,11 +30,10 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        $user = 0;
+        $user = 0;        
         if ($request->has('user')) {
             $user = $request->user;            
-        }
-        
+        }        
         return view('order.create', ['user' => $user ]);
     }
 

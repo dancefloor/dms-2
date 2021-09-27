@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Order;
 
 use App\Models\Order;
+use App\Models\User;
 use Livewire\Component;
 
 class CreateForm extends Component
 {
     public $user;
     public $status = 'open';
+    
 
     public function create()
     {                
@@ -19,6 +21,13 @@ class CreateForm extends Component
         ]);
 
         return redirect()->route('orders.edit', $order);
+    }
+
+    public function mount(int|null $uid)
+    {        
+        if ($uid != null) {
+            $this->user = $uid;            
+        }
     }
     
     public function render()

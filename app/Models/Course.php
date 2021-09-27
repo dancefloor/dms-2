@@ -161,6 +161,10 @@ class Course extends Model
     {
         return $this->belongsTo(Classroom::class);
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 
     public function hasStyle($id)
     {
@@ -186,7 +190,7 @@ class Course extends Model
         //     ->orWherePivot('status','registered')
         //     ->orWherePivot('role','student');
 
-            return Registration::where('course_id', $id)->where('role','student')->whereIn('status',['registered','open'])->get();
+            return Registration::where('course_id', $id)->where('role','student')->whereIn('status',['registered','open','partial'])->get();
     }
 
     public function scopeLiveCourses($query)

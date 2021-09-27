@@ -291,7 +291,7 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function getBalanceAttribute()
     {
-        return $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('received') - $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('total');
+        return $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('total') - $this->orders->whereIn('status', ['open','partial','overpaid'])->sum('received');
     }
     
 }

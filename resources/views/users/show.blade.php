@@ -306,7 +306,8 @@
                             Orders
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            <livewire:user.orders-list user="{{ $user->id }}" />
+                            <livewire:order.datatable :user="$user" />
+                            {{-- <livewire:user.orders-list user="{{ $user->id }}" /> --}}
                         </dd>
                     </div>
                 </dl>

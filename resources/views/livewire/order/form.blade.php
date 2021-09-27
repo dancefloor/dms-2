@@ -109,7 +109,7 @@
                         <div class="grid grid-cols-4 gap-6 mt-6">
                             <div class="col-span-6">
                                 <label for="comments_admin" class="df-form-label">Comments admin</label>
-                                <textarea wire:model.lazy="comments_admin" rows="3"
+                                <textarea wire:model.lazy="order.comments_admin" rows="3"
                                     class="form-textarea df-form-textarea"></textarea>
                             </div>
                         </div>

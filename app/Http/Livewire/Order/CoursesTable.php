@@ -22,8 +22,7 @@ class CoursesTable extends Component
     }
 
     public function query()
-    {
-                            
+    {                            
         $this->registrations = Registration::where('order_id', $this->oid)->where('user_id', $this->user->id)->get();        
     }
     
@@ -31,6 +30,7 @@ class CoursesTable extends Component
     {
         $course = Course::findOrFail($r->course_id);
         $course->students()->detach($this->user->id);
+        $course->orders()->detach($this->oid);
         $this->emit('removeCourse');        
         $this->query();
     }

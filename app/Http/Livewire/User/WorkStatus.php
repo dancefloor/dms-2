@@ -21,6 +21,11 @@ class WorkStatus extends Component
         'user.unemployement_expiry_date'    => 'nullable',
     ];
 
+    public function updatedUserWorkStatus()
+    {
+        $this->user->work_status_verified = false;
+    }
+
     public function updatePersonalInfo()
     {        
         $this->validate();

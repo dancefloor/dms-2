@@ -31,7 +31,7 @@
                                 </p>
                             </div>
 
-                            <div class="col-span-6 sm:col-span-3">
+                            {{-- <div class="col-span-6 sm:col-span-3">
                                 <label for="promo_price" class="df-form-label">Promo price</label>
                                 <input wire:model="promo_price" class="df-form-input" type="number" step=".01">
                                 <p class="mt-2 text-sm text-gray-500">
@@ -45,7 +45,7 @@
                                 <p class="mt-2 text-sm text-gray-500">
                                     Promotion deadline
                                 </p>
-                            </div>
+                            </div> --}}
 
 
                         </div>
