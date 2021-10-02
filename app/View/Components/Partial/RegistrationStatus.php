@@ -25,6 +25,7 @@ class RegistrationStatus extends Component
     {
         //$this->user = $user;
         // $this->cid = $cid;
+        dd($cid);
         $this->status = $user->registrationStatus($cid);
 
         switch ($this->status) {
