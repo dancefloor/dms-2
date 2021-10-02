@@ -210,7 +210,7 @@ class User extends Authenticatable //implements MustVerifyEmail
             ->where('role', 'student')
             ->get();
        
-        dd([$uid,$id,$result]);
+        dd([$uid,$id,Registration::all()]);
 
         $status = collect($result)->map(function ($item) {
             return $item->status;
