@@ -210,12 +210,13 @@ class User extends Authenticatable //implements MustVerifyEmail
             ->get();
 
         // Log::info($result);
-        
+        dd($result);
+
         $status = collect($result)->map(function ($item) {
             return $item->status;
         })->first();
         
-        dd($status);
+        
         // Log::error($status);
         return $status;
     }
