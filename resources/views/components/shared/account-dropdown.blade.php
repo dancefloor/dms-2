@@ -46,10 +46,6 @@
                 {{ __('Workshops') }}
             </x-jet-dropdown-link>
 
-            <x-jet-dropdown-link href="{{ route('bootcamps') }}">
-                {{ __('Bootcamps') }}
-            </x-jet-dropdown-link>
-
             <x-jet-dropdown-link href="{{ route('my-orders') }}">
                 {{ __('My orders') }}
             </x-jet-dropdown-link>

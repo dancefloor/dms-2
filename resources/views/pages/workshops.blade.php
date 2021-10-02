@@ -10,12 +10,7 @@
                 <br>
                 <div class="grid grid-cols-4 gap-5">
                     @forelse ($courses as $course)
-                    <div class="grid-span-4 border py-2 px-3 rounded-md">
-                        <a href="{{ route('courses.view', $course) }}">
-                            <img src="{{ $course->thumbnail }}" alt="">
-                            <h2>{{ $course->name }}</h2>
-                        </a>
-                    </div>
+                    <livewire:catalogue.course-card2 :course="$course" :key="$course->id" />
                     @empty
                     <div>
                         Now worshops found at the moment

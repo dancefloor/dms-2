@@ -7,7 +7,7 @@
             href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     </x-slot>
 
-    <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }">
+    <div x-data="{ slideOver:false, openMenu: false, SlideOverMenu: false }" x-cloak>
         @include('partials.navbar')
 
         <x-layouts.slide-over-sidebar-nav />

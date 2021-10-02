@@ -23,3 +23,5 @@
 .text-shadow-lg {
     text-shadow: 3px 3px 3px #000000;
 }
+
+[x-cloak] { display: none !important; }

@@ -23,6 +23,7 @@ class Datatable extends Component
             'users' => User::where('name','LIKE', "%{$this->search}%")
                             ->orWhere('lastname','LIKE', "%{$this->search}%")
                             ->orWhere('email','LIKE', "%{$this->search}%")
+                            ->latest()
                             ->paginate(10),
         ]);
     }

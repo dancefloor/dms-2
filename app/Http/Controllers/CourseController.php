@@ -132,7 +132,8 @@ class CourseController extends Controller
 
     public function workshops()
     {
-        $courses = Course::where('type','workshop')->get();
+        Course::shouldExpire()->get()->each->expire();
+        $courses = Course::where('type','workshop')->where('status','active')->latest()->get();
 
         return view('pages.workshops', compact('courses'));        
     }

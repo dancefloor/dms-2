@@ -29,9 +29,10 @@
     <x-partials.flash-message />
     @endif
 
-    <div class="h-screen flex overflow-hidden bg-white"
+    <div class="h-screen flex overflow-hidden bg-white" x-cloak
         x-data="{ showMobileSidebar: false, slideOver:false, openMenu: false, SlideOverMenu: false}">
         <x-layouts.slide-over-sidebar-nav />
+
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
         <x-layouts.sidebar />
         <!-- Main column -->
@@ -44,6 +45,7 @@
                 {{ $slot }}
             </main>
         </div>
+
     </div>
     @stack('modals')
 
