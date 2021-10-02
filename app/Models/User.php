@@ -208,9 +208,9 @@ class User extends Authenticatable //implements MustVerifyEmail
             ->where('course_id', $id)
             ->where('role', 'student')
             ->get();
-
-        // Log::info($result);   
-
+       
+        dd($result);
+        
         $status = collect($result)->map(function ($item) {
             return $item->status;
         })->first();

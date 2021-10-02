@@ -21,7 +21,7 @@ class RegistrationStatus extends Component
      *
      * @return void
      */
-    public function __construct(User $user, $cid)
+    public function __construct(User $user, int $cid)
     {
         //$this->user = $user;
         // $this->cid = $cid;
