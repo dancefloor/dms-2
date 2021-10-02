@@ -206,11 +206,11 @@ class User extends Authenticatable //implements MustVerifyEmail
         
         
         $result = Registration::where('user_id', $uid)
-            ->where('course_id', $id)
-            ->where('role', 'student')
+            // ->where('course_id', $id)
+            // ->where('role', 'student')
             ->get();
        
-        dd([$uid,$id,Registration::all()]);
+        dd([$uid,$id,$result]);
 
         $status = collect($result)->map(function ($item) {
             return $item->status;
