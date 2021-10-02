@@ -57,8 +57,8 @@
                                         <x-shared.course-daily-schedule :course="$registration->course" />
                                     </div>
                                     <div class="block md:hidden">
-                                        {{-- <x-partial.registration-status :user="auth()->user()"
-                                            cid="{{ $registration->course->id }}" /> --}}
+                                        <x-partial.registration-status :user="auth()->user()"
+                                            cid="{{ $registration->course->id }}" />
                                     </div>
                                 </div>
                             </div>
@@ -70,10 +70,10 @@
                             {{ $registration->course->focus }} {{ $registration->course->type }}
                         </td>
                         <td class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            {{-- <x-partial.registration-status :user="auth()->user()"
-                                cid="{{ $registration->course->id }}" /> --}}
-                            {{ $registration->course->name }}
-                            {{ $registration->course->id }}
+                            <x-partial.registration-status :user="auth()->user()"
+                                cid="{{ $registration->course->id }}" />
+                            {{-- {{ $registration->course->name }}
+                            {{ $registration->course->id }} --}}
                         </td>
                         <td class="hidden xl:table-cell px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                             @if (count($registration->course->teachers) < 3) @foreach ($registration->course->teachers
