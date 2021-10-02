@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\DB;
+use App\Models\Registration;
 
 
 class User extends Authenticatable //implements MustVerifyEmail
@@ -209,8 +210,8 @@ class User extends Authenticatable //implements MustVerifyEmail
             ->where('role', 'student')
             ->get();
        
-        dd($result);
-        
+        dd([$uid,$id,$result]);
+
         $status = collect($result)->map(function ($item) {
             return $item->status;
         })->first();
