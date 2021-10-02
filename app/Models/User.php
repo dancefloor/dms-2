@@ -202,7 +202,7 @@ class User extends Authenticatable //implements MustVerifyEmail
             $uid = $this->id;
         }
         // Log::notice('course_id: ' . $id);
-        dd([$id,$uid]);
+        
         $result = DB::table('registrations')
             ->where('user_id', $uid)
             ->where('course_id', $id)
@@ -215,6 +215,7 @@ class User extends Authenticatable //implements MustVerifyEmail
             return $item->status;
         })->first();
         
+        dd($status);
         // Log::error($status);
         return $status;
     }
