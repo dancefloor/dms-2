@@ -57,8 +57,8 @@
                                         <x-shared.course-daily-schedule :course="$registration->course" />
                                     </div>
                                     <div class="block md:hidden">
-                                        <x-partial.registration-status :user="auth()->user()"
-                                            cid="{{ $registration->course->id }}" />
+                                        {{-- <x-partial.registration-status :user="auth()->user()"
+                                            cid="{{ $registration->course->id }}" /> --}}
                                     </div>
                                 </div>
                             </div>
