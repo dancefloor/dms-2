@@ -197,6 +197,7 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function registrationStatus($id, $uid = null)
     {
+        dd($id);
         if ($uid === null) {
             $uid = $this->id;
         }
