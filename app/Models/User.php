@@ -206,7 +206,7 @@ class User extends Authenticatable //implements MustVerifyEmail
         
         
         $result = Registration::where('user_id', $uid)
-            // ->where('course_id', $id)
+            ->where('course_id', $id)
             ->where('role', 'student')
             ->get();
        
