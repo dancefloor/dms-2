@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\CreateNewUser;
 use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -118,5 +119,13 @@ class UserController extends Controller
     public function export() 
     {
         return Excel::download(new UsersExport, 'users.csv');
+    }
+
+    public function import(Request $request)
+    {
+        // dd($request->all());
+        Excel::import(new UsersImport, $request->file);
+        
+        return redirect(route('users.index'))->with('success', 'User list imported successfully!');
     }
 }
